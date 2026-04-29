@@ -1,6 +1,6 @@
 # Railway configuration for Next.js
 [build]
-command = "npm install && npm run build"
+command = "npx prisma generate && npm run build"
 
 [env]
 NODE_ENV = "production"
