@@ -1,8 +1,8 @@
 import { Redis } from '@upstash/redis'
-import RedisIO from 'ioredis'
+import IORedis from 'ioredis'
 
 // Redis 客户端实例
-let redisClient: UpstashRedis | RedisIO
+let redisClient: IORedis
 let isUpstash = false
 
 // 初始化 Redis 客户端
@@ -11,25 +11,19 @@ if (process.env.UPSTASH_REDIS_REST_URL) {
   redisClient = new Redis({
     url: process.env.UPSTASH_REDIS_REST_URL,
     token: process.env.UPSTASH_REDIS_REST_TOKEN,
-  }) as UpstashRedis
+  }) as IORedis
   isUpstash = true
 } else if (process.env.REDIS_URL) {
-  // 使用标准 Redis (Railway, 等)
-  redisClient = new RedisIO(process.env.REDIS_URL) as RedisIO
+  // 使用标准 Redis (Railway, 等）
+  redisClient = new IORedis(process.env.REDIS_URL) as IORedis
   isUpstash = false
 } else {
   throw new Error('Neither UPSTASH_REDIS_REST_URL nor REDIS_URL is configured')
 }
 
 // 类型定义
-interface UpstashRedis {
+interface IORedis {
   set(key: string, value: string, options?: { ex: number }): Promise<string | null>
-  get(key: string): Promise<string | null>
-  del(key: string | string[]): Promise<number>
-}
-
-interface RedisIO {
-  set(key: string, value: string, mode?: string, ex?: number): Promise<'OK' | null>
   get(key: string): Promise<string | null>
   del(key: string | string[]): Promise<number>
 }
@@ -47,9 +41,9 @@ export const codeCache = {
   async set(email: string, code: string, ttl: number = 600) {
     const key = `code:${email}`
     if (isUpstash) {
-      await (redisClient as UpstashRedis).set(key, code, { ex: ttl })
+      await (redisClient as IORedis).set(key, code, { ex: ttl })
     } else {
-      await (redisClient as RedisIO).set(key, code, 'EX', ttl)
+      await (redisClient as IORedis).set(key, code, 'EX', ttl)
     }
   },
 
@@ -60,9 +54,9 @@ export const codeCache = {
   async get(email: string) {
     const key = `code:${email}`
     if (isUpstash) {
-      return await (redisClient as UpstashRedis).get(key)
+      return await (redisClient as IORedis).get(key)
     } else {
-      return await (redisClient as RedisIO).get(key)
+      return await (redisClient as IORedis).get(key)
     }
   },
 
@@ -76,7 +70,7 @@ export const codeCache = {
     const storedCode = await this.get(email)
     if (storedCode === code) {
       const key = `code:${email}`
-      await (redisClient as UpstashRedis | RedisIO).del(key)
+      await (redisClient as IORedis).del(key)
       return true
     }
     return false
@@ -88,6 +82,6 @@ export const codeCache = {
    */
   async delete(email: string) {
     const key = `code:${email}`
-    await (redisClient as UpstashRedis | RedisIO).del(key)
+    await (redisClient as IORedis).del(key)
   },
 }
