@@ -1,6 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { PrismaClient } from '@prisma/client'
 import { Difficulty } from '@/types/recipe'
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined
+}
+
+const prisma =
+  globalForPrisma.prisma ??
+  new PrismaClient({
+    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+    datasourceUrl: process.env.DATABASE_URL,
+  })
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
 /**
  * GET /api/recipes/list
@@ -28,49 +41,42 @@ export async function GET(request: NextRequest) {
     // 搜索菜名（中文名或英文名）
     if (search) {
       where.OR = [
-        { name: { contains: search, mode: 'insensitive' } },
-        { nameEn: { contains: search, mode: 'insensitive' } },
+        { name: { contains: search } },
+        { nameEn: { contains: search } },
       ]
     }
 
-    // 难度筛选
+    // 按难度筛选
     if (difficulty) {
       where.difficulty = difficulty
     }
 
-    // 口味筛选
-    if (tastes && tastes.length > 0) {
-      where.tasteTags = {
-        hasSome: tastes,
-      }
+    // 按口味标签筛选
+    if (tastes) {
+      where.tasteTags = { hasSome: tastes }
     }
 
-    // 计算跳过的数量
-    const skip = (page - 1) * limit
-
-    // 查询总数
-    const total = await prisma.recipe.count({ where })
-
     // 查询食谱列表
-    const recipes = await prisma.recipe.findMany({
-      where,
-      skip,
-      take: limit,
-      select: {
-        id: true,
-        name: true,
-        nameEn: true,
-        description: true,
-        difficulty: true,
-        tasteTags: true,
-        time: true,
-        createdAt: true,
-        updatedAt: true,
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-    })
+    const [recipes, total] = await Promise.all([
+      prisma.recipe.findMany({
+        where,
+        select: {
+          id: true,
+          name: true,
+          nameEn: true,
+          description: true,
+          difficulty: true,
+          tasteTags: true,
+          time: true,
+          createdAt: true,
+          updatedAt: true,
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+      }),
+      prisma.recipe.count({ where }),
+    ])
 
     // 计算总页数
     const totalPages = Math.ceil(total / limit)
