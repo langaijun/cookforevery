@@ -15,6 +15,4 @@ if (process.env.UPSTASH_REDIS_REST_URL) {
   // 使用标准 Redis (Railway, 等）
   redisClient = new Redis(process.env.REDIS_URL)
   isUpstash = false
-} else {
-  throw new Error('Neither UPSTASH_REDIS_REST_URL nor REDIS_URL is configured')
 }
