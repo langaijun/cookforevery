@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "railway": {
+            "command": "npx",
+            "args": ["-y", "@railway/mcp-server"],
+            "env": {
+                "RAILWAY_TOKEN": "37570fd5-f4c9-40c2-969e-f8e0dfc90efc",
+                "RAILWAY_PROJECT": "cookforeveryday-production"
+            }
+        }
+    }
+}
+

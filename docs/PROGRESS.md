@@ -31,7 +31,7 @@
 | 创建首页布局组件 | ✅ 完成 | Header.tsx, Footer.tsx |
 | 创建食谱列表页面 | ✅ 完成 | app/recipes/page.tsx（含搜索和筛选UI） |
 | 创建食谱详情页面 | ✅ 完成 | app/recipes/[id]/page.tsx |
-| 初始化 Prisma 数据库 | ⏸️ 待完成 | 需配置环境变量后执行 |
+| 初始化 Prisma 数据库 | ✅ 完成 | Railway PostgreSQL 数据库已连接，表结构已创建 |
 
 ## 项目结构现状
 

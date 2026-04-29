@@ -1,0 +1,17 @@
+# Railway deployment configuration for Next.js App Router
+[build]
+command = "npm install && npm run build"
+
+[deploy]
+provision = true
+
+[start]
+command = "npm run start"
+port = 3000
+
+[node]
+runtime = "nodejs"
+version = "18"
+
+[env]
+NODE_ENV = "production"
