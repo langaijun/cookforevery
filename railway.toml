@@ -1,0 +1,22 @@
+# Railway configuration for Next.js
+[build]
+command = "npm install && npm run build"
+
+[deploy]
+provision = true
+
+[start]
+command = "npm run start"
+port = 3000
+
+[node]
+runtime = "nodejs"
+version = "18"
+
+[env]
+NPM_CONFIG_UPDATE_NOTIFIER = "false"
+NODE_ENV = "production"
+
+# Force Node.js environment
+[build.env]
+RAILWAY_BUILD = "1"
