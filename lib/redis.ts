@@ -2,20 +2,20 @@ import { Redis } from '@upstash/redis'
 import RedisIO from 'ioredis'
 
 // Redis 客户端实例
-let redis: UpstashRedis | RedisIO
+let redisClient: UpstashRedis | RedisIO
 let isUpstash = false
 
 // 初始化 Redis 客户端
 if (process.env.UPSTASH_REDIS_REST_URL) {
   // 使用 Upstash Redis
-  redis = new Redis({
+  redisClient = new Redis({
     url: process.env.UPSTASH_REDIS_REST_URL,
     token: process.env.UPSTASH_REDIS_REST_TOKEN,
   }) as UpstashRedis
   isUpstash = true
 } else if (process.env.REDIS_URL) {
   // 使用标准 Redis (Railway, 等)
-  redis = new RedisIO(process.env.REDIS_URL) as RedisIO
+  redisClient = new RedisIO(process.env.REDIS_URL) as RedisIO
   isUpstash = false
 } else {
   throw new Error('Neither UPSTASH_REDIS_REST_URL nor REDIS_URL is configured')
@@ -47,9 +47,9 @@ export const codeCache = {
   async set(email: string, code: string, ttl: number = 600) {
     const key = `code:${email}`
     if (isUpstash) {
-      await (redis as UpstashRedis).set(key, code, { ex: ttl })
+      await (redisClient as UpstashRedis).set(key, code, { ex: ttl })
     } else {
-      await (redis as RedisIO).set(key, code, 'EX', ttl)
+      await (redisClient as RedisIO).set(key, code, 'EX', ttl)
     }
   },
 
@@ -60,9 +60,9 @@ export const codeCache = {
   async get(email: string) {
     const key = `code:${email}`
     if (isUpstash) {
-      return await (redis as UpstashRedis).get(key)
+      return await (redisClient as UpstashRedis).get(key)
     } else {
-      return await (redis as RedisIO).get(key)
+      return await (redisClient as RedisIO).get(key)
     }
   },
 
@@ -76,7 +76,7 @@ export const codeCache = {
     const storedCode = await this.get(email)
     if (storedCode === code) {
       const key = `code:${email}`
-      await (redis as UpstashRedis | RedisIO).del(key)
+      await (redisClient as UpstashRedis | RedisIO).del(key)
       return true
     }
     return false
@@ -88,6 +88,6 @@ export const codeCache = {
    */
   async delete(email: string) {
     const key = `code:${email}`
-    await (redis as UpstashRedis | RedisIO).del(key)
+    await (redisClient as UpstashRedis | RedisIO).del(key)
   },
 }
