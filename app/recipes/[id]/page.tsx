@@ -25,7 +25,11 @@ const TASTE_COLORS: Record<string, string> = {
   清淡: 'bg-gray-100 text-gray-800',
 }
 
-export default function RecipeDetailPage({ params }: { params: { id: string } }) {
+export default async function RecipeDetailPage(
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
