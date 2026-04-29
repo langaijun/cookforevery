@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// 用户表
+model User {
+  id         String    @id @default(cuid())
+  email      String?   @unique
+  name       String
+  avatar     String?
+  provider   Provider
+  providerId String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  isBanned   Boolean   @default(false)
+
+  // 关联
+  shares     Share[]
+  comments   Comment[]
+  likes      Like[]
+}
+
+enum Provider {
+  EMAIL
+  GITHUB
+  GOOGLE
+}
+
+// 食谱表
+model Recipe {
+  id           String    @id @default(cuid())
+  name         String
+  nameEn       String?   // 英文名（用于搜索）
+  description  String
+  difficulty   Difficulty
+  tasteTags    String[]  // ["酸", "甜", "辣", "咸", "鲜", "麻", "清淡"]
+  time         Int       // 分钟
+  ingredients  String[]  // 食材列表
+  steps        String[]  // 制作步骤
+  videoUrl     String?   // 视频链接（可选）
+  isActive     Boolean   @default(true)
+  providerId   String    // GitHub 仓库中的文件 ID/路径
+  syncedAt     DateTime  @default(now())
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  // 关联
+  comments     Comment[]
+  likes        Like[]
+
+  @@index([tasteTags])
+  @@index([difficulty])
+  @@index([isActive])
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+// 分享表（用户晒图）
+model Share {
+  id          String    @id @default(cuid())
+  userId      String
+  recipeId    String?   // 可选，可能只是晒图不做特定菜谱
+  imageUrl    String
+  caption     String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // 关联
+  user        User      @relation(fields: [userId], references: [id])
+  comments    Comment[]
+  likes       Like[]
+}
+
+// 评论表
+model Comment {
+  id        String    @id @default(cuid())
+  userId    String
+  recipeId  String?   // 对食谱的评论
+  shareId   String?   // 对分享的评论
+  content   String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  // 关联
+  user      User      @relation(fields: [userId], references: [id])
+  recipe    Recipe?   @relation(fields: [recipeId], references: [id])
+  share     Share?    @relation(fields: [shareId], references: [id])
+
+  @@index([recipeId])
+  @@index([shareId])
+}
+
+// 点赞表
+model Like {
+  id        String    @id @default(cuid())
+  userId    String
+  recipeId  String?
+  shareId   String?
+  createdAt DateTime  @default(now())
+
+  // 关联
+  user      User      @relation(fields: [userId], references: [id])
+  recipe    Recipe?   @relation(fields: [recipeId], references: [id])
+  share     Share?    @relation(fields: [shareId], references: [id])
+
+  @@unique([userId, recipeId])
+  @@unique([userId, shareId])
+
+  @@index([userId])
+  @@index([recipeId])
+  @@index([shareId])
+}

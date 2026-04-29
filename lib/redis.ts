@@ -1,0 +1,93 @@
+import { Redis } from '@upstash/redis'
+import RedisIO from 'ioredis'
+
+// Redis 客户端实例
+let redis: UpstashRedis | RedisIO
+let isUpstash = false
+
+// 初始化 Redis 客户端
+if (process.env.UPSTASH_REDIS_REST_URL) {
+  // 使用 Upstash Redis
+  redis = new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL,
+    token: process.env.UPSTASH_REDIS_REST_TOKEN,
+  }) as UpstashRedis
+  isUpstash = true
+} else if (process.env.REDIS_URL) {
+  // 使用标准 Redis (Railway, 等)
+  redis = new RedisIO(process.env.REDIS_URL) as RedisIO
+  isUpstash = false
+} else {
+  throw new Error('Neither UPSTASH_REDIS_REST_URL nor REDIS_URL is configured')
+}
+
+// 类型定义
+interface UpstashRedis {
+  set(key: string, value: string, options?: { ex: number }): Promise<string | null>
+  get(key: string): Promise<string | null>
+  del(key: string | string[]): Promise<number>
+}
+
+interface RedisIO {
+  set(key: string, value: string, mode?: string, ex?: number): Promise<'OK' | null>
+  get(key: string): Promise<string | null>
+  del(key: string | string[]): Promise<number>
+}
+
+/**
+ * 验证码存储操作
+ */
+export const codeCache = {
+  /**
+   * 存储验证码
+   * @param email 邮箱地址
+   * @param code 验证码
+   * @param ttl 过期时间（秒），默认 600（10分钟）
+   */
+  async set(email: string, code: string, ttl: number = 600) {
+    const key = `code:${email}`
+    if (isUpstash) {
+      await (redis as UpstashRedis).set(key, code, { ex: ttl })
+    } else {
+      await (redis as RedisIO).set(key, code, 'EX', ttl)
+    }
+  },
+
+  /**
+   * 获取验证码
+   * @param email 邮箱地址
+   */
+  async get(email: string) {
+    const key = `code:${email}`
+    if (isUpstash) {
+      return await (redis as UpstashRedis).get(key)
+    } else {
+      return await (redis as RedisIO).get(key)
+    }
+  },
+
+  /**
+   * 验证并删除验证码
+   * @param email 邮箱地址
+   * @param code 验证码
+   * @returns 是否验证成功
+   */
+  async verifyAndDelete(email: string, code: string): Promise<boolean> {
+    const storedCode = await this.get(email)
+    if (storedCode === code) {
+      const key = `code:${email}`
+      await (redis as UpstashRedis | RedisIO).del(key)
+      return true
+    }
+    return false
+  },
+
+  /**
+   * 删除验证码
+   * @param email 邮箱地址
+   */
+  async delete(email: string) {
+    const key = `code:${email}`
+    await (redis as UpstashRedis | RedisIO).del(key)
+  },
+}
