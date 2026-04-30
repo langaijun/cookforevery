@@ -2,9 +2,10 @@
 [build]
 command = "npx prisma generate && npm run build"
 
-# 容器启动前执行 migrations（Railway：Pre-deploy command）
+# 生产库若已由 db push / 手工建表而无 _prisma_migrations，migrate deploy 会报 P3005。
+# db push 按 schema 增量对齐（不写历史表）；若你已 baseline 可改回 migrate deploy。
 [deploy]
-preDeployCommand = ["npx prisma migrate deploy"]
+preDeployCommand = ["npx prisma db push --skip-generate"]
 
 [env]
 NODE_ENV = "production"
