@@ -8,7 +8,7 @@ export const testData = {
     { email: 'test@example.com', name: '测试用户', isAdmin: false },
     { email: 'admin@example.com', name: '管理员', isAdmin: true }
   ],
-  recipes: Array(10).fill().map((_, i) => ({
+  recipes: Array.from({ length: 10 }, (_, i) => ({
     id: `recipe-${i}`,
     name: `测试食谱${i}`,
     description: `这是测试食谱${i}的描述`,
@@ -18,7 +18,7 @@ export const testData = {
     ingredients: ['食材1', '食材2'],
     steps: ['步骤1', '步骤2']
   })),
-  comments: Array(5).fill().map((_, i) => ({
+  comments: Array.from({ length: 5 }, (_, i) => ({
     content: `测试评论${i}`,
     userId: 'user123'
   }))
