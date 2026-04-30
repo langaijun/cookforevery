@@ -1,0 +1,22 @@
+{
+  "LikeButton": {
+    "liked": "Curti",
+    "notLiked": "Curtir",
+    "loginToLike": "Faça login para curtir"
+  },
+  "CommentForm": {
+    "placeholder": "Escreva um comentário...",
+    "submit": "Publicar comentário",
+    "loginToComment": "Faça login para comentar"
+  },
+  "CommentList": {
+    "title": "Comentários",
+    "empty": "Ainda não há comentários. Seja o primeiro!",
+    "delete": "Excluir",
+    "confirmDelete": "Tem certeza que deseja excluir este comentário?",
+    "justNow": "Agora mesmo",
+    "minutesAgo": "{time} minutos atrás",
+    "hoursAgo": "{time} horas atrás",
+    "daysAgo": "{time} dias atrás"
+  }
+}

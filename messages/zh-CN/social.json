@@ -1,0 +1,22 @@
+{
+  "LikeButton": {
+    "liked": "已点赞",
+    "notLiked": "点赞",
+    "loginToLike": "登录后点赞"
+  },
+  "CommentForm": {
+    "placeholder": "写下你的评论...",
+    "submit": "发表评论",
+    "loginToComment": "登录后评论"
+  },
+  "CommentList": {
+    "title": "评论",
+    "empty": "还没有评论，快来抢沙发！",
+    "delete": "删除",
+    "confirmDelete": "确定要删除这条评论吗？",
+    "justNow": "刚刚",
+    "minutesAgo": "{time}分钟前",
+    "hoursAgo": "{time}小时前",
+    "daysAgo": "{time}天前"
+  }
+}

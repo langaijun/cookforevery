@@ -1,0 +1,19 @@
+{
+  "Metadata": {
+    "siteTitle": "HomeCookHub - Ẩm thực Trung Quốc tại Nhà",
+    "siteDescription": "Khám phá các công thức Trung Quốc ngon miệng, nấu ăn dễ dàng, khiến mỗi bữa ăn trở nên đặc biệt với hương vị của nhà. Không có quảng cáo, mã nguồn mở, do cộng đồng điều khiển.",
+    "homeTitle": "Ẩm thực Trung Quốc tại Nhà",
+    "homeDescription": "Khám phá món ăn ngon, nấu ăn dễ dàng, khiến mỗi bữa ăn trở nên đặc biệt",
+    "recipesTitle": "Bộ sưu tập công thức",
+    "recipesDescription": "Khám phá các công thức Trung Quốc ngon miệng và bắt đầu hành trình nấu ăn của bạn",
+    "recipeDetailTitle": "Chi tiết công thức",
+    "recipeDetailDescription": "Học cách nấu các món Trung Quốc ngon miệng với hướng dẫn từng bước",
+    "profileTitle": "Hồ sơ của tôi",
+    "profileDescription": "Quản lý tài khoản của bạn, xem chia sẻ và mục yêu thích của bạn"
+  },
+  "API": {
+    "recipeNotFound": "Không tìm thấy công thức",
+    "fetchRecipeFailed": "Không thể lấy chi tiết công thức",
+    "fetchRecipesFailed": "Không thể lấy danh sách công thức"
+  }
+}

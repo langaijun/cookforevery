@@ -1,0 +1,36 @@
+{
+  "ShareForm": {
+    "title": "Share Your Dish",
+    "imageUrl": "Image URL",
+    "imageUrlHint": "Enter the URL of your dish image",
+    "relatedRecipe": "Related Recipe",
+    "optional": "(Optional)",
+    "selectRecipe": "Select a recipe",
+    "caption": "Caption",
+    "captionPlaceholder": "Tell us about your dish...",
+    "submit": "Share",
+    "tipsTitle": "Tips for Great Shares",
+    "tip1": "Use high-quality, well-lit photos",
+    "tip2": "Write clear descriptions of your cooking process",
+    "tip3": "Share your experience and tips for others"
+  },
+  "SharePage": {
+    "title": "Community Shares",
+    "subtitle": "See what others are cooking",
+    "emptyTitle": "No shares yet",
+    "emptyDesc": "Be the first to share your dish!"
+  },
+  "ShareCard": {
+    "sharedBy": "Shared by {name}",
+    "linkedRecipe": "Based on recipe: {name}",
+    "viewRecipe": "View recipe"
+  },
+  "ShareSquare": {
+    "title": "Share Square",
+    "description": "See what the community is cooking",
+    "empty": "No shares yet",
+    "loadMore": "Load more",
+    "createShare": "Create a Share",
+    "beFirst": "Be the first to share!"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "Recipes": {
+    "title": "食谱大全",
+    "subtitle": "发现美味的中式食谱，开启你的烹饪之旅",
+    "searchPlaceholder": "搜索食谱名称...",
+    "allDifficulty": "所有难度",
+    "emptyTitle": "暂无食谱数据",
+    "emptyDesc": "尝试调整搜索条件或等待管理员从 GitHub 同步食谱",
+    "backToList": "返回食谱列表"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "食谱不存在",
+    "checkLink": "请检查链接是否正确",
+    "backToList": "返回食谱列表",
+    "difficulty": "难度",
+    "time": "时间",
+    "likes": "点赞",
+    "comments": "评论",
+    "description": "描述",
+    "ingredients": "食材",
+    "steps": "制作步骤",
+    "videoTutorial": "视频教程",
+    "watchVideo": "点击观看视频教程"
+  },
+  "Difficulty": {
+    "EASY": "简单",
+    "MEDIUM": "中等",
+    "HARD": "困难"
+  },
+  "Taste": {
+    "sour": "酸",
+    "sweet": "甜",
+    "spicy": "辣",
+    "salty": "咸",
+    "savory": "鲜",
+    "numb": "麻",
+    "mild": "清淡"
+  }
+}

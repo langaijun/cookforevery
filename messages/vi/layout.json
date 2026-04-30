@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "home": "Trang chủ",
+    "recipes": "Công thức",
+    "share": "Chia sẻ",
+    "profile": "Hồ sơ",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "register": "Đăng ký"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. Khiến mỗi bữa ăn trở nên đặc biệt.",
+    "about": "Về chúng tôi",
+    "aboutHomeCookHub": "Về HomeCookHub",
+    "contact": "Liên hệ",
+    "privacy": "Quyền riêng tư",
+    "terms": "Điều khoản",
+    "resources": "Tài nguyên",
+    "recipesAll": "Tất cả công thức",
+    "cookingTips": "Mẹo nấu ăn",
+    "community": "Cộng đồng",
+    "sharePhotos": "Chia sẻ ảnh",
+    "openSourceProject": "Dự án nguồn mở",
+    "copyrightFull": "© 2026 HomeCookHub. Không quảng cáo, nguồn mở, do cộng đồng điều khiển.",
+    "recipeDataSource": "Dữ liệu công thức từ",
+    "followLicense": "Giấy phép",
+    "license": "",
+    "legal": "Pháp lý"
+  }
+}

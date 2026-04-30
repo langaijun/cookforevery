@@ -1,0 +1,18 @@
+{
+  "Common": {
+    "search": "Pesquisar",
+    "searchPlaceholder": "Pesquisar por nome da receita, ingredientes...",
+    "reset": "Redefinir",
+    "back": "Voltar",
+    "cancel": "Cancelar",
+    "minutes": "min",
+    "loading": "Carregando...",
+    "noData": "Sem dados",
+    "tryLater": "Fique atento para mais receitas emocionantes",
+    "tryAdjust": "Tente ajustar os critérios de pesquisa ou aguarde o administrador sincronizar do GitHub",
+    "justNow": "Agora mesmo",
+    "minutesAgo": "{time} minutos atrás",
+    "hoursAgo": "{time} horas atrás",
+    "daysAgo": "{time} dias atrás"
+  }
+}

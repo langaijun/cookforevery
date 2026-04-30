@@ -1,0 +1,36 @@
+{
+  "ShareForm": {
+    "title": "料理をシェア",
+    "imageUrl": "画像URL",
+    "imageUrlHint": "料理写真のURLを入力",
+    "relatedRecipe": "関連レシピ",
+    "optional": "任意",
+    "selectRecipe": "レシピを選択",
+    "caption": "キャプション",
+    "captionPlaceholder": "作り方や感想を書いてね…",
+    "submit": "投稿",
+    "tipsTitle": "シェアのコツ",
+    "tip1": "明るくて鮮明な写真を",
+    "tip2": "手順をわかりやすく",
+    "tip3": "コツや感想もシェア"
+  },
+  "SharePage": {
+    "title": "みんなのシェア",
+    "subtitle": "みんなが作っている料理を見よう",
+    "emptyTitle": "まだシェアがありません",
+    "emptyDesc": "最初の一品をシェアしてみよう！"
+  },
+  "ShareCard": {
+    "sharedBy": "{name}が共有",
+    "linkedRecipe": "レシピに基づく：{name}",
+    "viewRecipe": "レシピを見る"
+  },
+  "ShareSquare": {
+    "title": "シェア広場",
+    "description": "コミュニティが何を作っているか見てみよう",
+    "empty": "まだシェアがありません",
+    "loadMore": "もっと見る",
+    "createShare": "シェアを作成",
+    "beFirst": "最初にシェアしよう！"
+  }
+}

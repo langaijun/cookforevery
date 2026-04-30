@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "home": "Главная",
+    "recipes": "Рецепты",
+    "share": "Поделиться",
+    "profile": "Профиль",
+    "login": "Войти",
+    "logout": "Выйти",
+    "register": "Регистрация"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. Сделайте каждую трапезу особенной.",
+    "about": "О нас",
+    "aboutHomeCookHub": "О HomeCookHub",
+    "contact": "Контакты",
+    "privacy": "Конфиденциальность",
+    "terms": "Условия",
+    "resources": "Ресурсы",
+    "recipesAll": "Все рецепты",
+    "cookingTips": "Советы по готовке",
+    "community": "Сообщество",
+    "sharePhotos": "Поделиться фото",
+    "openSourceProject": "Проект с открытым исходным кодом",
+    "copyrightFull": "© 2026 HomeCookHub. Без рекламы, открытый исходный код, управляемый сообществом.",
+    "recipeDataSource": "Данные рецептов из",
+    "followLicense": "Лицензировано под",
+    "license": "",
+    "legal": "Юридическое"
+  }
+}

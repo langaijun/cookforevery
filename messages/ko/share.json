@@ -1,0 +1,36 @@
+{
+  "ShareForm": {
+    "title": "요리 공유하기",
+    "imageUrl": "이미지 URL",
+    "imageUrlHint": "요리 사진의 URL을 입력하세요",
+    "relatedRecipe": "관련 레시피",
+    "optional": "선택",
+    "selectRecipe": "레시피 선택",
+    "caption": "설명",
+    "captionPlaceholder": "조리 과정을 적어 보세요…",
+    "submit": "공유하기",
+    "tipsTitle": "좋은 공유 팁",
+    "tip1": "밝고 선명한 사진을 사용하세요",
+    "tip2": "조리 과정을 간결하게 설명하세요",
+    "tip3": "팁과 후기를 나눠 보세요"
+  },
+  "SharePage": {
+    "title": "커뮤니티 공유",
+    "subtitle": "다른 사람들이 무엇을 요리하는지 만나 보세요",
+    "emptyTitle": "아직 공유가 없습니다",
+    "emptyDesc": "첫 요리 사진을 공유해 보세요!"
+  },
+  "ShareCard": {
+    "sharedBy": "{name} 님의 공유",
+    "linkedRecipe": "레시피 기반：{name}",
+    "viewRecipe": "레시피 보기"
+  },
+  "ShareSquare": {
+    "title": "공유 광장",
+    "description": "커뮤니티가 무엇을 요리하는지 확인해보세요",
+    "empty": "아직 공유가 없습니다",
+    "loadMore": "더 보기",
+    "createShare": "공유 만들기",
+    "beFirst": "첫 번째로 공유하세요!"
+  }
+}

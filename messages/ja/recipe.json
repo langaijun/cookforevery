@@ -1,0 +1,39 @@
+{
+  "Recipes": {
+    "title": "レシピ集",
+    "subtitle": "美味しい中華料理を発見、料理の旅を始めよう",
+    "searchPlaceholder": "レシピ名で検索...",
+    "allDifficulty": "すべての難易度",
+    "emptyTitle": "レシピがまだありません",
+    "emptyDesc": "検索条件を調整するか、管理者がGitHubから同期するのをお待ちください",
+    "backToList": "レシピリストに戻る"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "レシピが見つかりません",
+    "checkLink": "リンクが正しいか確認してください",
+    "backToList": "レシピリストに戻る",
+    "difficulty": "難易度",
+    "time": "時間",
+    "likes": "いいね",
+    "comments": "コメント",
+    "description": "説明",
+    "ingredients": "食材",
+    "steps": "作り方",
+    "videoTutorial": "動画チュートリアル",
+    "watchVideo": "動画チュートリアルを見る"
+  },
+  "Difficulty": {
+    "EASY": "簡単",
+    "MEDIUM": "普通",
+    "HARD": "難しい"
+  },
+  "Taste": {
+    "sour": "酸味",
+    "sweet": "甘味",
+    "spicy": "辛味",
+    "salty": "塩味",
+    "savory": "旨味",
+    "numb": "痺れ",
+    "mild": "薄味"
+  }
+}

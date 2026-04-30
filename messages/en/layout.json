@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "home": "Home",
+    "recipes": "Recipes",
+    "share": "Share",
+    "profile": "Profile",
+    "login": "Login",
+    "logout": "Log out",
+    "register": "Register"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub.",
+    "about": "About",
+    "aboutHomeCookHub": "About HomeCookHub",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "resources": "Resources",
+    "recipesAll": "All recipes",
+    "cookingTips": "Cooking tips",
+    "community": "Community",
+    "sharePhotos": "Share photos",
+    "openSourceProject": "Open source",
+    "copyrightFull": "© 2026 HomeCookHub. Ad-free, open source, community-driven.",
+    "recipeDataSource": "Recipe data from",
+    "followLicense": "Licensed under",
+    "license": "",
+    "legal": "Legal"
+  }
+}

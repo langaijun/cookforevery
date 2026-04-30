@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "home": "首页",
+    "recipes": "食谱",
+    "share": "分享",
+    "profile": "个人中心",
+    "login": "登录",
+    "logout": "退出",
+    "register": "注册"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. 让每一餐都充满家的味道。",
+    "about": "关于我们",
+    "aboutHomeCookHub": "关于 HomeCookHub",
+    "contact": "联系我们",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "resources": "资源",
+    "recipesAll": "食谱大全",
+    "cookingTips": "烹饪技巧",
+    "community": "社区",
+    "sharePhotos": "晒图分享",
+    "openSourceProject": "开源项目",
+    "copyrightFull": "© 2026 HomeCookHub. 无广告、开源、社区驱动。",
+    "recipeDataSource": "食谱数据来源于",
+    "followLicense": "遵循",
+    "license": "许可",
+    "legal": "法律信息"
+  }
+}

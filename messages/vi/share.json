@@ -1,0 +1,36 @@
+{
+  "ShareForm": {
+    "title": "Chia sẻ món ăn của bạn",
+    "imageUrl": "URL hình ảnh",
+    "imageUrlHint": "Nhập URL ảnh món ăn",
+    "relatedRecipe": "Công thức liên quan",
+    "optional": "Tùy chọn",
+    "selectRecipe": "Chọn công thức",
+    "caption": "Chú thích",
+    "captionPlaceholder": "Kể về quá trình nấu…",
+    "submit": "Đăng",
+    "tipsTitle": "Mẹo chia sẻ hay",
+    "tip1": "Ảnh rõ nét, đủ sáng",
+    "tip2": "Mô tả các bước ngắn gọn",
+    "tip3": "Chia sẻ mẹo và cảm nhận"
+  },
+  "SharePage": {
+    "title": "Chia sẻ cộng đồng",
+    "subtitle": "Xem mọi người đang nấu gì",
+    "emptyTitle": "Chưa có bài chia sẻ",
+    "emptyDesc": "Hãy là người đầu tiên chia sẻ món của bạn!"
+  },
+  "ShareCard": {
+    "sharedBy": "Được chia sẻ bởi {name}",
+    "linkedRecipe": "Dựa trên công thức：{name}",
+    "viewRecipe": "Xem công thức"
+  },
+  "ShareSquare": {
+    "title": "Quảng trường Chia sẻ",
+    "description": "Xem cộng đồng đang nấu gì",
+    "empty": "Chưa có chia sẻ nào",
+    "loadMore": "Tải thêm",
+    "createShare": "Tạo chia sẻ",
+    "beFirst": "Hãy là người đầu tiên chia sẻ!"
+  }
+}

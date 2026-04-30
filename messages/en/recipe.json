@@ -1,0 +1,39 @@
+{
+  "Recipes": {
+    "title": "Recipe Collection",
+    "subtitle": "Discover delicious Chinese recipes and start your cooking journey",
+    "searchPlaceholder": "Search by recipe name...",
+    "allDifficulty": "All Difficulty Levels",
+    "emptyTitle": "No recipes yet",
+    "emptyDesc": "Try adjusting search criteria or wait for admin to sync recipes from GitHub",
+    "backToList": "Back to Recipe List"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "Recipe Not Found",
+    "checkLink": "Please check if the link is correct",
+    "backToList": "Back to Recipe List",
+    "difficulty": "Difficulty",
+    "time": "Time",
+    "likes": "Likes",
+    "comments": "Comments",
+    "description": "Description",
+    "ingredients": "Ingredients",
+    "steps": "Steps",
+    "videoTutorial": "Video Tutorial",
+    "watchVideo": "Click to watch video tutorial"
+  },
+  "Difficulty": {
+    "EASY": "Easy",
+    "MEDIUM": "Medium",
+    "HARD": "Hard"
+  },
+  "Taste": {
+    "sour": "Sour",
+    "sweet": "Sweet",
+    "spicy": "Spicy",
+    "salty": "Salty",
+    "savory": "Savory",
+    "numb": "Numb",
+    "mild": "Mild"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "LikeButton": {
+    "liked": "좋아요",
+    "notLiked": "좋아요",
+    "loginToLike": "로그인 후 좋아요"
+  },
+  "CommentForm": {
+    "placeholder": "댓글을 작성하세요...",
+    "submit": "댓글 게시",
+    "loginToComment": "로그인 후 댓글"
+  },
+  "CommentList": {
+    "title": "댓글",
+    "empty": "아직 댓글이 없습니다. 첫 번째 댓글을 작성해보세요!",
+    "delete": "삭제",
+    "confirmDelete": "이 댓글을 삭제하시겠습니까?",
+    "justNow": "방금",
+    "minutesAgo": "{time}분 전",
+    "hoursAgo": "{time}시간 전",
+    "daysAgo": "{time}일 전"
+  }
+}

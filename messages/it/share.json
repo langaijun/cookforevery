@@ -1,0 +1,36 @@
+{
+  "ShareForm": {
+    "title": "Condividi il tuo piatto",
+    "imageUrl": "URL immagine",
+    "imageUrlHint": "Inserisci l'URL della foto del piatto",
+    "relatedRecipe": "Ricetta correlata",
+    "optional": "Facoltativo",
+    "selectRecipe": "Seleziona una ricetta",
+    "caption": "Didascalia",
+    "captionPlaceholder": "Racconta come hai cucinato…",
+    "submit": "Pubblica",
+    "tipsTitle": "Consigli utili",
+    "tip1": "Foto nitide e ben illuminate",
+    "tip2": "Descrivi i passaggi in modo chiaro",
+    "tip3": "Condividi trucchi e impressioni"
+  },
+  "SharePage": {
+    "title": "Condivisioni della community",
+    "subtitle": "Scopri cosa cucinano gli altri",
+    "emptyTitle": "Nessuna condivisione ancora",
+    "emptyDesc": "Sii il primo a condividere il tuo piatto!"
+  },
+  "ShareCard": {
+    "sharedBy": "Condiviso da {name}",
+    "linkedRecipe": "Basato su ricetta：{name}",
+    "viewRecipe": "Vedi ricetta"
+  },
+  "ShareSquare": {
+    "title": "Piazza Condivisioni",
+    "description": "Vedi cosa cucina la community",
+    "empty": "Ancora nessuna condivisione",
+    "loadMore": "Carica altro",
+    "createShare": "Crea una condivisione",
+    "beFirst": "Sii il primo a condividere!"
+  }
+}

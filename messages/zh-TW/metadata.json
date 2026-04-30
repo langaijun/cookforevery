@@ -1,0 +1,19 @@
+{
+  "Metadata": {
+    "siteTitle": "HomeCookHub - 家庭中式食譜",
+    "siteDescription": "發現美味中式食譜，輕鬆烹飪，讓每一餐都充滿家的味道。無廣告、開源、社群驅動。",
+    "homeTitle": "家庭中式食譜",
+    "homeDescription": "發現美味，輕鬆烹飪，讓每一餐都充滿家的味道",
+    "recipesTitle": "食譜大全",
+    "recipesDescription": "發現美味的中式食譜，開啟你的烹飪之旅",
+    "recipeDetailTitle": "食譜詳情",
+    "recipeDetailDescription": "學習如何用分步說明烹飪美味的中式菜肴",
+    "profileTitle": "個人中心",
+    "profileDescription": "管理你的帳戶，查看你的分享和收藏"
+  },
+  "API": {
+    "recipeNotFound": "食譜不存在",
+    "fetchRecipeFailed": "獲取食譜詳情失敗",
+    "fetchRecipesFailed": "獲取食譜列表失敗"
+  }
+}

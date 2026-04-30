@@ -1,0 +1,36 @@
+{
+  "ShareForm": {
+    "title": "Teile dein Gericht",
+    "imageUrl": "Bild-URL",
+    "imageUrlHint": "URL des Gerichtfotos eingeben",
+    "relatedRecipe": "Zugehöriges Rezept",
+    "optional": "Optional",
+    "selectRecipe": "Rezept wählen",
+    "caption": "Unterschrift",
+    "captionPlaceholder": "Erzähle von deinem Kochprozess…",
+    "submit": "Veröffentlichen",
+    "tipsTitle": "Tipps für gute Posts",
+    "tip1": "Helle, scharfe Fotos verwenden",
+    "tip2": "Schritte kurz beschreiben",
+    "tip3": "Tipps und Erfahrungen teilen"
+  },
+  "SharePage": {
+    "title": "Community-Shares",
+    "subtitle": "Sieh, was andere kochen",
+    "emptyTitle": "Noch keine Shares",
+    "emptyDesc": "Teile als Erster dein Gericht!"
+  },
+  "ShareCard": {
+    "sharedBy": "Geteilt von {name}",
+    "linkedRecipe": "Basierend auf Rezept：{name}",
+    "viewRecipe": "Rezept ansehen"
+  },
+  "ShareSquare": {
+    "title": "Teile-Platz",
+    "description": "Sieh, was die Community kocht",
+    "empty": "Noch keine geteilten Inhalte",
+    "loadMore": "Mehr laden",
+    "createShare": "Teilen erstellen",
+    "beFirst": "Sei der Erste, der teilt!"
+  }
+}

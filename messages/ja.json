@@ -1,0 +1,204 @@
+{
+  "Common": {
+    "search": "検索",
+    "searchPlaceholder": "レシピ名、食材で検索...",
+    "reset": "リセット",
+    "back": "戻る",
+    "cancel": "キャンセル",
+    "minutes": "分",
+    "loading": "読み込み中...",
+    "noData": "データなし",
+    "tryLater": "素晴らしいレシピをお楽しみください",
+    "tryAdjust": "検索条件を調整するか、管理者がGitHubから同期するのをお待ちください",
+    "justNow": "たった今",
+    "minutesAgo": "{time}分前",
+    "hoursAgo": "{time}時間前",
+    "daysAgo": "{time}日前"
+  },
+  "Metadata": {
+    "siteTitle": "HomeCookHub - 家庭中華料理",
+    "siteDescription": "美味しい中華料理を発見、簡単に調理、毎食を家の味に。広告なし、オープンソース、コミュニティ主導。",
+    "homeTitle": "家庭中華料理",
+    "homeDescription": "美味しさを発見、簡単な調理、毎食を家の味に",
+    "recipesTitle": "レシピ集",
+    "recipesDescription": "美味しい中華料理を発見、料理の旅を始めよう",
+    "recipeDetailTitle": "レシピ詳細",
+    "recipeDetailDescription": "ステップバイステップで美味しい中華料理の作り方を学ぼう",
+    "profileTitle": "プロフィール",
+    "profileDescription": "アカウントを管理、共有とお気に入りを表示"
+  },
+  "Header": {
+    "home": "ホーム",
+    "recipes": "レシピ",
+    "share": "共有",
+    "profile": "プロフィール",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "register": "登録"
+  },
+  "Home": {
+    "title": "家庭中華料理",
+    "subtitle": "美味しさを発見、簡単な調理、毎食を家の味に",
+    "searchPlaceholder": "レシピ名、食材で検索...",
+    "searchButton": "検索",
+    "latestRecipes": "最新レシピ",
+    "viewAll": "すべて表示",
+    "emptyTitle": "レシピがまだありません",
+    "emptyDesc": "素晴らしいレシピをお楽しみください"
+  },
+  "Recipes": {
+    "title": "レシピ集",
+    "subtitle": "美味しい中華料理を発見、料理の旅を始めよう",
+    "searchPlaceholder": "レシピ名で検索...",
+    "allDifficulty": "すべての難易度",
+    "emptyTitle": "レシピがまだありません",
+    "emptyDesc": "検索条件を調整するか、管理者がGitHubから同期するのをお待ちください",
+    "backToList": "レシピリストに戻る"
+  },
+  "ShareForm": {
+    "title": "料理をシェア",
+    "imageUrl": "画像URL",
+    "imageUrlHint": "料理写真のURLを入力",
+    "relatedRecipe": "関連レシピ",
+    "optional": "任意",
+    "selectRecipe": "レシピを選択",
+    "caption": "キャプション",
+    "captionPlaceholder": "作り方や感想を書いてね…",
+    "submit": "投稿",
+    "tipsTitle": "シェアのコツ",
+    "tip1": "明るくて鮮明な写真を",
+    "tip2": "手順をわかりやすく",
+    "tip3": "コツや感想もシェア"
+  },
+  "SharePage": {
+    "title": "みんなのシェア",
+    "subtitle": "みんなが作っている料理を見よう",
+    "emptyTitle": "まだシェアがありません",
+    "emptyDesc": "最初の一品をシェアしてみよう！"
+  },
+  "IngredientInput": {
+    "placeholder": "食材を入力（例：卵、トマト）",
+    "add": "追加",
+    "clear": "クリア"
+  },
+  "LoginForm": {
+    "emailLabel": "メール",
+    "codeLabel": "認証コード",
+    "sendCode": "コードを送信",
+    "codeSent": "送信済み",
+    "loading": "ログイン中...",
+    "login": "ログイン"
+  },
+  "OAuth": {
+    "or": "または",
+    "github": "GitHub ログイン",
+    "google": "Google ログイン"
+  },
+  "Login": {
+    "title": "ログイン",
+    "subtitle": "お帰りなさい、料理の旅を始めよう",
+    "emailLogin": "メールログイン",
+    "oauthLogin": "サードパーティログイン"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "レシピが見つかりません",
+    "checkLink": "リンクが正しいか確認してください",
+    "backToList": "レシピリストに戻る",
+    "difficulty": "難易度",
+    "time": "時間",
+    "likes": "いいね",
+    "comments": "コメント",
+    "description": "説明",
+    "ingredients": "食材",
+    "steps": "作り方",
+    "videoTutorial": "動画チュートリアル",
+    "watchVideo": "動画チュートリアルを見る"
+  },
+  "Difficulty": {
+    "EASY": "簡単",
+    "MEDIUM": "普通",
+    "HARD": "難しい"
+  },
+  "Taste": {
+    "sour": "酸味",
+    "sweet": "甘味",
+    "spicy": "辛味",
+    "salty": "塩味",
+    "savory": "旨味",
+    "numb": "痺れ",
+    "mild": "薄味"
+  },
+  "Profile": {
+    "info": "プロフィール",
+    "myShares": "私の共有",
+    "myFavorites": "私のお気に入り",
+    "noShares": "共有がまだありません",
+    "noFavorites": "お気に入りがまだありません",
+    "browseRecipes": "レシピを見る",
+    "joinedAt": "参加日",
+    "shares": "共有",
+    "comments": "コメント",
+    "likes": "いいね",
+    "favorites": "お気に入り",
+    "logout": "ログアウト",
+    "loadFailed": "読み込みに失敗しました。後でもう一度お試しください。",
+    "page": "{n} ページ"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. 毎食を家の味に。",
+    "about": "私たちについて",
+    "aboutHomeCookHub": "HomeCookHubについて",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシー",
+    "terms": "利用規約",
+    "resources": "リソース",
+    "recipesAll": "すべてのレシピ",
+    "cookingTips": "料理のヒント",
+    "community": "コミュニティ",
+    "sharePhotos": "写真を共有",
+    "openSourceProject": "オープンソース",
+    "copyrightFull": "© 2026 HomeCookHub. 広告なし、オープンソース、コミュニティ駆動。",
+    "recipeDataSource": "レシピデータのソース",
+    "followLicense": "ライセンス",
+    "license": "",
+    "legal": "法律"
+  },
+  "API": {
+    "recipeNotFound": "レシピが見つかりません",
+    "fetchRecipeFailed": "レシピ詳細の取得に失敗しました",
+    "fetchRecipesFailed": "レシピリストの取得に失敗しました"
+  },
+  "LikeButton": {
+    "liked": "いいね済み",
+    "notLiked": "いいね",
+    "loginToLike": "ログインしていいね"
+  },
+  "CommentForm": {
+    "placeholder": "コメントを書く...",
+    "submit": "コメントを投稿",
+    "loginToComment": "ログインしてコメント"
+  },
+  "CommentList": {
+    "title": "コメント",
+    "empty": "まだコメントがありません。最初のコメントを書きましょう！",
+    "delete": "削除",
+    "confirmDelete": "このコメントを削除してもよろしいですか？",
+    "justNow": "たった今",
+    "minutesAgo": "{time}分前",
+    "hoursAgo": "{time}時間前",
+    "daysAgo": "{time}日前"
+  },
+  "ShareCard": {
+    "sharedBy": "{name}が共有",
+    "linkedRecipe": "レシピに基づく：{name}",
+    "viewRecipe": "レシピを見る"
+  },
+  "ShareSquare": {
+    "title": "シェア広場",
+    "description": "コミュニティが何を作っているか見てみよう",
+    "empty": "まだシェアがありません",
+    "loadMore": "もっと見る",
+    "createShare": "シェアを作成",
+    "beFirst": "最初にシェアしよう！"
+  }
+}

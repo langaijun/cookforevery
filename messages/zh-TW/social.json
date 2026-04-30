@@ -1,0 +1,22 @@
+{
+  "LikeButton": {
+    "liked": "已按讚",
+    "notLiked": "按讚",
+    "loginToLike": "登入後按讚"
+  },
+  "CommentForm": {
+    "placeholder": "寫下你的評論...",
+    "submit": "發表評論",
+    "loginToComment": "登入後評論"
+  },
+  "CommentList": {
+    "title": "評論",
+    "empty": "還沒有評論，快來搶沙發！",
+    "delete": "刪除",
+    "confirmDelete": "確定要刪除這條評論嗎？",
+    "justNow": "剛剛",
+    "minutesAgo": "{time}分鐘前",
+    "hoursAgo": "{time}小時前",
+    "daysAgo": "{time}天前"
+  }
+}

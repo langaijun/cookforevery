@@ -1,0 +1,204 @@
+{
+  "Common": {
+    "search": "Search",
+    "searchPlaceholder": "Search by recipe name, ingredients...",
+    "reset": "Reset",
+    "back": "Back",
+    "cancel": "Cancel",
+    "minutes": "min",
+    "loading": "Loading...",
+    "noData": "No data available",
+    "tryLater": "Stay tuned for more exciting recipes",
+    "tryAdjust": "Try adjusting search criteria or wait for admin to sync recipes from GitHub",
+    "justNow": "Just now",
+    "minutesAgo": "{time}m ago",
+    "hoursAgo": "{time}h ago",
+    "daysAgo": "{time}d ago"
+  },
+  "Metadata": {
+    "siteTitle": "HomeCookHub - Family Chinese Recipes",
+    "siteDescription": "Discover delicious Chinese recipes, cook easily, and make every meal special with the taste of home. No ads, open source, community-driven.",
+    "homeTitle": "Home Cooking Hub",
+    "homeDescription": "Discover delicious, easy-to-cook meals, and make every meal special",
+    "recipesTitle": "Recipe Collection",
+    "recipesDescription": "Discover delicious Chinese recipes and start your cooking journey",
+    "recipeDetailTitle": "Recipe Details",
+    "recipeDetailDescription": "Learn how to cook delicious Chinese dishes with step-by-step instructions",
+    "profileTitle": "My Profile",
+    "profileDescription": "Manage your account, view your shares and favorites"
+  },
+  "Home": {
+    "title": "Home Cooking Hub",
+    "subtitle": "Discover delicious, easy-to-cook meals, and make every meal special",
+    "searchPlaceholder": "Search by recipe name, ingredients...",
+    "searchButton": "Search",
+    "latestRecipes": "Latest Recipes",
+    "viewAll": "View All",
+    "emptyTitle": "No recipes yet",
+    "emptyDesc": "Stay tuned for more exciting recipes"
+  },
+  "Header": {
+    "home": "Home",
+    "recipes": "Recipes",
+    "share": "Share",
+    "profile": "Profile",
+    "login": "Login",
+    "logout": "Log out",
+    "register": "Register"
+  },
+  "Recipes": {
+    "title": "Recipe Collection",
+    "subtitle": "Discover delicious Chinese recipes and start your cooking journey",
+    "searchPlaceholder": "Search by recipe name...",
+    "allDifficulty": "All Difficulty Levels",
+    "emptyTitle": "No recipes yet",
+    "emptyDesc": "Try adjusting search criteria or wait for admin to sync recipes from GitHub",
+    "backToList": "Back to Recipe List"
+  },
+  "ShareForm": {
+    "title": "Share Your Dish",
+    "imageUrl": "Image URL",
+    "imageUrlHint": "Enter the URL of your dish image",
+    "relatedRecipe": "Related Recipe",
+    "optional": "(Optional)",
+    "selectRecipe": "Select a recipe",
+    "caption": "Caption",
+    "captionPlaceholder": "Tell us about your dish...",
+    "submit": "Share",
+    "tipsTitle": "Tips for Great Shares",
+    "tip1": "Use high-quality, well-lit photos",
+    "tip2": "Write clear descriptions of your cooking process",
+    "tip3": "Share your experience and tips for others"
+  },
+  "SharePage": {
+    "title": "Community Shares",
+    "subtitle": "See what others are cooking",
+    "emptyTitle": "No shares yet",
+    "emptyDesc": "Be the first to share your dish!"
+  },
+  "IngredientInput": {
+    "placeholder": "Enter ingredients (e.g., eggs, tomato)",
+    "add": "Add",
+    "clear": "Clear"
+  },
+  "LoginForm": {
+    "emailLabel": "Email",
+    "codeLabel": "Verification Code",
+    "sendCode": "Send Code",
+    "codeSent": "Sent",
+    "loading": "Logging in...",
+    "login": "Login"
+  },
+  "OAuth": {
+    "or": "or",
+    "github": "GitHub Login",
+    "google": "Google Login"
+  },
+  "Login": {
+    "title": "Login",
+    "subtitle": "Welcome back, start your cooking journey",
+    "emailLogin": "Email Login",
+    "oauthLogin": "Third-party Login"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "Recipe Not Found",
+    "checkLink": "Please check if the link is correct",
+    "backToList": "Back to Recipe List",
+    "difficulty": "Difficulty",
+    "time": "Time",
+    "likes": "Likes",
+    "comments": "Comments",
+    "description": "Description",
+    "ingredients": "Ingredients",
+    "steps": "Steps",
+    "videoTutorial": "Video Tutorial",
+    "watchVideo": "Click to watch video tutorial"
+  },
+  "Difficulty": {
+    "EASY": "Easy",
+    "MEDIUM": "Medium",
+    "HARD": "Hard"
+  },
+  "Taste": {
+    "sour": "Sour",
+    "sweet": "Sweet",
+    "spicy": "Spicy",
+    "salty": "Salty",
+    "savory": "Savory",
+    "numb": "Numb",
+    "mild": "Mild"
+  },
+  "Profile": {
+    "info": "Profile",
+    "myShares": "My shares",
+    "myFavorites": "My favorites",
+    "noShares": "No shares yet",
+    "noFavorites": "No favorites yet",
+    "browseRecipes": "Browse recipes",
+    "joinedAt": "Joined",
+    "shares": "Shares",
+    "comments": "Comments",
+    "likes": "Likes",
+    "favorites": "Favorites",
+    "logout": "Log out",
+    "loadFailed": "Failed to load. Please try again.",
+    "page": "Page {n}"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub.",
+    "about": "About",
+    "aboutHomeCookHub": "About HomeCookHub",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "resources": "Resources",
+    "recipesAll": "All recipes",
+    "cookingTips": "Cooking tips",
+    "community": "Community",
+    "sharePhotos": "Share photos",
+    "openSourceProject": "Open source",
+    "copyrightFull": "© 2026 HomeCookHub. Ad-free, open source, community-driven.",
+    "recipeDataSource": "Recipe data from",
+    "followLicense": "Licensed under",
+    "license": "",
+    "legal": "Legal"
+  },
+  "API": {
+    "recipeNotFound": "Recipe not found",
+    "fetchRecipeFailed": "Failed to load recipe",
+    "fetchRecipesFailed": "Failed to load recipes"
+  },
+  "LikeButton": {
+    "liked": "Liked",
+    "notLiked": "Like",
+    "loginToLike": "Login to like"
+  },
+  "CommentForm": {
+    "placeholder": "Write a comment...",
+    "submit": "Post comment",
+    "loginToComment": "Login to comment"
+  },
+  "CommentList": {
+    "title": "Comments",
+    "empty": "No comments yet. Be the first!",
+    "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this comment?",
+    "justNow": "Just now",
+    "minutesAgo": "{time}m ago",
+    "hoursAgo": "{time}h ago",
+    "daysAgo": "{time}d ago"
+  },
+  "ShareCard": {
+    "sharedBy": "Shared by {name}",
+    "linkedRecipe": "Based on recipe: {name}",
+    "viewRecipe": "View recipe"
+  },
+  "ShareSquare": {
+    "title": "Share Square",
+    "description": "See what the community is cooking",
+    "empty": "No shares yet",
+    "loadMore": "Load more",
+    "createShare": "Create a Share",
+    "beFirst": "Be the first to share!"
+  }
+}

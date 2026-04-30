@@ -1,0 +1,39 @@
+{
+  "Recipes": {
+    "title": "레시피 모음",
+    "subtitle": "맛있는 중국 요리를 발견하고 요리 여정을 시작하세요",
+    "searchPlaceholder": "레시피 이름으로 검색...",
+    "allDifficulty": "모든 난이도",
+    "emptyTitle": "레시피가 아직 없습니다",
+    "emptyDesc": "검색 조건을 조정하거나 관리자가 GitHub에서 동기화할 때까지 기다려주세요",
+    "backToList": "레시피 목록으로 돌아가기"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "레시피를 찾을 수 없습니다",
+    "checkLink": "링크가 올바른지 확인하세요",
+    "backToList": "레시피 목록으로 돌아가기",
+    "difficulty": "난이도",
+    "time": "시간",
+    "likes": "좋아요",
+    "comments": "댓글",
+    "description": "설명",
+    "ingredients": "재료",
+    "steps": "만드는 법",
+    "videoTutorial": "비디오 튜토리얼",
+    "watchVideo": "비디오 튜토리얼 보기"
+  },
+  "Difficulty": {
+    "EASY": "쉬움",
+    "MEDIUM": "보통",
+    "HARD": "어려움"
+  },
+  "Taste": {
+    "sour": "신맛",
+    "sweet": "단맛",
+    "spicy": "매운맛",
+    "salty": "짠맛",
+    "savory": "감칠맛",
+    "numb": "마비",
+    "mild": "담백"
+  }
+}

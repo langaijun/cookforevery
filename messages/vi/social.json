@@ -1,0 +1,22 @@
+{
+  "LikeButton": {
+    "liked": "Đã thích",
+    "notLiked": "Thích",
+    "loginToLike": "Đăng nhập để thích"
+  },
+  "CommentForm": {
+    "placeholder": "Viết bình luận...",
+    "submit": "Đăng bình luận",
+    "loginToComment": "Đăng nhập để bình luận"
+  },
+  "CommentList": {
+    "title": "Bình luận",
+    "empty": "Chưa có bình luận nào. Hãy là người đầu tiên!",
+    "delete": "Xóa",
+    "confirmDelete": "Bạn có chắc muốn xóa bình luận này?",
+    "justNow": "Vừa xong",
+    "minutesAgo": "{time} phút trước",
+    "hoursAgo": "{time} giờ trước",
+    "daysAgo": "{time} ngày trước"
+  }
+}

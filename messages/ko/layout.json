@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "home": "홈",
+    "recipes": "레시피",
+    "share": "공유",
+    "profile": "프로필",
+    "login": "로그인",
+    "logout": "로그아웃",
+    "register": "회원가입"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. 매 끼니를 집의 맛으로.",
+    "about": "회사 소개",
+    "aboutHomeCookHub": "HomeCookHub 소개",
+    "contact": "문의하기",
+    "privacy": "개인정보",
+    "terms": "이용약관",
+    "resources": "리소스",
+    "recipesAll": "모든 레시피",
+    "cookingTips": "요리 팁",
+    "community": "커뮤니티",
+    "sharePhotos": "사진 공유",
+    "openSourceProject": "오픈 소스",
+    "copyrightFull": "© 2026 HomeCookHub. 광고 없음, 오픈 소스, 커뮤니티 주도.",
+    "recipeDataSource": "레시피 데이터 출처",
+    "followLicense": "라이선스 따르기",
+    "license": "",
+    "legal": "법률"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "ShareForm": {
+    "title": "分享你的料理",
+    "imageUrl": "圖片連結",
+    "imageUrlHint": "請輸入菜品圖片的 URL",
+    "relatedRecipe": "關聯食譜",
+    "optional": "選填",
+    "selectRecipe": "選擇食譜",
+    "caption": "配文",
+    "captionPlaceholder": "分享你的烹調過程…",
+    "submit": "發布分享",
+    "tipsTitle": "分享小技巧",
+    "tip1": "使用清晰、光線充足的照片",
+    "tip2": "簡要描述烹調步驟",
+    "tip3": "分享心得與撇步"
+  },
+  "SharePage": {
+    "title": "社群分享",
+    "subtitle": "看看大家都在做什麼菜",
+    "emptyTitle": "尚無分享",
+    "emptyDesc": "來分享你的第一道拿手菜吧！"
+  },
+  "ShareCard": {
+    "sharedBy": "{name} 分享",
+    "linkedRecipe": "基於食譜：{name}",
+    "viewRecipe": "查看食譜"
+  },
+  "ShareSquare": {
+    "title": "分享廣場",
+    "description": "看看社區都在做什麼菜",
+    "empty": "還沒有分享",
+    "loadMore": "載入更多",
+    "createShare": "建立分享",
+    "beFirst": "成為第一個分享的人！"
+  }
+}

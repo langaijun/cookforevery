@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "home": "Início",
+    "recipes": "Receitas",
+    "share": "Compartilhar",
+    "profile": "Perfil",
+    "login": "Entrar",
+    "logout": "Sair",
+    "register": "Registrar"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. Faça cada refeição especial.",
+    "about": "Sobre",
+    "aboutHomeCookHub": "Sobre HomeCookHub",
+    "contact": "Contato",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "resources": "Recursos",
+    "recipesAll": "Todas as receitas",
+    "cookingTips": "Dicas de culinária",
+    "community": "Comunidade",
+    "sharePhotos": "Compartilhar fotos",
+    "openSourceProject": "Projeto de código aberto",
+    "copyrightFull": "© 2026 HomeCookHub. Sem anúncios, código aberto, impulsionado pela comunidade.",
+    "recipeDataSource": "Dados de receitas de",
+    "followLicense": "Licenciado sob",
+    "license": "",
+    "legal": "Legal"
+  }
+}

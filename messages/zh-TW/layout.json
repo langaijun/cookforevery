@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "home": "首頁",
+    "recipes": "食譜",
+    "share": "分享",
+    "profile": "個人中心",
+    "login": "登入",
+    "logout": "登出",
+    "register": "註冊"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. 讓每一餐都充滿家的味道。",
+    "about": "關於我們",
+    "aboutHomeCookHub": "關於 HomeCookHub",
+    "contact": "聯絡我們",
+    "privacy": "隱私政策",
+    "terms": "服務條款",
+    "resources": "資源",
+    "recipesAll": "食譜大全",
+    "cookingTips": "烹飪技巧",
+    "community": "社區",
+    "sharePhotos": "分享照片",
+    "openSourceProject": "開源專案",
+    "copyrightFull": "© 2026 HomeCookHub. 無廣告、開源、社群驅動。",
+    "recipeDataSource": "食譜資料來源於",
+    "followLicense": "遵循",
+    "license": "許可",
+    "legal": "法律"
+  }
+}

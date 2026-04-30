@@ -1,0 +1,22 @@
+{
+  "LikeButton": {
+    "liked": "いいね済み",
+    "notLiked": "いいね",
+    "loginToLike": "ログインしていいね"
+  },
+  "CommentForm": {
+    "placeholder": "コメントを書く...",
+    "submit": "コメントを投稿",
+    "loginToComment": "ログインしてコメント"
+  },
+  "CommentList": {
+    "title": "コメント",
+    "empty": "まだコメントがありません。最初のコメントを書きましょう！",
+    "delete": "削除",
+    "confirmDelete": "このコメントを削除してもよろしいですか？",
+    "justNow": "たった今",
+    "minutesAgo": "{time}分前",
+    "hoursAgo": "{time}時間前",
+    "daysAgo": "{time}日前"
+  }
+}

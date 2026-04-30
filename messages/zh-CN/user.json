@@ -1,0 +1,18 @@
+{
+  "Profile": {
+    "info": "个人信息",
+    "myShares": "我的分享",
+    "myFavorites": "我的收藏",
+    "noShares": "暂无分享",
+    "noFavorites": "暂无收藏",
+    "browseRecipes": "去浏览食谱",
+    "joinedAt": "加入时间",
+    "shares": "分享",
+    "comments": "评论",
+    "likes": "点赞",
+    "favorites": "收藏",
+    "logout": "退出登录",
+    "loadFailed": "加载失败，请稍后重试",
+    "page": "第 {n} 页"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "Profile": {
+    "info": "프로필 정보",
+    "myShares": "내 공유",
+    "myFavorites": "내 즐겨찾기",
+    "noShares": "공유가 아직 없습니다",
+    "noFavorites": "즐겨찾기가 아직 없습니다",
+    "browseRecipes": "레시피 둘러보기",
+    "joinedAt": "가입일",
+    "shares": "공유",
+    "comments": "댓글",
+    "likes": "좋아요",
+    "favorites": "즐겨찾기",
+    "logout": "로그아웃",
+    "loadFailed": "로딩에 실패했습니다. 나중에 다시 시도해 주세요.",
+    "page": "{n} 페이지"
+  }
+}

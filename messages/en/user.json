@@ -1,0 +1,18 @@
+{
+  "Profile": {
+    "info": "Profile",
+    "myShares": "My shares",
+    "myFavorites": "My favorites",
+    "noShares": "No shares yet",
+    "noFavorites": "No favorites yet",
+    "browseRecipes": "Browse recipes",
+    "joinedAt": "Joined",
+    "shares": "Shares",
+    "comments": "Comments",
+    "likes": "Likes",
+    "favorites": "Favorites",
+    "logout": "Log out",
+    "loadFailed": "Failed to load. Please try again.",
+    "page": "Page {n}"
+  }
+}

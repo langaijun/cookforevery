@@ -1,0 +1,18 @@
+{
+  "Profile": {
+    "info": "Thông tin cá nhân",
+    "myShares": "Chia sẻ của tôi",
+    "myFavorites": "Mục yêu thích của tôi",
+    "noShares": "Chưa có chia sẻ nào",
+    "noFavorites": "Chưa có mục yêu thích nào",
+    "browseRecipes": "Duyệt công thức",
+    "joinedAt": "Ngày tham gia",
+    "shares": "Chia sẻ",
+    "comments": "Bình luận",
+    "likes": "Thích",
+    "favorites": "Yêu thích",
+    "logout": "Đăng xuất",
+    "loadFailed": "Tải không thành công. Vui lòng thử lại sau.",
+    "page": "Trang {n}"
+  }
+}

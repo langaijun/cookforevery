@@ -1,0 +1,22 @@
+{
+  "LikeButton": {
+    "liked": "J'aime",
+    "notLiked": "J'aime",
+    "loginToLike": "Connectez-vous pour aimer"
+  },
+  "CommentForm": {
+    "placeholder": "Écrivez un commentaire...",
+    "submit": "Publier le commentaire",
+    "loginToComment": "Connectez-vous pour commenter"
+  },
+  "CommentList": {
+    "title": "Commentaires",
+    "empty": "Aucun commentaire pour le moment. Soyez le premier !",
+    "delete": "Supprimer",
+    "confirmDelete": "Êtes-vous sûr de vouloir supprimer ce commentaire ?",
+    "justNow": "À l'instant",
+    "minutesAgo": "il y a {time} minutes",
+    "hoursAgo": "il y a {time} heures",
+    "daysAgo": "il y a {time} jours"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "Recipes": {
+    "title": "食譜大全",
+    "subtitle": "發現美味的中式食譜，開啟你的烹飪之旅",
+    "searchPlaceholder": "搜尋食譜名稱...",
+    "allDifficulty": "所有難度",
+    "emptyTitle": "暫無食譜資料",
+    "emptyDesc": "嘗試調整搜尋條件或等待管理員從 GitHub 同步食譜",
+    "backToList": "返回食譜列表"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "食譜不存在",
+    "checkLink": "請檢查連結是否正確",
+    "backToList": "返回食譜列表",
+    "difficulty": "難度",
+    "time": "時間",
+    "likes": "按讚",
+    "comments": "評論",
+    "description": "描述",
+    "ingredients": "食材",
+    "steps": "製作步驟",
+    "videoTutorial": "視頻教學",
+    "watchVideo": "點擊觀看視頻教學"
+  },
+  "Difficulty": {
+    "EASY": "簡單",
+    "MEDIUM": "中等",
+    "HARD": "困難"
+  },
+  "Taste": {
+    "sour": "酸",
+    "sweet": "甜",
+    "spicy": "辣",
+    "salty": "鹹",
+    "savory": "鮮",
+    "numb": "麻",
+    "mild": "清淡"
+  }
+}

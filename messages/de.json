@@ -1,0 +1,204 @@
+{
+  "Common": {
+    "search": "Suchen",
+    "searchPlaceholder": "Nach Rezeptname, Zutaten suchen...",
+    "reset": "Zurücksetzen",
+    "back": "Zurück",
+    "cancel": "Abbrechen",
+    "minutes": "Min",
+    "loading": "Wird geladen...",
+    "noData": "Keine Daten",
+    "tryLater": "Bleiben Sie dran für weitere aufregende Rezepte",
+    "tryAdjust": "Versuchen Sie, die Suchkriterien anzupassen oder warten Sie, bis der Administrator von GitHub synchronisiert",
+    "justNow": "Gerade eben",
+    "minutesAgo": "vor {time} Minuten",
+    "hoursAgo": "vor {time} Stunden",
+    "daysAgo": "vor {time} Tagen"
+  },
+  "Metadata": {
+    "siteTitle": "HomeCookHub - Chinesische Hausmannskost",
+    "siteDescription": "Entdecken Sie köstliche chinesische Rezepte, kochen Sie einfach, machen Sie jede Mahlzeit besonders mit dem Geschmack von zu Hause. Keine Werbung, Open Source, Community-getrieben.",
+    "homeTitle": "Chinesische Hausmannskost",
+    "homeDescription": "Entdecken Sie köstliche Gerichte, kochen Sie einfach, machen Sie jede Mahlzeit besonders",
+    "recipesTitle": "Rezeptsammlung",
+    "recipesDescription": "Entdecken Sie köstliche chinesische Rezepte und beginnen Sie Ihre Kochreise",
+    "recipeDetailTitle": "Rezeptdetails",
+    "recipeDetailDescription": "Lernen Sie, wie man köstliche chinesische Gerichte mit Schritt-für-Schritt-Anweisungen kocht",
+    "profileTitle": "Mein Profil",
+    "profileDescription": "Verwalten Sie Ihr Konto, sehen Sie Ihre geteilten und Favoriten"
+  },
+  "Header": {
+    "home": "Startseite",
+    "recipes": "Rezepte",
+    "share": "Teilen",
+    "profile": "Profil",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "register": "Registrieren"
+  },
+  "Home": {
+    "title": "Chinesische Hausmannskost",
+    "subtitle": "Entdecken Sie köstliche Gerichte, kochen Sie einfach, machen Sie jede Mahlzeit besonders",
+    "searchPlaceholder": "Nach Rezeptname suchen...",
+    "searchButton": "Suchen",
+    "latestRecipes": "Neueste Rezepte",
+    "viewAll": "Alle anzeigen",
+    "emptyTitle": "Noch keine Rezepte vorhanden",
+    "emptyDesc": "Bleiben Sie dran für weitere aufregende Rezepte"
+  },
+  "Recipes": {
+    "title": "Rezeptsammlung",
+    "subtitle": "Entdecken Sie köstliche chinesische Rezepte und beginnen Sie Ihre Kochreise",
+    "searchPlaceholder": "Nach Rezeptname suchen...",
+    "allDifficulty": "Alle Schwierigkeitsstufen",
+    "emptyTitle": "Noch keine Rezepte vorhanden",
+    "emptyDesc": "Versuchen Sie, die Suchkriterien anzupassen oder warten Sie, bis der Administrator von GitHub synchronisiert",
+    "backToList": "Zurück zur Rezeptliste"
+  },
+  "ShareForm": {
+    "title": "Teile dein Gericht",
+    "imageUrl": "Bild-URL",
+    "imageUrlHint": "URL des Gerichtfotos eingeben",
+    "relatedRecipe": "Zugehöriges Rezept",
+    "optional": "Optional",
+    "selectRecipe": "Rezept wählen",
+    "caption": "Unterschrift",
+    "captionPlaceholder": "Erzähle von deinem Kochprozess…",
+    "submit": "Veröffentlichen",
+    "tipsTitle": "Tipps für gute Posts",
+    "tip1": "Helle, scharfe Fotos verwenden",
+    "tip2": "Schritte kurz beschreiben",
+    "tip3": "Tipps und Erfahrungen teilen"
+  },
+  "SharePage": {
+    "title": "Community-Shares",
+    "subtitle": "Sieh, was andere kochen",
+    "emptyTitle": "Noch keine Shares",
+    "emptyDesc": "Teile als Erster dein Gericht!"
+  },
+  "IngredientInput": {
+    "placeholder": "Zutaten eingeben (z.B. Eier, Tomate)",
+    "add": "Hinzufügen",
+    "clear": "Löschen"
+  },
+  "LoginForm": {
+    "emailLabel": "E-Mail",
+    "codeLabel": "Verifizierungscode",
+    "sendCode": "Code senden",
+    "codeSent": "Gesendet",
+    "loading": "Anmeldung läuft...",
+    "login": "Anmelden"
+  },
+  "OAuth": {
+    "or": "oder",
+    "github": "Mit GitHub anmelden",
+    "google": "Mit Google anmelden"
+  },
+  "Login": {
+    "title": "Anmelden",
+    "subtitle": "Willkommen zurück, beginnen Sie Ihre Kochreise",
+    "emailLogin": "E-Mail-Anmeldung",
+    "oauthLogin": "Anmeldung von Drittanbietern"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "Rezept nicht gefunden",
+    "checkLink": "Überprüfen Sie, ob der Link korrekt ist",
+    "backToList": "Zurück zur Rezeptliste",
+    "difficulty": "Schwierigkeit",
+    "time": "Zeit",
+    "likes": "Gefällt mir",
+    "comments": "Kommentare",
+    "description": "Beschreibung",
+    "ingredients": "Zutaten",
+    "steps": "Schritte",
+    "videoTutorial": "Video-Tutorial",
+    "watchVideo": "Klicken, um das Video-Tutorial anzusehen"
+  },
+  "Difficulty": {
+    "EASY": "Einfach",
+    "MEDIUM": "Mittel",
+    "HARD": "Schwer"
+  },
+  "Taste": {
+    "sour": "Sauer",
+    "sweet": "Süß",
+    "spicy": "Scharf",
+    "salty": "Salzig",
+    "savory": "Umami",
+    "numb": "Taub",
+    "mild": "Mild"
+  },
+  "Profile": {
+    "info": "Persönliche Informationen",
+    "myShares": "Meine geteilte",
+    "myFavorites": "Meine Favoriten",
+    "noShares": "Noch keine geteilte vorhanden",
+    "noFavorites": "Noch keine Favoriten vorhanden",
+    "browseRecipes": "Rezepte erkunden",
+    "joinedAt": "Beitrittsdatum",
+    "shares": "Geteilte",
+    "comments": "Kommentare",
+    "likes": "Gefällt mir",
+    "favorites": "Favoriten",
+    "logout": "Abmelden",
+    "loadFailed": "Laden fehlgeschlagen. Bitte versuchen Sie es später erneut.",
+    "page": "Seite {n}"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. Machen Sie jede Mahlzeit besonders.",
+    "about": "Über uns",
+    "aboutHomeCookHub": "Über HomeCookHub",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "resources": "Ressourcen",
+    "recipesAll": "Alle Rezepte",
+    "cookingTips": "Kochtipps",
+    "community": "Community",
+    "sharePhotos": "Fotos teilen",
+    "openSourceProject": "Open-Source-Projekt",
+    "copyrightFull": "© 2026 HomeCookHub. Werbungsfrei, Open Source, Community-getrieben.",
+    "recipeDataSource": "Rezeptdaten von",
+    "followLicense": "Lizenziert unter",
+    "license": "",
+    "legal": "Rechtliches"
+  },
+  "API": {
+    "recipeNotFound": "Rezept nicht gefunden",
+    "fetchRecipeFailed": "Abrufen der Rezeptdetails fehlgeschlagen",
+    "fetchRecipesFailed": "Abrufen der Rezeptliste fehlgeschlagen"
+  },
+  "LikeButton": {
+    "liked": "Gefällt mir",
+    "notLiked": "Gefällt mir",
+    "loginToLike": "Anmelden um zu liken"
+  },
+  "CommentForm": {
+    "placeholder": "Schreibe einen Kommentar...",
+    "submit": "Kommentar posten",
+    "loginToComment": "Anmelden um zu kommentieren"
+  },
+  "CommentList": {
+    "title": "Kommentare",
+    "empty": "Noch keine Kommentare. Sei der Erste!",
+    "delete": "Löschen",
+    "confirmDelete": "Bist du sicher, dass du diesen Kommentar löschen möchtest?",
+    "justNow": "Gerade eben",
+    "minutesAgo": "vor {time} Minuten",
+    "hoursAgo": "vor {time} Stunden",
+    "daysAgo": "vor {time} Tagen"
+  },
+  "ShareCard": {
+    "sharedBy": "Geteilt von {name}",
+    "linkedRecipe": "Basierend auf Rezept：{name}",
+    "viewRecipe": "Rezept ansehen"
+  },
+  "ShareSquare": {
+    "title": "Teile-Platz",
+    "description": "Sieh, was die Community kocht",
+    "empty": "Noch keine geteilten Inhalte",
+    "loadMore": "Mehr laden",
+    "createShare": "Teilen erstellen",
+    "beFirst": "Sei der Erste, der teilt!"
+  }
+}

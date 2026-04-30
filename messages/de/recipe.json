@@ -1,0 +1,39 @@
+{
+  "Recipes": {
+    "title": "Rezeptsammlung",
+    "subtitle": "Entdecken Sie köstliche chinesische Rezepte und beginnen Sie Ihre Kochreise",
+    "searchPlaceholder": "Nach Rezeptname suchen...",
+    "allDifficulty": "Alle Schwierigkeitsstufen",
+    "emptyTitle": "Noch keine Rezepte vorhanden",
+    "emptyDesc": "Versuchen Sie, die Suchkriterien anzupassen oder warten Sie, bis der Administrator von GitHub synchronisiert",
+    "backToList": "Zurück zur Rezeptliste"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "Rezept nicht gefunden",
+    "checkLink": "Überprüfen Sie, ob der Link korrekt ist",
+    "backToList": "Zurück zur Rezeptliste",
+    "difficulty": "Schwierigkeit",
+    "time": "Zeit",
+    "likes": "Gefällt mir",
+    "comments": "Kommentare",
+    "description": "Beschreibung",
+    "ingredients": "Zutaten",
+    "steps": "Schritte",
+    "videoTutorial": "Video-Tutorial",
+    "watchVideo": "Klicken, um das Video-Tutorial anzusehen"
+  },
+  "Difficulty": {
+    "EASY": "Einfach",
+    "MEDIUM": "Mittel",
+    "HARD": "Schwer"
+  },
+  "Taste": {
+    "sour": "Sauer",
+    "sweet": "Süß",
+    "spicy": "Scharf",
+    "salty": "Salzig",
+    "savory": "Umami",
+    "numb": "Taub",
+    "mild": "Mild"
+  }
+}

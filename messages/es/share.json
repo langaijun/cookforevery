@@ -1,0 +1,36 @@
+{
+  "ShareForm": {
+    "title": "Comparte tu plato",
+    "imageUrl": "URL de la imagen",
+    "imageUrlHint": "Introduce la URL de la foto del plato",
+    "relatedRecipe": "Receta relacionada",
+    "optional": "Opcional",
+    "selectRecipe": "Selecciona una receta",
+    "caption": "Descripción",
+    "captionPlaceholder": "Cuéntanos cómo lo cocinaste…",
+    "submit": "Publicar",
+    "tipsTitle": "Consejos para buenas fotos",
+    "tip1": "Usa fotos nítidas y bien iluminadas",
+    "tip2": "Describe los pasos con claridad",
+    "tip3": "Comparte trucos y experiencias"
+  },
+  "SharePage": {
+    "title": "Comparte la comunidad",
+    "subtitle": "Mira lo que otros están cocinando",
+    "emptyTitle": "Aún no hay publicaciones",
+    "emptyDesc": "¡Sé el primero en compartir tu plato!"
+  },
+  "ShareCard": {
+    "sharedBy": "Compartido por {name}",
+    "linkedRecipe": "Basado en receta：{name}",
+    "viewRecipe": "Ver receta"
+  },
+  "ShareSquare": {
+    "title": "Plaza de Compartir",
+    "description": "Mira qué está cocinando la comunidad",
+    "empty": "Aún no hay compartidos",
+    "loadMore": "Cargar más",
+    "createShare": "Crear un Compartido",
+    "beFirst": "¡Sé el primero en compartir!"
+  }
+}

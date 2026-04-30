@@ -1,0 +1,18 @@
+{
+  "Profile": {
+    "info": "個人資料",
+    "myShares": "我的分享",
+    "myFavorites": "我的收藏",
+    "noShares": "暫無分享",
+    "noFavorites": "暫無收藏",
+    "browseRecipes": "去瀏覽食譜",
+    "joinedAt": "加入時間",
+    "shares": "分享",
+    "comments": "評論",
+    "likes": "按讚",
+    "favorites": "收藏",
+    "logout": "登出",
+    "loadFailed": "載入失敗，請稍後重試",
+    "page": "第 {n} 頁"
+  }
+}

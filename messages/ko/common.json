@@ -1,0 +1,18 @@
+{
+  "Common": {
+    "search": "검색",
+    "searchPlaceholder": "레시피 이름, 재료로 검색...",
+    "reset": "초기화",
+    "back": "뒤로",
+    "cancel": "취소",
+    "minutes": "분",
+    "loading": "로딩 중...",
+    "noData": "데이터 없음",
+    "tryLater": "더 멋진 레시피를 기대해 주세요",
+    "tryAdjust": "검색 조건을 조정하거나 관리자가 GitHub에서 동기화할 때까지 기다려주세요",
+    "justNow": "방금",
+    "minutesAgo": "{time}분 전",
+    "hoursAgo": "{time}시간 전",
+    "daysAgo": "{time}일 전"
+  }
+}

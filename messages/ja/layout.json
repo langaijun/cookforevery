@@ -1,0 +1,30 @@
+{
+  "Header": {
+    "home": "ホーム",
+    "recipes": "レシピ",
+    "share": "共有",
+    "profile": "プロフィール",
+    "login": "ログイン",
+    "logout": "ログアウト",
+    "register": "登録"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. 毎食を家の味に。",
+    "about": "私たちについて",
+    "aboutHomeCookHub": "HomeCookHubについて",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシー",
+    "terms": "利用規約",
+    "resources": "リソース",
+    "recipesAll": "すべてのレシピ",
+    "cookingTips": "料理のヒント",
+    "community": "コミュニティ",
+    "sharePhotos": "写真を共有",
+    "openSourceProject": "オープンソース",
+    "copyrightFull": "© 2026 HomeCookHub. 広告なし、オープンソース、コミュニティ駆動。",
+    "recipeDataSource": "レシピデータのソース",
+    "followLicense": "ライセンス",
+    "license": "",
+    "legal": "法律"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "Metadata": {
+    "siteTitle": "HomeCookHub - Family Chinese Recipes",
+    "siteDescription": "Discover delicious Chinese recipes, cook easily, and make every meal special with the taste of home. No ads, open source, community-driven.",
+    "homeTitle": "Home Cooking Hub",
+    "homeDescription": "Discover delicious, easy-to-cook meals, and make every meal special",
+    "recipesTitle": "Recipe Collection",
+    "recipesDescription": "Discover delicious Chinese recipes and start your cooking journey",
+    "recipeDetailTitle": "Recipe Details",
+    "recipeDetailDescription": "Learn how to cook delicious Chinese dishes with step-by-step instructions",
+    "profileTitle": "My Profile",
+    "profileDescription": "Manage your account, view your shares and favorites"
+  },
+  "API": {
+    "recipeNotFound": "Recipe not found",
+    "fetchRecipeFailed": "Failed to load recipe",
+    "fetchRecipesFailed": "Failed to load recipes"
+  }
+}

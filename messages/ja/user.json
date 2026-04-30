@@ -1,0 +1,18 @@
+{
+  "Profile": {
+    "info": "プロフィール",
+    "myShares": "私の共有",
+    "myFavorites": "私のお気に入り",
+    "noShares": "共有がまだありません",
+    "noFavorites": "お気に入りがまだありません",
+    "browseRecipes": "レシピを見る",
+    "joinedAt": "参加日",
+    "shares": "共有",
+    "comments": "コメント",
+    "likes": "いいね",
+    "favorites": "お気に入り",
+    "logout": "ログアウト",
+    "loadFailed": "読み込みに失敗しました。後でもう一度お試しください。",
+    "page": "{n} ページ"
+  }
+}

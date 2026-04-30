@@ -1,0 +1,19 @@
+{
+  "Metadata": {
+    "siteTitle": "HomeCookHub - Cocina China en Casa",
+    "siteDescription": "Descubre recetas chinas deliciosas, cocina fácilmente, haz cada comida especial con el sabor de hogar. Sin anuncios, código abierto, impulsado por la comunidad.",
+    "homeTitle": "Cocina China en Casa",
+    "homeDescription": "Descubre platos deliciosos, cocina fácilmente, haz que cada comida sea especial",
+    "recipesTitle": "Colección de recetas",
+    "recipesDescription": "Descubre deliciosas recetas chinas y comienza tu viaje culinario",
+    "recipeDetailTitle": "Detalles de receta",
+    "recipeDetailDescription": "Aprende a cocinar deliciosos platos chinos con instrucciones paso a paso",
+    "profileTitle": "Mi perfil",
+    "profileDescription": "Gestiona tu cuenta, ve tus compartidos y favoritos"
+  },
+  "API": {
+    "recipeNotFound": "Receta no encontrada",
+    "fetchRecipeFailed": "Error al obtener detalles de la receta",
+    "fetchRecipesFailed": "Error al obtener la lista de recetas"
+  }
+}

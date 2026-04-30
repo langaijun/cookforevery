@@ -1,0 +1,18 @@
+{
+  "Profile": {
+    "info": "Persönliche Informationen",
+    "myShares": "Meine geteilte",
+    "myFavorites": "Meine Favoriten",
+    "noShares": "Noch keine geteilte vorhanden",
+    "noFavorites": "Noch keine Favoriten vorhanden",
+    "browseRecipes": "Rezepte erkunden",
+    "joinedAt": "Beitrittsdatum",
+    "shares": "Geteilte",
+    "comments": "Kommentare",
+    "likes": "Gefällt mir",
+    "favorites": "Favoriten",
+    "logout": "Abmelden",
+    "loadFailed": "Laden fehlgeschlagen. Bitte versuchen Sie es später erneut.",
+    "page": "Seite {n}"
+  }
+}

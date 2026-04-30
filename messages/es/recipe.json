@@ -1,0 +1,39 @@
+{
+  "Recipes": {
+    "title": "Colección de recetas",
+    "subtitle": "Descubre deliciosas recetas chinas y comienza tu viaje culinario",
+    "searchPlaceholder": "Buscar por nombre de receta...",
+    "allDifficulty": "Todos los niveles de dificultad",
+    "emptyTitle": "Aún no hay recetas",
+    "emptyDesc": "Intenta ajustar los criterios de búsqueda o espera a que el administrador sincronice desde GitHub",
+    "backToList": "Volver a la lista de recetas"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "Receta no encontrada",
+    "checkLink": "Verifica si el enlace es correcto",
+    "backToList": "Volver a la lista de recetas",
+    "difficulty": "Dificultad",
+    "time": "Tiempo",
+    "likes": "Me gusta",
+    "comments": "Comentarios",
+    "description": "Descripción",
+    "ingredients": "Ingredientes",
+    "steps": "Pasos",
+    "videoTutorial": "Tutorial en video",
+    "watchVideo": "Haz clic para ver el tutorial en video"
+  },
+  "Difficulty": {
+    "EASY": "Fácil",
+    "MEDIUM": "Medio",
+    "HARD": "Difícil"
+  },
+  "Taste": {
+    "sour": "Ácido",
+    "sweet": "Dulce",
+    "spicy": "Picante",
+    "salty": "Salado",
+    "savory": "Umami",
+    "numb": "Entumecedor",
+    "mild": "Suave"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "Common": {
+    "search": "搜尋",
+    "searchPlaceholder": "搜尋食譜名稱、食材...",
+    "reset": "重置",
+    "back": "返回",
+    "cancel": "取消",
+    "minutes": "分鐘",
+    "loading": "載入中...",
+    "noData": "暫無資料",
+    "tryLater": "敬請期待更多精彩食譜",
+    "tryAdjust": "嘗試調整搜尋條件或等待管理員從 GitHub 同步食譜",
+    "justNow": "剛剛",
+    "minutesAgo": "{time}分鐘前",
+    "hoursAgo": "{time}小時前",
+    "daysAgo": "{time}天前"
+  }
+}

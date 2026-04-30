@@ -1,0 +1,18 @@
+{
+  "Profile": {
+    "info": "Informações pessoais",
+    "myShares": "Meus compartilhados",
+    "myFavorites": "Meus favoritos",
+    "noShares": "Ainda não há compartilhados",
+    "noFavorites": "Ainda não há favoritos",
+    "browseRecipes": "Explorar receitas",
+    "joinedAt": "Data de entrada",
+    "shares": "Compartilhados",
+    "comments": "Comentários",
+    "likes": "Curtidas",
+    "favorites": "Favoritos",
+    "logout": "Sair",
+    "loadFailed": "Falha ao carregar. Tente novamente mais tarde.",
+    "page": "Página {n}"
+  }
+}

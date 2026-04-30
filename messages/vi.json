@@ -1,0 +1,204 @@
+{
+  "Common": {
+    "search": "Tìm kiếm",
+    "searchPlaceholder": "Tìm theo tên công thức, nguyên liệu...",
+    "reset": "Đặt lại",
+    "back": "Quay lại",
+    "cancel": "Hủy",
+    "minutes": "phút",
+    "loading": "Đang tải...",
+    "noData": "Không có dữ liệu",
+    "tryLater": "Hãy theo dõi để biết thêm công thức thú vị",
+    "tryAdjust": "Thử điều chỉnh tiêu chí tìm kiếm hoặc chờ quản trị viên đồng bộ từ GitHub",
+    "justNow": "Vừa xong",
+    "minutesAgo": "{time} phút trước",
+    "hoursAgo": "{time} giờ trước",
+    "daysAgo": "{time} ngày trước"
+  },
+  "Metadata": {
+    "siteTitle": "HomeCookHub - Ẩm thực Trung Quốc tại Nhà",
+    "siteDescription": "Khám phá các công thức Trung Quốc ngon miệng, nấu ăn dễ dàng, khiến mỗi bữa ăn trở nên đặc biệt với hương vị của nhà. Không có quảng cáo, mã nguồn mở, do cộng đồng điều khiển.",
+    "homeTitle": "Ẩm thực Trung Quốc tại Nhà",
+    "homeDescription": "Khám phá món ăn ngon, nấu ăn dễ dàng, khiến mỗi bữa ăn trở nên đặc biệt",
+    "recipesTitle": "Bộ sưu tập công thức",
+    "recipesDescription": "Khám phá các công thức Trung Quốc ngon miệng và bắt đầu hành trình nấu ăn của bạn",
+    "recipeDetailTitle": "Chi tiết công thức",
+    "recipeDetailDescription": "Học cách nấu các món Trung Quốc ngon miệng với hướng dẫn từng bước",
+    "profileTitle": "Hồ sơ của tôi",
+    "profileDescription": "Quản lý tài khoản của bạn, xem chia sẻ và mục yêu thích của bạn"
+  },
+  "Header": {
+    "home": "Trang chủ",
+    "recipes": "Công thức",
+    "share": "Chia sẻ",
+    "profile": "Hồ sơ",
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "register": "Đăng ký"
+  },
+  "Home": {
+    "title": "Ẩm thực Trung Quốc tại Nhà",
+    "subtitle": "Khám phá món ăn ngon, nấu ăn dễ dàng, khiến mỗi bữa ăn trở nên đặc biệt",
+    "searchPlaceholder": "Tìm theo tên công thức...",
+    "searchButton": "Tìm kiếm",
+    "latestRecipes": "Công thức mới nhất",
+    "viewAll": "Xem tất cả",
+    "emptyTitle": "Chưa có công thức nào",
+    "emptyDesc": "Hãy theo dõi để biết thêm công thức thú vị"
+  },
+  "Recipes": {
+    "title": "Bộ sưu tập công thức",
+    "subtitle": "Khám phá các công thức Trung Quốc ngon miệng và bắt đầu hành trình nấu ăn của bạn",
+    "searchPlaceholder": "Tìm theo tên công thức...",
+    "allDifficulty": "Tất cả mức độ",
+    "emptyTitle": "Chưa có công thức nào",
+    "emptyDesc": "Thử điều chỉnh tiêu chí tìm kiếm hoặc chờ quản trị viên đồng bộ từ GitHub",
+    "backToList": "Quay lại danh sách công thức"
+  },
+  "ShareForm": {
+    "title": "Chia sẻ món ăn của bạn",
+    "imageUrl": "URL hình ảnh",
+    "imageUrlHint": "Nhập URL ảnh món ăn",
+    "relatedRecipe": "Công thức liên quan",
+    "optional": "Tùy chọn",
+    "selectRecipe": "Chọn công thức",
+    "caption": "Chú thích",
+    "captionPlaceholder": "Kể về quá trình nấu…",
+    "submit": "Đăng",
+    "tipsTitle": "Mẹo chia sẻ hay",
+    "tip1": "Ảnh rõ nét, đủ sáng",
+    "tip2": "Mô tả các bước ngắn gọn",
+    "tip3": "Chia sẻ mẹo và cảm nhận"
+  },
+  "SharePage": {
+    "title": "Chia sẻ cộng đồng",
+    "subtitle": "Xem mọi người đang nấu gì",
+    "emptyTitle": "Chưa có bài chia sẻ",
+    "emptyDesc": "Hãy là người đầu tiên chia sẻ món của bạn!"
+  },
+  "IngredientInput": {
+    "placeholder": "Nhập nguyên liệu (ví dụ: trứng, cà chua)",
+    "add": "Thêm",
+    "clear": "Xóa"
+  },
+  "LoginForm": {
+    "emailLabel": "Email",
+    "codeLabel": "Mã xác nhận",
+    "sendCode": "Gửi mã",
+    "codeSent": "Đã gửi",
+    "loading": "Đang đăng nhập...",
+    "login": "Đăng nhập"
+  },
+  "OAuth": {
+    "or": "hoặc",
+    "github": "Đăng nhập bằng GitHub",
+    "google": "Đăng nhập bằng Google"
+  },
+  "Login": {
+    "title": "Đăng nhập",
+    "subtitle": "Chào mừng trở lại, bắt đầu hành trình nấu ăn của bạn",
+    "emailLogin": "Đăng nhập bằng email",
+    "oauthLogin": "Đăng nhập bên thứ ba"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "Không tìm thấy công thức",
+    "checkLink": "Vui lòng kiểm tra xem liên kết có đúng không",
+    "backToList": "Quay lại danh sách công thức",
+    "difficulty": "Độ khó",
+    "time": "Thời gian",
+    "likes": "Thích",
+    "comments": "Bình luận",
+    "description": "Mô tả",
+    "ingredients": "Nguyên liệu",
+    "steps": "Các bước",
+    "videoTutorial": "Video hướng dẫn",
+    "watchVideo": "Nhấp để xem video hướng dẫn"
+  },
+  "Difficulty": {
+    "EASY": "Dễ",
+    "MEDIUM": "Trung bình",
+    "HARD": "Khó"
+  },
+  "Taste": {
+    "sour": "Chua",
+    "sweet": "Ngọt",
+    "spicy": "Cay",
+    "salty": "Mặn",
+    "savory": "Umami",
+    "numb": "Tê",
+    "mild": "Nhẹ"
+  },
+  "Profile": {
+    "info": "Thông tin cá nhân",
+    "myShares": "Chia sẻ của tôi",
+    "myFavorites": "Mục yêu thích của tôi",
+    "noShares": "Chưa có chia sẻ nào",
+    "noFavorites": "Chưa có mục yêu thích nào",
+    "browseRecipes": "Duyệt công thức",
+    "joinedAt": "Ngày tham gia",
+    "shares": "Chia sẻ",
+    "comments": "Bình luận",
+    "likes": "Thích",
+    "favorites": "Yêu thích",
+    "logout": "Đăng xuất",
+    "loadFailed": "Tải không thành công. Vui lòng thử lại sau.",
+    "page": "Trang {n}"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. Khiến mỗi bữa ăn trở nên đặc biệt.",
+    "about": "Về chúng tôi",
+    "aboutHomeCookHub": "Về HomeCookHub",
+    "contact": "Liên hệ",
+    "privacy": "Quyền riêng tư",
+    "terms": "Điều khoản",
+    "resources": "Tài nguyên",
+    "recipesAll": "Tất cả công thức",
+    "cookingTips": "Mẹo nấu ăn",
+    "community": "Cộng đồng",
+    "sharePhotos": "Chia sẻ ảnh",
+    "openSourceProject": "Dự án nguồn mở",
+    "copyrightFull": "© 2026 HomeCookHub. Không quảng cáo, nguồn mở, do cộng đồng điều khiển.",
+    "recipeDataSource": "Dữ liệu công thức từ",
+    "followLicense": "Giấy phép",
+    "license": "",
+    "legal": "Pháp lý"
+  },
+  "API": {
+    "recipeNotFound": "Không tìm thấy công thức",
+    "fetchRecipeFailed": "Không thể lấy chi tiết công thức",
+    "fetchRecipesFailed": "Không thể lấy danh sách công thức"
+  },
+  "LikeButton": {
+    "liked": "Đã thích",
+    "notLiked": "Thích",
+    "loginToLike": "Đăng nhập để thích"
+  },
+  "CommentForm": {
+    "placeholder": "Viết bình luận...",
+    "submit": "Đăng bình luận",
+    "loginToComment": "Đăng nhập để bình luận"
+  },
+  "CommentList": {
+    "title": "Bình luận",
+    "empty": "Chưa có bình luận nào. Hãy là người đầu tiên!",
+    "delete": "Xóa",
+    "confirmDelete": "Bạn có chắc muốn xóa bình luận này?",
+    "justNow": "Vừa xong",
+    "minutesAgo": "{time} phút trước",
+    "hoursAgo": "{time} giờ trước",
+    "daysAgo": "{time} ngày trước"
+  },
+  "ShareCard": {
+    "sharedBy": "Được chia sẻ bởi {name}",
+    "linkedRecipe": "Dựa trên công thức：{name}",
+    "viewRecipe": "Xem công thức"
+  },
+  "ShareSquare": {
+    "title": "Quảng trường Chia sẻ",
+    "description": "Xem cộng đồng đang nấu gì",
+    "empty": "Chưa có chia sẻ nào",
+    "loadMore": "Tải thêm",
+    "createShare": "Tạo chia sẻ",
+    "beFirst": "Hãy là người đầu tiên chia sẻ!"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "Recipes": {
+    "title": "Bộ sưu tập công thức",
+    "subtitle": "Khám phá các công thức Trung Quốc ngon miệng và bắt đầu hành trình nấu ăn của bạn",
+    "searchPlaceholder": "Tìm theo tên công thức...",
+    "allDifficulty": "Tất cả mức độ",
+    "emptyTitle": "Chưa có công thức nào",
+    "emptyDesc": "Thử điều chỉnh tiêu chí tìm kiếm hoặc chờ quản trị viên đồng bộ từ GitHub",
+    "backToList": "Quay lại danh sách công thức"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "Không tìm thấy công thức",
+    "checkLink": "Vui lòng kiểm tra xem liên kết có đúng không",
+    "backToList": "Quay lại danh sách công thức",
+    "difficulty": "Độ khó",
+    "time": "Thời gian",
+    "likes": "Thích",
+    "comments": "Bình luận",
+    "description": "Mô tả",
+    "ingredients": "Nguyên liệu",
+    "steps": "Các bước",
+    "videoTutorial": "Video hướng dẫn",
+    "watchVideo": "Nhấp để xem video hướng dẫn"
+  },
+  "Difficulty": {
+    "EASY": "Dễ",
+    "MEDIUM": "Trung bình",
+    "HARD": "Khó"
+  },
+  "Taste": {
+    "sour": "Chua",
+    "sweet": "Ngọt",
+    "spicy": "Cay",
+    "salty": "Mặn",
+    "savory": "Umami",
+    "numb": "Tê",
+    "mild": "Nhẹ"
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "Common": {
+    "search": "검색",
+    "searchPlaceholder": "레시피 이름, 재료로 검색...",
+    "reset": "초기화",
+    "back": "뒤로",
+    "cancel": "취소",
+    "minutes": "분",
+    "loading": "로딩 중...",
+    "noData": "데이터 없음",
+    "tryLater": "더 멋진 레시피를 기대해 주세요",
+    "tryAdjust": "검색 조건을 조정하거나 관리자가 GitHub에서 동기화할 때까지 기다려주세요",
+    "justNow": "방금",
+    "minutesAgo": "{time}분 전",
+    "hoursAgo": "{time}시간 전",
+    "daysAgo": "{time}일 전"
+  },
+  "Metadata": {
+    "siteTitle": "HomeCookHub - 가정 중식 레시피",
+    "siteDescription": "맛있는 중국 요리를 발견하고, 쉽게 요리하여 매 끼니를 집의 맛으로. 광고 없음, 오픈 소스, 커뮤니티 주도.",
+    "homeTitle": "가정 중식 레시피",
+    "homeDescription": "맛있는 요리를 발견하고, 쉽게 요리하여 매 끼니를 집의 맛으로",
+    "recipesTitle": "레시피 모음",
+    "recipesDescription": "맛있는 중국 요리를 발견하고 요리 여정을 시작하세요",
+    "recipeDetailTitle": "레시피 상세",
+    "recipeDetailDescription": "단계별 지침으로 맛있는 중국 요리를 만드는 방법을 배우세요",
+    "profileTitle": "프로필",
+    "profileDescription": "계정을 관리하고, 공유와 즐겨찾기를 확인하세요"
+  },
+  "Header": {
+    "home": "홈",
+    "recipes": "레시피",
+    "share": "공유",
+    "profile": "프로필",
+    "login": "로그인",
+    "logout": "로그아웃",
+    "register": "회원가입"
+  },
+  "Home": {
+    "title": "가정 중식 레시피",
+    "subtitle": "맛있는 요리를 발견하고, 쉽게 요리하여 매 끼니를 집의 맛으로",
+    "searchPlaceholder": "레시피 이름, 재료로 검색...",
+    "searchButton": "검색",
+    "latestRecipes": "최신 레시피",
+    "viewAll": "모두 보기",
+    "emptyTitle": "레시피가 아직 없습니다",
+    "emptyDesc": "더 멋진 레시피를 기대해 주세요"
+  },
+  "Recipes": {
+    "title": "레시피 모음",
+    "subtitle": "맛있는 중국 요리를 발견하고 요리 여정을 시작하세요",
+    "searchPlaceholder": "레시피 이름으로 검색...",
+    "allDifficulty": "모든 난이도",
+    "emptyTitle": "레시피가 아직 없습니다",
+    "emptyDesc": "검색 조건을 조정하거나 관리자가 GitHub에서 동기화할 때까지 기다려주세요",
+    "backToList": "레시피 목록으로 돌아가기"
+  },
+  "ShareForm": {
+    "title": "요리 공유하기",
+    "imageUrl": "이미지 URL",
+    "imageUrlHint": "요리 사진의 URL을 입력하세요",
+    "relatedRecipe": "관련 레시피",
+    "optional": "선택",
+    "selectRecipe": "레시피 선택",
+    "caption": "설명",
+    "captionPlaceholder": "조리 과정을 적어 보세요…",
+    "submit": "공유하기",
+    "tipsTitle": "좋은 공유 팁",
+    "tip1": "밝고 선명한 사진을 사용하세요",
+    "tip2": "조리 과정을 간결하게 설명하세요",
+    "tip3": "팁과 후기를 나눠 보세요"
+  },
+  "SharePage": {
+    "title": "커뮤니티 공유",
+    "subtitle": "다른 사람들이 무엇을 요리하는지 만나 보세요",
+    "emptyTitle": "아직 공유가 없습니다",
+    "emptyDesc": "첫 요리 사진을 공유해 보세요!"
+  },
+  "IngredientInput": {
+    "placeholder": "재료를 입력하세요 (예: 계란, 토마토)",
+    "add": "추가",
+    "clear": "지우기"
+  },
+  "LoginForm": {
+    "emailLabel": "이메일",
+    "codeLabel": "인증 코드",
+    "sendCode": "코드 보내기",
+    "codeSent": "전송됨",
+    "loading": "로그인 중...",
+    "login": "로그인"
+  },
+  "OAuth": {
+    "or": "또는",
+    "github": "GitHub 로그인",
+    "google": "Google 로그인"
+  },
+  "Login": {
+    "title": "로그인",
+    "subtitle": "환영합니다, 요리 여정을 시작하세요",
+    "emailLogin": "이메일 로그인",
+    "oauthLogin": "제3자 로그인"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "레시피를 찾을 수 없습니다",
+    "checkLink": "링크가 올바른지 확인하세요",
+    "backToList": "레시피 목록으로 돌아가기",
+    "difficulty": "난이도",
+    "time": "시간",
+    "likes": "좋아요",
+    "comments": "댓글",
+    "description": "설명",
+    "ingredients": "재료",
+    "steps": "만드는 법",
+    "videoTutorial": "비디오 튜토리얼",
+    "watchVideo": "비디오 튜토리얼 보기"
+  },
+  "Difficulty": {
+    "EASY": "쉬움",
+    "MEDIUM": "보통",
+    "HARD": "어려움"
+  },
+  "Taste": {
+    "sour": "신맛",
+    "sweet": "단맛",
+    "spicy": "매운맛",
+    "salty": "짠맛",
+    "savory": "감칠맛",
+    "numb": "마비",
+    "mild": "담백"
+  },
+  "Profile": {
+    "info": "프로필 정보",
+    "myShares": "내 공유",
+    "myFavorites": "내 즐겨찾기",
+    "noShares": "공유가 아직 없습니다",
+    "noFavorites": "즐겨찾기가 아직 없습니다",
+    "browseRecipes": "레시피 둘러보기",
+    "joinedAt": "가입일",
+    "shares": "공유",
+    "comments": "댓글",
+    "likes": "좋아요",
+    "favorites": "즐겨찾기",
+    "logout": "로그아웃",
+    "loadFailed": "로딩에 실패했습니다. 나중에 다시 시도해 주세요.",
+    "page": "{n} 페이지"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. 매 끼니를 집의 맛으로.",
+    "about": "회사 소개",
+    "aboutHomeCookHub": "HomeCookHub 소개",
+    "contact": "문의하기",
+    "privacy": "개인정보",
+    "terms": "이용약관",
+    "resources": "리소스",
+    "recipesAll": "모든 레시피",
+    "cookingTips": "요리 팁",
+    "community": "커뮤니티",
+    "sharePhotos": "사진 공유",
+    "openSourceProject": "오픈 소스",
+    "copyrightFull": "© 2026 HomeCookHub. 광고 없음, 오픈 소스, 커뮤니티 주도.",
+    "recipeDataSource": "레시피 데이터 출처",
+    "followLicense": "라이선스 따르기",
+    "license": "",
+    "legal": "법률"
+  },
+  "API": {
+    "recipeNotFound": "레시피를 찾을 수 없습니다",
+    "fetchRecipeFailed": "레시피 상세를 가져오는 데 실패했습니다",
+    "fetchRecipesFailed": "레시피 목록을 가져오는 데 실패했습니다"
+  },
+  "LikeButton": {
+    "liked": "좋아요",
+    "notLiked": "좋아요",
+    "loginToLike": "로그인 후 좋아요"
+  },
+  "CommentForm": {
+    "placeholder": "댓글을 작성하세요...",
+    "submit": "댓글 게시",
+    "loginToComment": "로그인 후 댓글"
+  },
+  "CommentList": {
+    "title": "댓글",
+    "empty": "아직 댓글이 없습니다. 첫 번째 댓글을 작성해보세요!",
+    "delete": "삭제",
+    "confirmDelete": "이 댓글을 삭제하시겠습니까?",
+    "justNow": "방금",
+    "minutesAgo": "{time}분 전",
+    "hoursAgo": "{time}시간 전",
+    "daysAgo": "{time}일 전"
+  },
+  "ShareCard": {
+    "sharedBy": "{name} 님의 공유",
+    "linkedRecipe": "레시피 기반：{name}",
+    "viewRecipe": "레시피 보기"
+  },
+  "ShareSquare": {
+    "title": "공유 광장",
+    "description": "커뮤니티가 무엇을 요리하는지 확인해보세요",
+    "empty": "아직 공유가 없습니다",
+    "loadMore": "더 보기",
+    "createShare": "공유 만들기",
+    "beFirst": "첫 번째로 공유하세요!"
+  }
+}
