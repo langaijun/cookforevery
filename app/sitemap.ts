@@ -2,6 +2,9 @@ import { MetadataRoute } from 'next'
 import { routing } from '@/i18n'
 import { prisma } from '@/lib/prisma'
 
+/** 构建镜像阶段通常连不上 Railway Postgres，避免在此处预渲染导致 build 失败 */
+export const dynamic = 'force-dynamic'
+
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   'https://cookforevery-production.up.railway.app'
@@ -16,11 +19,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 静态页面路径
   const staticPaths = ['/recipes', '/share', '/profile', '/login']
 
-  // 获取所有活跃的食谱
-  const recipes = await prisma.recipe.findMany({
-    where: { isActive: true },
-    select: { id: true, updatedAt: true },
-  })
+  let recipes: { id: string; updatedAt: Date }[] = []
+  try {
+    recipes = await prisma.recipe.findMany({
+      where: { isActive: true },
+      select: { id: true, updatedAt: true },
+    })
+  } catch {
+    // 构建或 DB 短时不可用时仍可输出静态条目
+  }
 
   for (const locale of routing.locales) {
     const prefix = localePrefix(locale)
