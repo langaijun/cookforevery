@@ -35,6 +35,7 @@ export interface Recipe {
   ingredients: string[]
   steps: string[]
   videoUrl?: string
+  imageUrl?: string
   isActive: boolean
   providerId: string
   syncedAt: Date

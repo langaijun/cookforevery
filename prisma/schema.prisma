@@ -18,11 +18,14 @@ model User {
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   isBanned   Boolean   @default(false)
+  isAdmin    Boolean   @default(false)
 
   // 关联
   shares     Share[]
   comments   Comment[]
   likes      Like[]
+  favorites  Favorite[]
+  adminLogs  AdminLog[]
 }
 
 enum Provider {
@@ -44,7 +47,7 @@ model Recipe {
   steps        String[]  // 制作步骤
   videoUrl     String?   // 视频链接（可选）
   isActive     Boolean   @default(true)
-  providerId   String    // GitHub 仓库中的文件 ID/路径
+  providerId   String    @unique // GitHub 仓库中的文件 ID/路径
   syncedAt     DateTime  @default(now())
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
@@ -52,6 +55,7 @@ model Recipe {
   // 关联
   comments     Comment[]
   likes        Like[]
+  favorites    Favorite[]
 
   @@index([tasteTags])
   @@index([difficulty])
@@ -118,4 +122,58 @@ model Like {
   @@index([userId])
   @@index([recipeId])
   @@index([shareId])
+}
+
+// 收藏表
+model Favorite {
+  id        String   @id @default(cuid())
+  userId    String
+  recipeId  String
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, recipeId])
+  @@index([userId])
+  @@index([recipeId])
+}
+
+// 同步日志表
+model SyncLog {
+  id           String    @id @default(cuid())
+  added        Int       @default(0)
+  updated      Int       @default(0)
+  errors       Int       @default(0)
+  errorDetails Json?
+  startTime    DateTime  @default(now())
+  endTime      DateTime?
+  status       String    @default("RUNNING") // RUNNING, SUCCESS, FAILED
+  failedFiles  String[]  // 失败的文件列表
+  totalFiles   Int       @default(0)
+
+  @@index([status])
+  @@index([startTime])
+}
+
+// 后台操作日志表
+model AdminLog {
+  id          String   @id @default(cuid())
+  adminId     String
+  action      String   // CREATE, UPDATE, DELETE, BAN, UNBAN, SYNC, etc.
+  entityType  String   // RECIPE, USER, COMMENT, SHARE, SYNC
+  entityId    String?  // 关联实体的 ID
+  entityName  String?  // 关联实体的名称（用于显示）
+  details     Json?    // 额外的操作详情
+  ipAddress   String?  // 操作 IP 地址
+  userAgent   String?  // 用户代理
+  createdAt   DateTime @default(now())
+
+  // 关联
+  admin       User     @relation(fields: [adminId], references: [id])
+
+  @@index([adminId])
+  @@index([action])
+  @@index([entityType])
+  @@index([createdAt])
 }

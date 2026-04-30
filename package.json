@@ -7,7 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "sync:recipes": "tsx scripts/sync-recipes.ts",
+    "sync:recipes:force": "tsx scripts/sync-recipes.ts --force",
+    "sync:github": "tsx scripts/sync-recipes-github.ts",
+    "sync:github:force": "tsx scripts/sync-recipes-github.ts --force",
+    "check:i18n": "tsx scripts/check-i18n.ts",
+    "check:i18n-api": "tsx scripts/check-i18n-api.ts",
+    "i18n:split": "tsx scripts/split-translations.ts",
+    "i18n:extract": "tsx scripts/i18n-extract.ts",
+    "init:admin": "tsx scripts/init-admin.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
@@ -18,7 +27,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "ioredis": "^5.10.1",
-    "lucide-react": "^1.12.0",
+    "lucide-react": "^1.14.0",
     "next": "16.2.4",
     "next-auth": "^4.24.14",
     "next-intl": "^4.11.0",
@@ -31,12 +40,13 @@
     "tw-animate-css": "^1.4.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.19.39",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

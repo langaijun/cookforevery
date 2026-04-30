@@ -1,22 +1,27 @@
+'use client'
+
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 export function Footer() {
+  const t = useTranslations()
+
   return (
     <footer className="border-t bg-muted/50">
       <div className="container py-8 md:py-12">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {/* About */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold">关于我们</h3>
+            <h3 className="mb-4 text-sm font-semibold">{t('Footer.about')}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/about" className="hover:text-primary">
-                  关于 HomeCookHub
+                  {t('Footer.aboutHomeCookHub')}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-primary">
-                  联系我们
+                  {t('Footer.contact')}
                 </Link>
               </li>
             </ul>
@@ -24,16 +29,16 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold">资源</h3>
+            <h3 className="mb-4 text-sm font-semibold">{t('Footer.resources')}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/recipes" className="hover:text-primary">
-                  食谱大全
+                  {t('Footer.recipesAll')}
                 </Link>
               </li>
               <li>
                 <Link href="/tips" className="hover:text-primary">
-                  烹饪技巧
+                  {t('Footer.cookingTips')}
                 </Link>
               </li>
             </ul>
@@ -41,11 +46,11 @@ export function Footer() {
 
           {/* Community */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold">社区</h3>
+            <h3 className="mb-4 text-sm font-semibold">{t('Footer.community')}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/share" className="hover:text-primary">
-                  晒图分享
+                  {t('Footer.sharePhotos')}
                 </Link>
               </li>
               <li>
@@ -55,7 +60,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-primary"
                 >
-                  开源项目
+                  {t('Footer.openSourceProject')}
                 </a>
               </li>
             </ul>
@@ -63,16 +68,16 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold">法律</h3>
+            <h3 className="mb-4 text-sm font-semibold">{t('Footer.legal')}</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/privacy" className="hover:text-primary">
-                  隐私政策
+                  {t('Footer.privacy')}
                 </Link>
               </li>
               <li>
                 <Link href="/terms" className="hover:text-primary">
-                  使用条款
+                  {t('Footer.terms')}
                 </Link>
               </li>
             </ul>
@@ -81,9 +86,9 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2026 HomeCookHub. 无广告、开源、社区驱动。</p>
+          <p>{t('Footer.copyrightFull')}</p>
           <p className="mt-2">
-            食谱数据来源于{' '}
+            {t('Footer.recipeDataSource')}{' '}
             <a
               href="https://github.com/Anduin2017/HowToCook"
               target="_blank"
@@ -92,7 +97,7 @@ export function Footer() {
             >
               Anduin2017/HowToCook
             </a>
-            ，遵循{' '}
+            ，{t('Footer.followLicense')}{' '}
             <a
               href="https://github.com/Anduin2017/HowToCook/blob/master/LICENSE"
               target="_blank"
@@ -101,7 +106,7 @@ export function Footer() {
             >
               CC BY-NC-SA 4.0
             </a>
-            许可。
+            {t('Footer.license')}。
           </p>
         </div>
       </div>

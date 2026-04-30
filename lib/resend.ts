@@ -30,7 +30,7 @@ async function sendVerificationEmail(email: string, code: string) {
     return { success: true }
   } catch (error) {
     console.error('发送验证码邮件失败:', error)
-    return { success: false, error }
+    return { success: false, message: '发送失败，请稍后再试' }
   }
 }
 
@@ -60,6 +60,7 @@ export async function sendVerificationCode(email: string) {
  * @param email 邮箱地址
  * @param code 验证码
  */
-export async function verifyCode(email: string, code: string): Promise<boolean> {
-  return await codeCache.verifyAndDelete(email, code)
+export async function verifyCode(email: string, code: string): Promise<{ success: boolean; message: string }> {
+  const isValid = await codeCache.verifyAndDelete(email, code)
+  return { success: isValid, message: isValid ? '验证成功' : '验证码不正确或已过期' }
 }
