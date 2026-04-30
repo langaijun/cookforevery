@@ -1,18 +1,44 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getServerSession } from 'next-auth'
 import { prisma } from '@/lib/prisma'
 import { jwtVerify } from 'jose'
+import { authOptions } from '@/lib/auth'
 
 const JWT_SECRET = new TextEncoder().encode(
   process.env.NEXTAUTH_SECRET || 'fallback-secret-change-in-production'
 )
 
+const userSelect = {
+  id: true,
+  email: true,
+  name: true,
+  avatar: true,
+  provider: true,
+  isBanned: true,
+} as const
+
 /**
  * GET /api/auth/me
- * 获取当前登录用户信息
+ * 获取当前登录用户信息（OAuth：NextAuth session；邮箱验证码：auth-token）
  */
 export async function GET(request: NextRequest) {
   try {
-    // 从 cookie 获取 token
+    const session = await getServerSession(authOptions)
+    if (session?.user?.email) {
+      const oauthUser = await prisma.user.findUnique({
+        where: { email: session.user.email },
+        select: userSelect,
+      })
+
+      if (!oauthUser) {
+        return NextResponse.json({ error: '用户不存在' }, { status: 404 })
+      }
+      if (oauthUser.isBanned) {
+        return NextResponse.json({ error: '账户已被封禁' }, { status: 403 })
+      }
+      return NextResponse.json({ user: oauthUser })
+    }
+
     const token = request.cookies.get('auth-token')?.value
 
     if (!token) {
@@ -26,17 +52,9 @@ export async function GET(request: NextRequest) {
     const { payload } = await jwtVerify(token, JWT_SECRET)
     const userId = payload.userId as string
 
-    // 获取用户信息
     const user = await prisma.user.findUnique({
       where: { id: userId },
-      select: {
-        id: true,
-        email: true,
-        name: true,
-        avatar: true,
-        provider: true,
-        isBanned: true,
-      },
+      select: userSelect,
     })
 
     if (!user) {
