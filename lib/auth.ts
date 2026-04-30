@@ -1,4 +1,7 @@
-import NextAuth, { NextAuthOptions } from 'next-auth'
+import NextAuth, {
+  NextAuthOptions,
+  getServerSession as getSession,
+} from 'next-auth'
 import GitHubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 import { prisma } from './prisma'
@@ -16,6 +19,7 @@ declare module 'next-auth' {
 }
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET ?? process.env.AUTH_SECRET,
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID || '',
@@ -76,4 +80,10 @@ export const authOptions: NextAuthOptions = {
   },
 }
 
-export const { handlers, signIn, signOut, auth } = NextAuth(authOptions)
+const handler = NextAuth(authOptions)
+export { handler }
+
+/** App Router 下的 session，等价于 Auth.js v5 的 auth()（当前使用 next-auth v4）。 */
+export function auth() {
+  return getSession(authOptions)
+}
