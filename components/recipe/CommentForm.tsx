@@ -5,6 +5,7 @@ import { useRouter } from '@/i18n'
 import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { useTranslations } from 'next-intl'
+import { useSessionOrJwt } from '@/hooks/use-session-or-jwt'
 
 interface CommentFormProps {
   recipeId?: string
@@ -20,16 +21,15 @@ export function CommentForm({ recipeId, shareId, onSuccess, onCancel, autoFocus 
   const [loading, setLoading] = useState(false)
   const [content, setContent] = useState('')
 
-  const authToken = typeof document !== 'undefined'
-    ? document.cookie.split('; ').find(c => c.trim().startsWith('auth-token='))?.split('=')[1]
-    : null
+  const { pending: authPending, loggedIn } = useSessionOrJwt()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     if (!content.trim()) return
 
-    if (!authToken) {
+    if (authPending) return
+    if (!loggedIn) {
       router.push('/login')
       return
     }
@@ -43,8 +43,8 @@ export function CommentForm({ recipeId, shareId, onSuccess, onCancel, autoFocus 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Cookie': `auth-token=${authToken}`,
         },
+        credentials: 'same-origin',
         body: JSON.stringify({
           recipeId: recipeId || undefined,
           shareId: shareId || undefined,

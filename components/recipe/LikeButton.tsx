@@ -5,6 +5,7 @@ import { useRouter } from '@/i18n'
 import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
 import { Heart, HeartOff } from 'lucide-react'
+import { useSessionOrJwt } from '@/hooks/use-session-or-jwt'
 
 interface LikeButtonProps {
   recipeId?: string
@@ -26,9 +27,7 @@ export function LikeButton({ recipeId, shareId, initialLikeCount = 0, className 
   const [likeStatus, setLikeStatus] = useState<LikeStatus>({ liked: false, likeId: null })
   const [likeCount, setLikeCount] = useState(initialLikeCount)
 
-  const authToken = typeof document !== 'undefined'
-    ? document.cookie.split('; ').find(c => c.trim().startsWith('auth-token='))?.split('=')[1]
-    : null
+  const { pending: authPending, loggedIn } = useSessionOrJwt()
 
   // Fetch initial like status
   useEffect(() => {
@@ -59,7 +58,8 @@ export function LikeButton({ recipeId, shareId, initialLikeCount = 0, className 
   }, [recipeId, shareId])
 
   const handleToggleLike = async () => {
-    if (!authToken) {
+    if (authPending) return
+    if (!loggedIn) {
       router.push('/login')
       return
     }
@@ -73,8 +73,8 @@ export function LikeButton({ recipeId, shareId, initialLikeCount = 0, className 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Cookie': `auth-token=${authToken}`,
         },
+        credentials: 'same-origin',
         body: JSON.stringify({
           recipeId: recipeId || undefined,
           shareId: shareId || undefined,

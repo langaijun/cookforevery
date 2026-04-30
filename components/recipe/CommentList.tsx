@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl'
 import { Trash2 } from 'lucide-react'
 import { CommentForm } from './CommentForm'
 import { useRouter } from '@/i18n'
+import { useSessionOrJwt } from '@/hooks/use-session-or-jwt'
 
 interface Comment {
   id: string
@@ -34,9 +35,7 @@ export function CommentList({ recipeId, shareId, currentUserId }: CommentListPro
   const [showForm, setShowForm] = useState(false)
   const [deletingId, setDeletingId] = useState<string | null>(null)
 
-  const authToken = typeof document !== 'undefined'
-    ? document.cookie.split('; ').find(c => c.trim().startsWith('auth-token='))?.split('=')[1]
-    : null
+  const { pending: authPending, loggedIn } = useSessionOrJwt()
 
   useEffect(() => {
     if (!recipeId && !shareId) return
@@ -67,7 +66,8 @@ export function CommentList({ recipeId, shareId, currentUserId }: CommentListPro
   }, [recipeId, shareId])
 
   const handleDeleteComment = async (commentId: string) => {
-    if (!authToken) {
+    if (authPending) return
+    if (!loggedIn) {
       router.push('/login')
       return
     }
@@ -81,9 +81,7 @@ export function CommentList({ recipeId, shareId, currentUserId }: CommentListPro
     try {
       const res = await fetch(`/api/comments/${commentId}`, {
         method: 'DELETE',
-        headers: {
-          'Cookie': `auth-token=${authToken}`,
-        },
+        credentials: 'same-origin',
       })
 
       if (res.ok) {
