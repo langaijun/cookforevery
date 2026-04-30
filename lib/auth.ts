@@ -20,6 +20,12 @@ declare module 'next-auth' {
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET ?? process.env.AUTH_SECRET,
+  /** 生产 HTTPS 下使用 Secure Cookie，减少 OAuth state 在回调时丢失 */
+  useSecureCookies:
+    process.env.NODE_ENV === 'production' ||
+    (process.env.NEXTAUTH_URL ?? process.env.AUTH_URL ?? '').startsWith(
+      'https:'
+    ),
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID || '',

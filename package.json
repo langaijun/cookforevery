@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate",
+    "migrate:deploy": "prisma migrate deploy",
     "sync:recipes": "tsx scripts/sync-recipes.ts",
     "sync:recipes:force": "tsx scripts/sync-recipes.ts --force",
     "sync:github": "tsx scripts/sync-recipes-github.ts",

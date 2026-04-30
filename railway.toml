@@ -2,6 +2,10 @@
 [build]
 command = "npx prisma generate && npm run build"
 
+# 容器启动前执行 migrations（Railway：Pre-deploy command）
+[deploy]
+preDeployCommand = ["npx prisma migrate deploy"]
+
 [env]
 NODE_ENV = "production"
 NPM_CONFIG_UPDATE_NOTIFIER = "false"
