@@ -95,6 +95,7 @@ export async function GET(request: NextRequest) {
           ingredients: true,
           steps: true,
           videoUrl: true,
+          imageUrl: true,
           createdAt: true,
           updatedAt: true,
         },
@@ -107,13 +108,18 @@ export async function GET(request: NextRequest) {
       prisma.recipe.count({ where }),
     ])
 
-    // 生成图片 URL（基于 Unsplash 或占位符）
+    // 生成图片 URL（优先使用数据库中的图片，否则使用 Unsplash 或占位符）
     const recipesWithImages = await Promise.all(
       recipes.map(async (recipe) => {
+        // 优先使用数据库中的 imageUrl
+        if (recipe.imageUrl) {
+          return recipe
+        }
+
+        // 否则使用 Unsplash 获取图片或占位符
         const imageUrl = await getRecipeImage(recipe.name, recipe.tasteTags)
         return {
           ...recipe,
-          // 使用 Unsplash 获取的图片或使用占位符
           imageUrl: imageUrl || `https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=800&h=600&fit=crop&sig=${recipe.id}`,
         }
       })

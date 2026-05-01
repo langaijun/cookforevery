@@ -18,6 +18,7 @@
     "i18n:split": "tsx scripts/split-translations.ts",
     "i18n:extract": "tsx scripts/i18n-extract.ts",
     "init:admin": "tsx scripts/init-admin.ts",
+    "generate:images": "tsx scripts/generate-recipe-images.ts",
     "test:prod": "bash tests/agent-browser/test-production.sh",
     "test:prod:full": "bash tests/agent-browser/test-production-enhanced.sh"
   },

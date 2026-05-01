@@ -129,6 +129,15 @@ export default async function RecipeDetailPage(
 
         {/* 食谱详情 */}
         <div className="max-w-3xl mx-auto space-y-8">
+          {/* 图片 */}
+          <div className="rounded-lg overflow-hidden border bg-muted aspect-video relative">
+            <img
+              src={recipe.imageUrl || `https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1200&h=675&fit=crop&sig=${recipe.id}`}
+              alt={recipe.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
           {/* 标题区域 */}
           <div className="space-y-4">
             <h1 className="text-3xl font-bold">{recipe.name}</h1>

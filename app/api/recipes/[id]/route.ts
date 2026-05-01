@@ -26,6 +26,7 @@ export async function GET(
         ingredients: true,
         steps: true,
         videoUrl: true,
+        imageUrl: true,
         createdAt: true,
         updatedAt: true,
       },

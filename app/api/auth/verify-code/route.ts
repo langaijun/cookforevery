@@ -56,6 +56,7 @@ export async function POST(request: NextRequest) {
           name: email.split('@')[0],
           provider: Provider.EMAIL,
           providerId: email,
+          isAdmin: email === 'meal@xile2026.cn',
         },
       })
     }

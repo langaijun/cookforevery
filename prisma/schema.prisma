@@ -34,6 +34,7 @@ model Recipe {
   ingredients String[]
   steps       String[]
   videoUrl    String?
+  imageUrl    String?
   isActive    Boolean    @default(true)
   providerId  String
   syncedAt    DateTime   @default(now())
