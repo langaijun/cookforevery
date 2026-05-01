@@ -1,18 +1,17 @@
 {
-
-  "search": "Rechercher",
-  "searchPlaceholder": "Rechercher par nom de recette, ingrédients...",
-  "reset": "Réinitialiser",
-  "back": "Retour",
-  "cancel": "Annuler",
-  "minutes": "min",
-  "loading": "Chargement...",
-  "noData": "Aucune donnée",
-  "tryLater": "Restez à l'écoute pour plus de recettes passionnantes",
-  "tryAdjust": "Essayez d'ajuster les critères de recherche ou attendez que l'administrateur synchronise depuis GitHub",
-  "justNow": "À l'instant",
-  "minutesAgo": "il y a {time} minutes",
-  "hoursAgo": "il y a {time} heures",
-  "daysAgo": "il y a {time} jours"
-  "submit": "Submit"
+  "search": "搜索",
+  "searchPlaceholder": "搜索食谱名称、食材...",
+  "reset": "重置",
+  "back": "返回",
+  "cancel": "取消",
+  "minutes": "分钟",
+  "loading": "加载中...",
+  "noData": "暂无数据",
+  "tryLater": "敬请期待更多精彩食谱",
+  "tryAdjust": "尝试调整搜索条件或等待管理员从 GitHub 同步食谱",
+  "justNow": "刚刚",
+  "minutesAgo": "{time}分钟前",
+  "hoursAgo": "{time}小时前",
+  "daysAgo": "{time}天前",
+  "submit": "提交"
 }

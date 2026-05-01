@@ -1,5 +1,4 @@
 {
-
   "search": "Search",
   "searchPlaceholder": "Search by recipe name, ingredients...",
   "reset": "Reset",
@@ -13,6 +12,6 @@
   "justNow": "Just now",
   "minutesAgo": "{time}m ago",
   "hoursAgo": "{time}h ago",
-  "daysAgo": "{time}d ago"
+  "daysAgo": "{time}d ago",
   "submit": "Submit"
 }

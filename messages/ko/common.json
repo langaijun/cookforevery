@@ -1,18 +1,17 @@
 {
-
-  "search": "검색",
-  "searchPlaceholder": "레시피 이름, 재료로 검색...",
-  "reset": "초기화",
-  "back": "뒤로",
-  "cancel": "취소",
-  "minutes": "분",
-  "loading": "로딩 중...",
-  "noData": "데이터 없음",
-  "tryLater": "더 멋진 레시피를 기대해 주세요",
-  "tryAdjust": "검색 조건을 조정하거나 관리자가 GitHub에서 동기화할 때까지 기다려주세요",
-  "justNow": "방금",
-  "minutesAgo": "{time}분 전",
-  "hoursAgo": "{time}시간 전",
-  "daysAgo": "{time}일 전"
-  "submit": "Submit"
+  "search": "搜索",
+  "searchPlaceholder": "搜索食谱名称、食材...",
+  "reset": "重置",
+  "back": "返回",
+  "cancel": "取消",
+  "minutes": "分钟",
+  "loading": "加载中...",
+  "noData": "暂无数据",
+  "tryLater": "敬请期待更多精彩食谱",
+  "tryAdjust": "尝试调整搜索条件或等待管理员从 GitHub 同步食谱",
+  "justNow": "刚刚",
+  "minutesAgo": "{time}分钟前",
+  "hoursAgo": "{time}小时前",
+  "daysAgo": "{time}天前",
+  "submit": "提交"
 }
