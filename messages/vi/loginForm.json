@@ -1,0 +1,8 @@
+{
+  "emailLabel": "邮箱地址",
+  "codeLabel": "验证码",
+  "sendCode": "发送验证码",
+  "codeSent": "已发送",
+  "loading": "登录中...",
+  "login": "登录"
+}

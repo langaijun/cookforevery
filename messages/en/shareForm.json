@@ -1,0 +1,15 @@
+{
+  "title": "Share Food",
+  "imageUrl": "Image URL",
+  "imageUrlHint": "Enter a publicly accessible image link",
+  "relatedRecipe": "Related Recipe",
+  "optional": "(optional)",
+  "selectRecipe": "Select Recipe",
+  "caption": "Description",
+  "captionPlaceholder": "Share your cooking tips...",
+  "submit": "Share",
+  "tipsTitle": "Sharing Tips",
+  "tip1": "Use clear photos to show food details",
+  "tip2": "Add related recipes for others to learn",
+  "tip3": "Share your cooking tips to help more people"
+}

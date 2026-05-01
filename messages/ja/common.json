@@ -1,18 +1,18 @@
 {
-  "Common": {
-    "search": "検索",
-    "searchPlaceholder": "レシピ名、食材で検索...",
-    "reset": "リセット",
-    "back": "戻る",
-    "cancel": "キャンセル",
-    "minutes": "分",
-    "loading": "読み込み中...",
-    "noData": "データなし",
-    "tryLater": "素晴らしいレシピをお楽しみください",
-    "tryAdjust": "検索条件を調整するか、管理者がGitHubから同期するのをお待ちください",
-    "justNow": "たった今",
-    "minutesAgo": "{time}分前",
-    "hoursAgo": "{time}時間前",
-    "daysAgo": "{time}日前"
-  }
+
+  "search": "検索",
+  "searchPlaceholder": "レシピ名、食材で検索...",
+  "reset": "リセット",
+  "back": "戻る",
+  "cancel": "キャンセル",
+  "minutes": "分",
+  "loading": "読み込み中...",
+  "noData": "データなし",
+  "tryLater": "素晴らしいレシピをお楽しみください",
+  "tryAdjust": "検索条件を調整するか、管理者がGitHubから同期するのをお待ちください",
+  "justNow": "たった今",
+  "minutesAgo": "{time}分前",
+  "hoursAgo": "{time}時間前",
+  "daysAgo": "{time}日前"
+  "submit": "Submit"
 }

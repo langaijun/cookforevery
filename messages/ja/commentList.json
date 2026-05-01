@@ -1,0 +1,9 @@
+{
+  "title": "评论",
+  "empty": "暂无评论，快来发表第一条吧！",
+  "confirmDelete": "确定要删除这条评论吗？",
+  "justNow": "刚刚",
+  "minutesAgo": "{time}分钟前",
+  "hoursAgo": "{time}小时前",
+  "daysAgo": "{time}天前"
+}

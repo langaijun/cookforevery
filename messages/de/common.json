@@ -1,18 +1,18 @@
 {
-  "Common": {
-    "search": "Suchen",
-    "searchPlaceholder": "Nach Rezeptname, Zutaten suchen...",
-    "reset": "Zurücksetzen",
-    "back": "Zurück",
-    "cancel": "Abbrechen",
-    "minutes": "Min",
-    "loading": "Wird geladen...",
-    "noData": "Keine Daten",
-    "tryLater": "Bleiben Sie dran für weitere aufregende Rezepte",
-    "tryAdjust": "Versuchen Sie, die Suchkriterien anzupassen oder warten Sie, bis der Administrator von GitHub synchronisiert",
-    "justNow": "Gerade eben",
-    "minutesAgo": "vor {time} Minuten",
-    "hoursAgo": "vor {time} Stunden",
-    "daysAgo": "vor {time} Tagen"
-  }
+
+  "search": "Suchen",
+  "searchPlaceholder": "Nach Rezeptname, Zutaten suchen...",
+  "reset": "Zurücksetzen",
+  "back": "Zurück",
+  "cancel": "Abbrechen",
+  "minutes": "Min",
+  "loading": "Wird geladen...",
+  "noData": "Keine Daten",
+  "tryLater": "Bleiben Sie dran für weitere aufregende Rezepte",
+  "tryAdjust": "Versuchen Sie, die Suchkriterien anzupassen oder warten Sie, bis der Administrator von GitHub synchronisiert",
+  "justNow": "Gerade eben",
+  "minutesAgo": "vor {time} Minuten",
+  "hoursAgo": "vor {time} Stunden",
+  "daysAgo": "vor {time} Tagen"
+  "submit": "Submit"
 }

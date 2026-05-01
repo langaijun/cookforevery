@@ -1,0 +1,8 @@
+{
+  "emailLabel": "Email Address",
+  "codeLabel": "Verification Code",
+  "sendCode": "Send Code",
+  "codeSent": "Sent",
+  "loading": "Logging in...",
+  "login": "Login"
+}

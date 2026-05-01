@@ -1,18 +1,18 @@
 {
-  "Common": {
-    "search": "Tìm kiếm",
-    "searchPlaceholder": "Tìm theo tên công thức, nguyên liệu...",
-    "reset": "Đặt lại",
-    "back": "Quay lại",
-    "cancel": "Hủy",
-    "minutes": "phút",
-    "loading": "Đang tải...",
-    "noData": "Không có dữ liệu",
-    "tryLater": "Hãy theo dõi để biết thêm công thức thú vị",
-    "tryAdjust": "Thử điều chỉnh tiêu chí tìm kiếm hoặc chờ quản trị viên đồng bộ từ GitHub",
-    "justNow": "Vừa xong",
-    "minutesAgo": "{time} phút trước",
-    "hoursAgo": "{time} giờ trước",
-    "daysAgo": "{time} ngày trước"
-  }
+
+  "search": "Tìm kiếm",
+  "searchPlaceholder": "Tìm theo tên công thức, nguyên liệu...",
+  "reset": "Đặt lại",
+  "back": "Quay lại",
+  "cancel": "Hủy",
+  "minutes": "phút",
+  "loading": "Đang tải...",
+  "noData": "Không có dữ liệu",
+  "tryLater": "Hãy theo dõi để biết thêm công thức thú vị",
+  "tryAdjust": "Thử điều chỉnh tiêu chí tìm kiếm hoặc chờ quản trị viên đồng bộ từ GitHub",
+  "justNow": "Vừa xong",
+  "minutesAgo": "{time} phút trước",
+  "hoursAgo": "{time} giờ trước",
+  "daysAgo": "{time} ngày trước"
+  "submit": "Submit"
 }

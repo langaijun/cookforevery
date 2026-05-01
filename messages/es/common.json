@@ -1,18 +1,18 @@
 {
-  "Common": {
-    "search": "Buscar",
-    "searchPlaceholder": "Buscar por nombre de receta, ingredientes...",
-    "reset": "Restablecer",
-    "back": "Atrás",
-    "cancel": "Cancelar",
-    "minutes": "min",
-    "loading": "Cargando...",
-    "noData": "Sin datos",
-    "tryLater": "Mantente atento para más recetas emocionantes",
-    "tryAdjust": "Intenta ajustar los criterios de búsqueda o espera a que el administrador sincronice desde GitHub",
-    "justNow": "Ahora mismo",
-    "minutesAgo": "hace {time} minutos",
-    "hoursAgo": "hace {time} horas",
-    "daysAgo": "hace {time} días"
-  }
+
+  "search": "Buscar",
+  "searchPlaceholder": "Buscar por nombre de receta, ingredientes...",
+  "reset": "Restablecer",
+  "back": "Atrás",
+  "cancel": "Cancelar",
+  "minutes": "min",
+  "loading": "Cargando...",
+  "noData": "Sin datos",
+  "tryLater": "Mantente atento para más recetas emocionantes",
+  "tryAdjust": "Intenta ajustar los criterios de búsqueda o espera a que el administrador sincronice desde GitHub",
+  "justNow": "Ahora mismo",
+  "minutesAgo": "hace {time} minutos",
+  "hoursAgo": "hace {time} horas",
+  "daysAgo": "hace {time} días"
+  "submit": "Submit"
 }

@@ -1,0 +1,15 @@
+{
+  "title": "分享美食",
+  "imageUrl": "图片链接",
+  "imageUrlHint": "请输入图片的公开访问链接",
+  "relatedRecipe": "关联食谱",
+  "optional": "（可选）",
+  "selectRecipe": "选择食谱",
+  "caption": "描述",
+  "captionPlaceholder": "写下你的烹饪心得...",
+  "submit": "分享",
+  "tipsTitle": "分享技巧",
+  "tip1": "使用清晰的图片，展示美食的细节",
+  "tip2": "添加相关食谱，让其他人也能学习",
+  "tip3": "分享你的烹饪心得，帮助更多人"
+}

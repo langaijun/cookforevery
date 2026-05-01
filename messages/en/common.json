@@ -1,18 +1,18 @@
 {
-  "Common": {
-    "search": "Search",
-    "searchPlaceholder": "Search by recipe name, ingredients...",
-    "reset": "Reset",
-    "back": "Back",
-    "cancel": "Cancel",
-    "minutes": "min",
-    "loading": "Loading...",
-    "noData": "No data available",
-    "tryLater": "Stay tuned for more exciting recipes",
-    "tryAdjust": "Try adjusting search criteria or wait for admin to sync recipes from GitHub",
-    "justNow": "Just now",
-    "minutesAgo": "{time}m ago",
-    "hoursAgo": "{time}h ago",
-    "daysAgo": "{time}d ago"
-  }
+
+  "search": "Search",
+  "searchPlaceholder": "Search by recipe name, ingredients...",
+  "reset": "Reset",
+  "back": "Back",
+  "cancel": "Cancel",
+  "minutes": "min",
+  "loading": "Loading...",
+  "noData": "No data available",
+  "tryLater": "Stay tuned for more exciting recipes",
+  "tryAdjust": "Try adjusting search criteria or wait for admin to sync recipes from GitHub",
+  "justNow": "Just now",
+  "minutesAgo": "{time}m ago",
+  "hoursAgo": "{time}h ago",
+  "daysAgo": "{time}d ago"
+  "submit": "Submit"
 }
