@@ -33,14 +33,63 @@ const TASTE_DESCRIPTION: Record<string, string> = {
 }
 
 /**
- * 生成图片提示词
- * 使用食谱步骤作为主要提示词
+ * 从描述中提取关键信息
+ */
+function extractKeyInfo(description: string): string {
+  const info: string[] = []
+
+  if (description.includes('家常菜')) info.push('家常菜')
+  if (description.includes('下饭菜')) info.push('下饭菜')
+  if (description.includes('宴席菜')) info.push('宴席菜')
+  if (description.includes('特色菜')) info.push('特色菜')
+
+  return info.length > 0 ? info.join('、') : ''
+}
+
+/**
+ * 从步骤中提取烹饪方法和工具
+ */
+function extractCookingMethod(steps: string[]): string {
+  const methods: string[] = []
+  const tools: string[] = []
+
+  const allText = steps.join(' ')
+
+  if (allText.includes('炒') || allText.includes('爆')) methods.push('炒制')
+  if (allText.includes('蒸')) methods.push('蒸制')
+  if (allText.includes('煮') || allText.includes('炖')) methods.push('煮制')
+  if (allText.includes('炸')) methods.push('油炸')
+  if (allText.includes('烧') || allText.includes('焖')) methods.push('烧制')
+  if (allText.includes('煎')) methods.push('煎制')
+  if (allText.includes('凉拌') || allText.includes('拌')) methods.push('凉拌')
+
+  if (allText.includes('炒锅') || allText.includes('锅')) tools.push('炒锅')
+  if (allText.includes('蒸笼') || allText.includes('蒸')) tools.push('蒸笼')
+  if (allText.includes('煮锅')) tools.push('煮锅')
+  if (allText.includes('烤箱') || allText.includes('烤')) tools.push('烤箱')
+
+  let result = ''
+  if (methods.length > 0) result += `烹饪方式：${methods.join('、')}。`
+  if (tools.length > 0) result += `使用${tools.join('、')}。`
+
+  return result
+}
+
+/**
+ * 生成更详细的提示词
  */
 function generatePrompt(recipe: RecipeInfo): string {
   const { name, description, ingredients, tasteTags, steps } = recipe
 
-  // 使用第一条步骤（描述最关键的制作环节）
-  const step1 = steps?.[0] || ''
+  // 步骤按顺序，每个加上清晰的前缀
+  const stepsWithNumber = steps.map((step, i) => {
+    // 提取关键动词和食材，让步骤更精炼
+    let conciseStep = step
+      .replace(/等/g, '，') // 简化标点
+      .replace(/。/g, '，') // 统一标点
+
+    return `【步骤${i + 1}】${conciseStep}`
+  })
 
   // 口味描述
   const tasteDesc = tasteTags
@@ -48,19 +97,34 @@ function generatePrompt(recipe: RecipeInfo): string {
     .filter(Boolean)
     .join('、')
 
-  // 组合提示词：食谱名 + 第一步描述 + 口味
-  let prompt = `${name}的成品展示图。`
+  // 描述中的关键信息
+  const keyInfo = extractKeyInfo(description)
 
-  if (step1) {
-    // 步骤1 通常描述主要制作方法，如"将螃蟹切块"、"大火翻炒"等
-    prompt += `${step1.substring(0, 100)}，` // 限制100字符避免过长
+  // 烹饪方法和工具
+  const cookingInfo = extractCookingMethod(steps)
+
+  // 主要食材（前4种）
+  const mainIngredients = ingredients.slice(0, 4).join('、')
+
+  // 构建完整提示词
+  let prompt = `【菜品名称】${name}。\n`
+  prompt += `【主要食材】${mainIngredients}。\n`
+
+  if (keyInfo) {
+    prompt += `【菜品特色】${keyInfo}。\n`
   }
+
+  if (cookingInfo) {
+    prompt += `【${cookingInfo}\n`
+  }
+
+  prompt += `【制作流程】${stepsWithNumber.join(' ')}。\n`
 
   if (tasteDesc) {
-    prompt += `${tasteDesc}口味。`
+    prompt += `【口味特点】${tasteDesc}口味。\n`
   }
 
-  prompt += '美食摄影，高分辨率，自然光，摆盘精美，背景简洁'
+  prompt += `【画面要求】精美的中式美食成品图，菜品摆盘美观，色泽诱人，菜品在盘子中央，汤汁光亮，周围有适量的装饰配菜。自然柔光，高分辨率，背景简洁干净，突出菜品的色香味俱全。采用美食杂志风格的摄影效果，展示菜品最诱人的状态。`
 
   return prompt
 }

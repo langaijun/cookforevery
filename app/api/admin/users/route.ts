@@ -1,19 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { auth } from '@/lib/auth';
+import { requireAdmin } from '@/lib/unified-auth';
 
 export async function GET(request: NextRequest) {
   try {
-    const session = await auth();
-
-    if (!session?.user?.isAdmin) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    const user = await requireAdmin(request);
 
     const { searchParams } = new URL(request.url);
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
     const search = searchParams.get('search') || '';
+
+    // 更新查询以排除当前用户（避免显示自己）
+    const { id: currentUserId } = user;
 
     const skip = (page - 1) * limit;
 
@@ -23,8 +22,9 @@ export async function GET(request: NextRequest) {
             { name: { contains: search, mode: 'insensitive' as const } },
             { email: { contains: search, mode: 'insensitive' as const } },
           ],
+          id: { not: currentUserId }, // 不显示自己
         }
-      : undefined;
+      : { id: { not: currentUserId } };
 
     const [users, total] = await Promise.all([
       prisma.user.findMany({
