@@ -17,7 +17,9 @@
     "check:i18n-api": "tsx scripts/check-i18n-api.ts",
     "i18n:split": "tsx scripts/split-translations.ts",
     "i18n:extract": "tsx scripts/i18n-extract.ts",
-    "init:admin": "tsx scripts/init-admin.ts"
+    "init:admin": "tsx scripts/init-admin.ts",
+    "test:prod": "bash tests/agent-browser/test-production.sh",
+    "test:prod:full": "bash tests/agent-browser/test-production-enhanced.sh"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",

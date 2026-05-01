@@ -1,0 +1,28 @@
+# 依赖文件夹（最大、最占内存）
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Git 文件夹
+.git/
+
+# 日志和缓存
+*.log
+.cache/
+.cursor/
+
+# 环境配置（不需要索引）
+.env
+.env.local
+.env.production
+
+# IDE 配置
+.vscode/
+.idea/
+
+# 临时文件
+tmp/
+temp/
+*.tmp

@@ -3,14 +3,18 @@ import { codeCache } from './redis'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'noreply@homecookhub.com'
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev'
 
 /**
  * 验证码邮件模板
  */
 async function sendVerificationEmail(email: string, code: string) {
   try {
-    await resend.emails.send({
+    console.log('📧 Sending email to:', email)
+    console.log('📧 From:', FROM_EMAIL)
+    console.log('📧 Code:', code)
+
+    const result = await resend.emails.send({
       from: FROM_EMAIL,
       to: [email],
       subject: 'HomeCookHub 验证码',
@@ -27,10 +31,12 @@ async function sendVerificationEmail(email: string, code: string) {
         </div>
       `,
     })
+    console.log('✓ Email sent successfully:', result)
     return { success: true }
-  } catch (error) {
-    console.error('发送验证码邮件失败:', error)
-    return { success: false, message: '发送失败，请稍后再试' }
+  } catch (error: any) {
+    console.error('✗ 发送验证码邮件失败:', error)
+    console.error('✗ Error details:', JSON.stringify(error, null, 2))
+    return { success: false, message: `发送失败: ${error?.message || '请稍后再试'}` }
   }
 }
 

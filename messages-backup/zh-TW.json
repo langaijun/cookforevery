@@ -1,0 +1,204 @@
+{
+  "Common": {
+    "search": "搜尋",
+    "searchPlaceholder": "搜尋食譜名稱、食材...",
+    "reset": "重置",
+    "back": "返回",
+    "cancel": "取消",
+    "minutes": "分鐘",
+    "loading": "載入中...",
+    "noData": "暫無資料",
+    "tryLater": "敬請期待更多精彩食譜",
+    "tryAdjust": "嘗試調整搜尋條件或等待管理員從 GitHub 同步食譜",
+    "justNow": "剛剛",
+    "minutesAgo": "{time}分鐘前",
+    "hoursAgo": "{time}小時前",
+    "daysAgo": "{time}天前"
+  },
+  "Metadata": {
+    "siteTitle": "HomeCookHub - 家庭中式食譜",
+    "siteDescription": "發現美味中式食譜，輕鬆烹飪，讓每一餐都充滿家的味道。無廣告、開源、社群驅動。",
+    "homeTitle": "家庭中式食譜",
+    "homeDescription": "發現美味，輕鬆烹飪，讓每一餐都充滿家的味道",
+    "recipesTitle": "食譜大全",
+    "recipesDescription": "發現美味的中式食譜，開啟你的烹飪之旅",
+    "recipeDetailTitle": "食譜詳情",
+    "recipeDetailDescription": "學習如何用分步說明烹飪美味的中式菜肴",
+    "profileTitle": "個人中心",
+    "profileDescription": "管理你的帳戶，查看你的分享和收藏"
+  },
+  "Header": {
+    "home": "首頁",
+    "recipes": "食譜",
+    "share": "分享",
+    "profile": "個人中心",
+    "login": "登入",
+    "logout": "登出",
+    "register": "註冊"
+  },
+  "Home": {
+    "title": "家庭中式食譜",
+    "subtitle": "發現美味，輕鬆烹飪，讓每一餐都充滿家的味道",
+    "searchPlaceholder": "搜尋食譜名稱、食材...",
+    "searchButton": "搜尋",
+    "latestRecipes": "最新食譜",
+    "viewAll": "查看全部",
+    "emptyTitle": "暫無食譜資料",
+    "emptyDesc": "敬請期待更多精彩食譜"
+  },
+  "Recipes": {
+    "title": "食譜大全",
+    "subtitle": "發現美味的中式食譜，開啟你的烹飪之旅",
+    "searchPlaceholder": "搜尋食譜名稱...",
+    "allDifficulty": "所有難度",
+    "emptyTitle": "暫無食譜資料",
+    "emptyDesc": "嘗試調整搜尋條件或等待管理員從 GitHub 同步食譜",
+    "backToList": "返回食譜列表"
+  },
+  "ShareForm": {
+    "title": "分享你的料理",
+    "imageUrl": "圖片連結",
+    "imageUrlHint": "請輸入菜品圖片的 URL",
+    "relatedRecipe": "關聯食譜",
+    "optional": "選填",
+    "selectRecipe": "選擇食譜",
+    "caption": "配文",
+    "captionPlaceholder": "分享你的烹調過程…",
+    "submit": "發布分享",
+    "tipsTitle": "分享小技巧",
+    "tip1": "使用清晰、光線充足的照片",
+    "tip2": "簡要描述烹調步驟",
+    "tip3": "分享心得與撇步"
+  },
+  "SharePage": {
+    "title": "社群分享",
+    "subtitle": "看看大家都在做什麼菜",
+    "emptyTitle": "尚無分享",
+    "emptyDesc": "來分享你的第一道拿手菜吧！"
+  },
+  "IngredientInput": {
+    "placeholder": "輸入食材（如：雞蛋、番茄）",
+    "add": "添加",
+    "clear": "清除"
+  },
+  "LoginForm": {
+    "emailLabel": "郵箱",
+    "codeLabel": "驗證碼",
+    "sendCode": "發送驗證碼",
+    "codeSent": "已發送",
+    "loading": "登入中...",
+    "login": "登入"
+  },
+  "OAuth": {
+    "or": "或",
+    "github": "GitHub 登入",
+    "google": "Google 登入"
+  },
+  "Login": {
+    "title": "登入",
+    "subtitle": "歡迎回來，開始你的烹飪之旅",
+    "emailLogin": "郵箱登入",
+    "oauthLogin": "第三方登入"
+  },
+  "RecipeDetail": {
+    "recipeNotFound": "食譜不存在",
+    "checkLink": "請檢查連結是否正確",
+    "backToList": "返回食譜列表",
+    "difficulty": "難度",
+    "time": "時間",
+    "likes": "按讚",
+    "comments": "評論",
+    "description": "描述",
+    "ingredients": "食材",
+    "steps": "製作步驟",
+    "videoTutorial": "視頻教學",
+    "watchVideo": "點擊觀看視頻教學"
+  },
+  "Difficulty": {
+    "EASY": "簡單",
+    "MEDIUM": "中等",
+    "HARD": "困難"
+  },
+  "Taste": {
+    "sour": "酸",
+    "sweet": "甜",
+    "spicy": "辣",
+    "salty": "鹹",
+    "savory": "鮮",
+    "numb": "麻",
+    "mild": "清淡"
+  },
+  "Profile": {
+    "info": "個人資料",
+    "myShares": "我的分享",
+    "myFavorites": "我的收藏",
+    "noShares": "暫無分享",
+    "noFavorites": "暫無收藏",
+    "browseRecipes": "去瀏覽食譜",
+    "joinedAt": "加入時間",
+    "shares": "分享",
+    "comments": "評論",
+    "likes": "按讚",
+    "favorites": "收藏",
+    "logout": "登出",
+    "loadFailed": "載入失敗，請稍後重試",
+    "page": "第 {n} 頁"
+  },
+  "Footer": {
+    "copyright": "© 2026 HomeCookHub. 讓每一餐都充滿家的味道。",
+    "about": "關於我們",
+    "aboutHomeCookHub": "關於 HomeCookHub",
+    "contact": "聯絡我們",
+    "privacy": "隱私政策",
+    "terms": "服務條款",
+    "resources": "資源",
+    "recipesAll": "食譜大全",
+    "cookingTips": "烹飪技巧",
+    "community": "社區",
+    "sharePhotos": "分享照片",
+    "openSourceProject": "開源專案",
+    "copyrightFull": "© 2026 HomeCookHub. 無廣告、開源、社群驅動。",
+    "recipeDataSource": "食譜資料來源於",
+    "followLicense": "遵循",
+    "license": "許可",
+    "legal": "法律"
+  },
+  "API": {
+    "recipeNotFound": "食譜不存在",
+    "fetchRecipeFailed": "獲取食譜詳情失敗",
+    "fetchRecipesFailed": "獲取食譜列表失敗"
+  },
+  "LikeButton": {
+    "liked": "已按讚",
+    "notLiked": "按讚",
+    "loginToLike": "登入後按讚"
+  },
+  "CommentForm": {
+    "placeholder": "寫下你的評論...",
+    "submit": "發表評論",
+    "loginToComment": "登入後評論"
+  },
+  "CommentList": {
+    "title": "評論",
+    "empty": "還沒有評論，快來搶沙發！",
+    "delete": "刪除",
+    "confirmDelete": "確定要刪除這條評論嗎？",
+    "justNow": "剛剛",
+    "minutesAgo": "{time}分鐘前",
+    "hoursAgo": "{time}小時前",
+    "daysAgo": "{time}天前"
+  },
+  "ShareCard": {
+    "sharedBy": "{name} 分享",
+    "linkedRecipe": "基於食譜：{name}",
+    "viewRecipe": "查看食譜"
+  },
+  "ShareSquare": {
+    "title": "分享廣場",
+    "description": "看看社區都在做什麼菜",
+    "empty": "還沒有分享",
+    "loadMore": "載入更多",
+    "createShare": "建立分享",
+    "beFirst": "成為第一個分享的人！"
+  }
+}

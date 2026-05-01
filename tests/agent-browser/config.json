@@ -1,0 +1,83 @@
+{
+  "baseUrl": "https://cookforevery-production.up.railway.app",
+  "timeout": 30000,
+  "testUser": {
+    "email": "meal@xile2026.cn",
+    "password": ""
+  },
+  "endpoints": {
+    "home": "/",
+    "recipes": "/recipes",
+    "recipe": "/recipe/",
+    "login": "/login",
+    "admin": "/admin",
+    "dashboard": "/dashboard",
+    "api": {
+      "recipes": "/api/recipes",
+      "auth": "/api/auth"
+    }
+  },
+  "testCases": [
+    {
+      "name": "Recipe Search",
+      "description": "按食谱查询 - Search recipes by name",
+      "steps": [
+        "Open home page",
+        "Fill search input with '鸡蛋'",
+        "Press Enter",
+        "Verify results display"
+      ]
+    },
+    {
+      "name": "Ingredient Search",
+      "description": "按食材查询 - Search by ingredients",
+      "steps": [
+        "Navigate to recipes page",
+        "Fill search with ingredient",
+        "Verify ingredient results"
+      ]
+    },
+    {
+      "name": "Login",
+      "description": "登录 - Email + verification code",
+      "steps": [
+        "Click login button",
+        "Enter email: meal@xile2026.cn",
+        "Request verification code",
+        "Enter code (manual)",
+        "Verify login success"
+      ]
+    },
+    {
+      "name": "Comments",
+      "description": "评论功能 - Post comments",
+      "steps": [
+        "Open a recipe",
+        "Click comment button",
+        "Enter test comment",
+        "Submit comment",
+        "Verify comment appears"
+      ]
+    },
+    {
+      "name": "Likes",
+      "description": "点赞功能 - Like recipes",
+      "steps": [
+        "Open a recipe",
+        "Click like button",
+        "Verify count increases"
+      ]
+    },
+    {
+      "name": "Admin Dashboard",
+      "description": "后台数据管理 - Backend data management",
+      "steps": [
+        "Navigate to /admin",
+        "Verify page loads",
+        "Check data displays correctly",
+        "Navigate to /dashboard",
+        "Verify data accessibility"
+      ]
+    }
+  ]
+}
