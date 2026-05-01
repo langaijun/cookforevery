@@ -36,13 +36,16 @@ async function loadMessages(locale: string): Promise<Record<string, any>> {
   for (const module of TRANSLATION_MODULES) {
     try {
       // 使用动态导入，兼容 Edge Runtime
-      const moduleMessages = (await import(`../messages/${locale}/${module}.json`)).default
+      const modulePath = `../messages/${locale}/${module}.json`
+      const moduleMessages = (await import(modulePath)).default
       Object.assign(messages, moduleMessages)
+      console.log(`Loaded ${module}.json for ${locale}`)
     } catch (error) {
       console.warn(`Failed to load ${module}.json for ${locale}:`, error)
     }
   }
 
+  console.log(`Loaded ${Object.keys(messages).length} translation keys for ${locale}`)
   return messages
 }
 
@@ -54,8 +57,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale
   }
 
+  const messages = await loadMessages(locale)
+
+  console.log(`i18n config: locale=${locale}, message count=${Object.keys(messages).length}`)
+
   return {
     locale,
-    messages: await loadMessages(locale),
+    messages,
   }
 })
