@@ -11,6 +11,20 @@ const TRANSLATION_MODULES = [
   'social',
   'layout',
   'metadata',
+  'home',
+  'ingredientInput',
+  'commentList',
+  'commentForm',
+  'recipeDetail',
+  'recipes',
+  'login',
+  'loginForm',
+  'header',
+  'footer',
+  'oauth',
+  'sharePage',
+  'shareForm',
+  'shareCard',
 ]
 
 /**
