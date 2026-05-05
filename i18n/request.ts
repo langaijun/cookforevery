@@ -24,6 +24,8 @@ import zhCNOAuth from '../messages/zh-CN/oauth.json'
 import zhCNSharePage from '../messages/zh-CN/sharePage.json'
 import zhCNShareForm from '../messages/zh-CN/shareForm.json'
 import zhCNShareCard from '../messages/zh-CN/shareCard.json'
+import zhCNTaste from '../messages/zh-CN/Taste.json'
+import zhCNDifficulty from '../messages/zh-CN/Difficulty.json'
 
 import enCommon from '../messages/en/common.json'
 import enRecipe from '../messages/en/recipe.json'
@@ -47,6 +49,8 @@ import enOAuth from '../messages/en/oauth.json'
 import enSharePage from '../messages/en/sharePage.json'
 import enShareForm from '../messages/en/shareForm.json'
 import enShareCard from '../messages/en/shareCard.json'
+import enTaste from '../messages/en/Taste.json'
+import enDifficulty from '../messages/en/Difficulty.json'
 
 // 翻译文件映射（添加命名空间包装）
 const translationFiles: Record<string, Record<string, any>> = {
@@ -73,6 +77,8 @@ const translationFiles: Record<string, Record<string, any>> = {
     SharePage: zhCNSharePage,
     ShareForm: zhCNShareForm,
     ShareCard: zhCNShareCard,
+    Taste: zhCNTaste,
+    Difficulty: zhCNDifficulty,
   },
   'en': {
     Common: enCommon,
@@ -97,6 +103,8 @@ const translationFiles: Record<string, Record<string, any>> = {
     SharePage: enSharePage,
     ShareForm: enShareForm,
     ShareCard: enShareCard,
+    Taste: enTaste,
+    Difficulty: enDifficulty,
   },
 }
 
