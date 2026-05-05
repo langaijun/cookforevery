@@ -23,7 +23,7 @@ function createBackend(): RedisBackend {
     const client = new IORedis(process.env.REDIS_URL!, {
       lazyConnect: true,
       maxRetriesPerRequest: null,
-      enableOfflineQueue: false,
+      enableOfflineQueue: true,
     })
     // 避免 DNS / 连接失败时 Node 报 “Unhandled 'error' event”（本地 Railway 内网 URL 等）
     client.on('error', () => {})
