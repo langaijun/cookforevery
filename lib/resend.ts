@@ -35,7 +35,10 @@ async function sendVerificationEmail(email: string, code: string) {
     return { success: true }
   } catch (error: any) {
     console.error('✗ 发送验证码邮件失败:', error)
-    console.error('✗ Error details:', JSON.stringify(error, null, 2))
+    console.error('✗ Error name:', error?.name)
+    console.error('✗ Error message:', error?.message)
+    console.error('✗ Error code:', error?.code)
+    console.error('✗ Full error:', JSON.stringify(error, null, 2))
     return { success: false, message: `发送失败: ${error?.message || '请稍后再试'}` }
   }
 }
@@ -45,20 +48,28 @@ async function sendVerificationEmail(email: string, code: string) {
  * @param email 邮箱地址
  */
 export async function sendVerificationCode(email: string) {
+  console.log('🔑 [sendVerificationCode] Starting for email:', email)
+
   // 检查是否已发送过验证码（1分钟内）
   const recentCode = await codeCache.get(email)
   if (recentCode) {
+    console.log('⏱️ [sendVerificationCode] Recent code exists, blocking')
     return { success: false, message: '验证码已发送，请稍后再试' }
   }
 
   // 生成6位随机验证码
   const code = Math.floor(100000 + Math.random() * 900000).toString()
+  console.log('🎲 [sendVerificationCode] Generated code:', code)
 
   // 存储到 Redis（10分钟过期）
   await codeCache.set(email, code, 600)
+  console.log('💾 [sendVerificationCode] Code cached in Redis for 600 seconds')
 
   // 发送邮件
-  return await sendVerificationEmail(email, code)
+  const result = await sendVerificationEmail(email, code)
+  console.log('📬 [sendVerificationCode] Send result:', result)
+
+  return result
 }
 
 /**
