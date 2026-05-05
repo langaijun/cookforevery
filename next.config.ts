@@ -5,12 +5,22 @@ const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const nextConfig: NextConfig = {
   /* config options here */
-  // Force disable caching for development/debugging
+  // Force disable all caching for Railway builds
   webpack: (config, { dev }) => {
-    if (!dev) {
-      config.cache = false;
-    }
+    // Disable webpack cache completely
+    config.cache = false;
+
+    // Force rebuild by changing build ID
+    config.optimization = {
+      ...config.optimization,
+      moduleIds: 'deterministic',
+    };
+
     return config;
+  },
+  // Disable static optimization cache
+  generateBuildId: async () => {
+    return `build-${Date.now()}`;
   },
 };
 
