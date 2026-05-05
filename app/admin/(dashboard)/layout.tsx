@@ -1,4 +1,5 @@
 import { requireAdmin } from '@/lib/admin-auth';
+import { redirect } from 'next/navigation';
 import AdminSidebar from '@/components/admin/Sidebar';
 
 export const dynamic = 'force-dynamic';
@@ -8,7 +9,11 @@ export default async function AdminDashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const user = await requireAdmin();
+  try {
+    const user = await requireAdmin();
+  } catch (error) {
+    redirect('/admin/login');
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
