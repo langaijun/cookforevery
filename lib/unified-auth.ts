@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+import { NextRequest, cookies } from 'next/server'
 import { jwtVerify } from 'jose'
 import { auth } from '@/lib/auth'
 
@@ -17,7 +17,7 @@ interface AuthUser {
 /**
  * 统一认证：支持 NextAuth session 和 JWT token
  */
-export async function getAuthenticatedUser(request: NextRequest): Promise<AuthUser | null> {
+export async function getAuthenticatedUser(request?: NextRequest): Promise<AuthUser | null> {
   // 首先检查 NextAuth session（OAuth 登录）
   const session = await auth()
   if (session?.user?.id) {
@@ -31,7 +31,8 @@ export async function getAuthenticatedUser(request: NextRequest): Promise<AuthUs
   }
 
   // 然后检查 JWT token（邮箱验证码登录）
-  const token = request.cookies.get('auth-token')?.value
+  const cookieStore = request?.cookies || cookies()
+  const token = cookieStore.get('auth-token')?.value
   if (!token) return null
 
   try {
@@ -53,7 +54,7 @@ export async function getAuthenticatedUser(request: NextRequest): Promise<AuthUs
  * 从数据库查询完整信息
  */
 export async function getAuthenticatedUserWithDb(
-  request: NextRequest
+  request?: NextRequest
 ): Promise<AuthUser | null> {
   const user = await getAuthenticatedUser(request)
   if (!user) return null
@@ -84,7 +85,7 @@ export async function getAuthenticatedUserWithDb(
 /**
  * 检查用户是否已认证
  */
-export async function isAuthenticated(request: NextRequest): Promise<boolean> {
+export async function isAuthenticated(request?: NextRequest): Promise<boolean> {
   const user = await getAuthenticatedUser(request)
   return user !== null
 }
@@ -93,7 +94,7 @@ export async function isAuthenticated(request: NextRequest): Promise<boolean> {
  * 要求管理员权限
  */
 export async function requireAdmin(
-  request: NextRequest
+  request?: NextRequest
 ): Promise<AuthUser> {
   const user = await getAuthenticatedUserWithDb(request)
 

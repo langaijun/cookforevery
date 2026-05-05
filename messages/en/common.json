@@ -13,5 +13,19 @@
   "minutesAgo": "{time}m ago",
   "hoursAgo": "{time}h ago",
   "daysAgo": "{time}d ago",
-  "submit": "Submit"
+  "submit": "Submit",
+  "Taste": {
+    "sour": "Sour",
+    "sweet": "Sweet",
+    "spicy": "Spicy",
+    "salty": "Salty",
+    "savory": "Savory",
+    "numb": "Numbing",
+    "mild": "Mild"
+  },
+  "Difficulty": {
+    "EASY": "Easy",
+    "MEDIUM": "Medium",
+    "HARD": "Hard"
+  }
 }

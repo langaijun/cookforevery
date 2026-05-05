@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import AdminLoginForm from '@/components/admin/AdminLoginForm';
 
 export default async function AdminLoginPage() {
-  const user = await getAuthenticatedUserWithDb({ cookies: () => ({ get: () => null }) } as any);
+  const user = await getAuthenticatedUserWithDb();
 
   // If already logged in and is admin, redirect to admin dashboard
   if (user?.email && user.isAdmin) {

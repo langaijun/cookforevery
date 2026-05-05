@@ -13,5 +13,19 @@
   "minutesAgo": "{time}分钟前",
   "hoursAgo": "{time}小时前",
   "daysAgo": "{time}天前",
-  "submit": "提交"
+  "submit": "提交",
+  "Taste": {
+    "sour": "酸",
+    "sweet": "甜",
+    "spicy": "辣",
+    "salty": "咸",
+    "savory": "鲜",
+    "numb": "麻",
+    "mild": "清淡"
+  },
+  "Difficulty": {
+    "EASY": "简单",
+    "MEDIUM": "中等",
+    "HARD": "困难"
+  }
 }
