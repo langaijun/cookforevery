@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist } from "next/font/google"
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { routing } from '@/i18n'
@@ -12,10 +12,9 @@ const geistSans = Geist({
   subsets: ["latin"],
 })
 
-const geistMono = Geist_Mono({
+const geistMono = {
   variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
+}
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cookforevery-production.up.railway.app'
 

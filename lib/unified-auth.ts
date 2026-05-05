@@ -1,4 +1,5 @@
-import { NextRequest, cookies } from 'next/server'
+import { NextRequest } from 'next/server'
+import { cookies } from 'next/headers'
 import { jwtVerify } from 'jose'
 import { auth } from '@/lib/auth'
 
@@ -31,7 +32,7 @@ export async function getAuthenticatedUser(request?: NextRequest): Promise<AuthU
   }
 
   // 然后检查 JWT token（邮箱验证码登录）
-  const cookieStore = request?.cookies || cookies()
+  const cookieStore = request?.cookies || await cookies()
   const token = cookieStore.get('auth-token')?.value
   if (!token) return null
 
