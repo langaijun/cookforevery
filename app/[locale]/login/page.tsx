@@ -23,13 +23,13 @@ export default async function LoginPage() {
             </p>
           </div>
 
-          {/* 邮箱验证码登录 */}
-          <div className="space-y-4">
+          {/* 邮箱验证码登录（暂时禁用） */}
+          {/* <div className="space-y-4">
             <h2 className="text-xl font-semibold mb-4">
               {t('Login.emailLogin')}
             </h2>
             <LoginForm />
-          </div>
+          </div> */}
 
           {/* OAuth 登录 */}
           <div className="space-y-4">
@@ -37,6 +37,13 @@ export default async function LoginPage() {
               {t('Login.oauthLogin')}
             </h2>
             <OAuthButtons />
+          </div>
+
+          {/* 邮箱登录维护提示 */}
+          <div className="mt-8 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+            <p className="text-sm text-center">
+              📧 邮箱验证码登录功能暂时维护中，请使用 GitHub/Google 方式登录
+            </p>
           </div>
         </div>
       </main>
