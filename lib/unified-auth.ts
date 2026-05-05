@@ -8,8 +8,8 @@ const JWT_SECRET = new TextEncoder().encode(
 
 interface AuthUser {
   id: string
-  email: string
-  name: string
+  email: string | null
+  name: string | null
   avatar: string | null
   isAdmin: boolean
 }
@@ -23,10 +23,10 @@ export async function getAuthenticatedUser(request: NextRequest): Promise<AuthUs
   if (session?.user?.id) {
     return {
       id: session.user.id,
-      email: session.user.email,
-      name: session.user.name,
-      avatar: session.user.avatar,
-      isAdmin: session.user.isAdmin,
+      email: session.user.email ?? null,
+      name: session.user.name ?? null,
+      avatar: session.user.avatar ?? null,
+      isAdmin: session.user.isAdmin ?? false,
     }
   }
 
@@ -64,7 +64,7 @@ export async function getAuthenticatedUserWithDb(
   }
 
   // 如果是 JWT 登录，从数据库查询完整信息
-  const { prisma } = await import('@/lib/prisma').then(m => m.prisma)
+  const { prisma } = await import('@/lib/prisma')
   const dbUser = await prisma.user.findUnique({
     where: { id: user.id },
     select: {

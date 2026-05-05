@@ -33,7 +33,8 @@
       "Bash(railway deployments:*)",
       "Bash(npm config:*)",
       "Bash(echo \"Registry: $\\(npm config get registry\\)\")",
-      "Bash(npx prisma:*)"
+      "Bash(npx prisma:*)",
+      "Bash(curl -s \"https://cookforevery-production.up.railway.app/\")"
     ]
   }
 }

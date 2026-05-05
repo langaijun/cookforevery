@@ -4,14 +4,21 @@
  */
 
 const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY
-const API_URL_SYNC = 'https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation'
-const API_URL_ASYNC = 'https://dashscope.aliyuncs.com/api/v1/services/aigc/image-generation/generation'
+if (DASHSCOPE_API_KEY) {
+  console.log('DASHSCOPE_API_KEY loaded, length:', DASHSCOPE_API_KEY.length, 'prefix:', DASHSCOPE_API_KEY.substring(0, 15))
+} else {
+  console.error('DASHSCOPE_API_KEY not set')
+}
+
+// Token Plan 团队版 OpenAI 兼容接口
+const API_URL_ASYNC = 'https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/images/generations'
 
 export interface RecipeInfo {
   name: string
   description: string
   ingredients: string[]
   tasteTags: string[]
+  steps?: string[]
 }
 
 export interface TongyiImageResult {
@@ -50,6 +57,8 @@ function extractKeyInfo(description: string): string {
  * 从步骤中提取烹饪方法和工具
  */
 function extractCookingMethod(steps: string[]): string {
+  if (!steps || steps.length === 0) return ''
+
   const methods: string[] = []
   const tools: string[] = []
 
@@ -66,7 +75,6 @@ function extractCookingMethod(steps: string[]): string {
   if (allText.includes('炒锅') || allText.includes('锅')) tools.push('炒锅')
   if (allText.includes('蒸笼') || allText.includes('蒸')) tools.push('蒸笼')
   if (allText.includes('煮锅')) tools.push('煮锅')
-  if (allText.includes('烤箱') || allText.includes('烤')) tools.push('烤箱')
 
   let result = ''
   if (methods.length > 0) result += `烹饪方式：${methods.join('、')}。`
@@ -79,14 +87,12 @@ function extractCookingMethod(steps: string[]): string {
  * 生成更详细的提示词
  */
 function generatePrompt(recipe: RecipeInfo): string {
-  const { name, description, ingredients, tasteTags, steps } = recipe
+  const { name, description, ingredients, tasteTags, steps = [] } = recipe
 
   // 步骤按顺序，每个加上清晰的前缀
   const stepsWithNumber = steps.map((step, i) => {
-    // 提取关键动词和食材，让步骤更精炼
     let conciseStep = step
-      .replace(/等/g, '，') // 简化标点
-      .replace(/。/g, '，') // 统一标点
+      conciseStep = conciseStep.replace(/等/g, '，').replace(/。/g, '，')
 
     return `【步骤${i + 1}】${conciseStep}`
   })
@@ -115,10 +121,12 @@ function generatePrompt(recipe: RecipeInfo): string {
   }
 
   if (cookingInfo) {
-    prompt += `【${cookingInfo}\n`
+    prompt += `【${cookingInfo}】\n`
   }
 
-  prompt += `【制作流程】${stepsWithNumber.join(' ')}。\n`
+  if (steps.length > 0) {
+    prompt += `【制作流程】${stepsWithNumber.join(' ')}。\n`
+  }
 
   if (tasteDesc) {
     prompt += `【口味特点】${tasteDesc}口味。\n`
@@ -133,14 +141,16 @@ function generatePrompt(recipe: RecipeInfo): string {
 /**
  * 轮询异步任务结果
  */
-async function pollAsyncResult(taskId: string, maxWaitSeconds = 180): Promise<TongyiImageResult> {
+async function pollAsyncResult(taskId: string, maxWaitSeconds = 300): Promise<TongyiImageResult> {
   const startTime = Date.now()
+  let pollCount = 0
 
   while (Date.now() - startTime < maxWaitSeconds * 1000) {
-    await new Promise(resolve => setTimeout(resolve, 3000)) // 每3秒轮询一次
+    pollCount++
+    await new Promise(resolve => setTimeout(resolve, 3000))
 
     const response = await fetch(
-      `https://dashscope.aliyuncs.com/api/v1/tasks/${taskId}`,
+      `https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/images/generations/${taskId}`,
       {
         headers: {
           'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
@@ -149,15 +159,18 @@ async function pollAsyncResult(taskId: string, maxWaitSeconds = 180): Promise<To
     )
 
     if (!response.ok) {
+      console.error(`  轮询 ${pollCount} 失败: HTTP ${response.status}`)
       continue
     }
 
     const data = await response.json()
 
-    if (data.output?.task_status === 'SUCCEEDED') {
-      const imageUrl = data.output?.choices?.[0]?.message?.content?.find(
-        (item: any) => item.type === 'image'
-      )?.image
+    const status = data.status
+
+    console.log(`  轮询 ${pollCount}: 状态=${status}`)
+
+    if (status === 'succeeded') {
+      const imageUrl = data.data?.url
 
       if (!imageUrl) {
         return { error: '未返回图片 URL' }
@@ -166,8 +179,12 @@ async function pollAsyncResult(taskId: string, maxWaitSeconds = 180): Promise<To
       return { imageUrl }
     }
 
-    if (data.output?.task_status === 'FAILED') {
-      return { error: data.message || '任务执行失败' }
+    if (status === 'failed') {
+      return { error: data.error || '任务执行失败' }
+    }
+
+    if (status === 'cancelled') {
+      return { error: '任务已取消' }
     }
   }
 
@@ -175,7 +192,7 @@ async function pollAsyncResult(taskId: string, maxWaitSeconds = 180): Promise<To
 }
 
 /**
- * 调用通义万相 API 生成图片（异步模式）
+ * 调用 Token Plan 团队版 OpenAI 兼容接口生成图片（异步模式）
  */
 export async function generateRecipeImage(recipe: RecipeInfo): Promise<TongyiImageResult> {
   if (!DASHSCOPE_API_KEY) {
@@ -191,41 +208,30 @@ export async function generateRecipeImage(recipe: RecipeInfo): Promise<TongyiIma
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
-        'X-DashScope-Async': 'enable',
       },
       body: JSON.stringify({
-        model: 'wan2.6-image',
-        input: {
-          messages: [
-            {
-              role: 'user',
-              content: [{ text: prompt }]
-            }
-          ]
-        },
-        parameters: {
-          size: '1280*720',
-          n: 1,
-          watermark: false,
-          enable_interleave: true
-        }
+        model: 'Wan2.7-Image',
+        prompt: prompt,
+        size: '1024x1024',
+        n: 1
       })
     })
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error('通义万相 API 错误:', errorText)
+      console.error('Token Plan API 错误:', errorText)
       return { error: `API 调用失败: ${response.status}` }
     }
 
     const data = await response.json()
 
-    if (data.code) {
-      console.error('通义万相返回错误:', data)
-      return { error: data.message || '创建任务失败' }
+    if (data.error) {
+      console.error('Token Plan 返回错误:', data)
+      return { error: data.error || '创建任务失败' }
     }
 
-    const taskId = data.output?.task_id
+    const taskId = data.id
+
     if (!taskId) {
       return { error: '未返回任务 ID' }
     }
@@ -237,7 +243,7 @@ export async function generateRecipeImage(recipe: RecipeInfo): Promise<TongyiIma
 
     return result
   } catch (error) {
-    console.error('通义万相调用异常:', error)
+    console.error('Token Plan 调用异常:', error)
     return { error: `请求异常: ${error instanceof Error ? error.message : String(error)}` }
   }
 }

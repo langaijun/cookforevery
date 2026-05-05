@@ -34,6 +34,7 @@ export async function generateAndStoreRecipeImage(
       description: true,
       ingredients: true,
       tasteTags: true,
+      steps: true,
       imageUrl: true
     }
   })
@@ -48,7 +49,8 @@ export async function generateAndStoreRecipeImage(
       name: recipe.name,
       description: recipe.description,
       ingredients: recipe.ingredients,
-      tasteTags: recipe.tasteTags
+      tasteTags: recipe.tasteTags,
+      steps: recipe.steps
     })
 
     if (result.error) {
@@ -107,7 +109,8 @@ export async function generateAndStoreAllRecipes(
         name: true,
         description: true,
         ingredients: true,
-        tasteTags: true
+        tasteTags: true,
+        steps: true
       },
       take: limit,
       orderBy: { createdAt: 'asc' }
@@ -139,7 +142,8 @@ export async function generateAndStoreAllRecipes(
             name: recipe.name,
             description: recipe.description,
             ingredients: recipe.ingredients,
-            tasteTags: recipe.tasteTags
+            tasteTags: recipe.tasteTags,
+            steps: recipe.steps
           })
 
           if (genResult.error) {
