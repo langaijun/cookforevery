@@ -141,8 +141,7 @@
     "likes": "Likes",
     "favorites": "Favorites",
     "logout": "Log out",
-    "loadFailed": "Failed to load. Please try again.",
-    "page": "Page {n}"
+        "page": "Page {n}"
   },
   "Footer": {
     "copyright": "© 2026 HomeCookHub.",

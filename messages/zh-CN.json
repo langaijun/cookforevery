@@ -141,8 +141,7 @@
     "likes": "点赞",
     "favorites": "收藏",
     "logout": "退出登录",
-    "loadFailed": "加载失败，请稍后重试",
-    "page": "第 {n} 页"
+        "page": "第 {n} 页"
   },
   "Footer": {
     "copyright": "© 2026 HomeCookHub. 让每一餐都充满家的味道。",
