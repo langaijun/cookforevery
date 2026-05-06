@@ -1,10 +1,9 @@
 # Railway configuration for Next.js
 [build]
-command = "rm -rf .next && npx prisma generate && npm run build"
+command = ".railwaydeploy.sh"
 
-# 仅执行补丁 SQL（补 User 列），不做全量 db push——避免与现网 Recipe 等表结构差异触发 data-loss 中止
 [deploy]
-preDeployCommand = "npx prisma db execute --file prisma/sql/predeploy_user_columns.sql --schema prisma/schema.prisma"
+preDeployCommand = "npx prisma generate && npx prisma db execute --file prisma/sql/predeploy_user_columns.sql --schema prisma/schema.prisma"
 
 [env]
 NODE_ENV = "production"
