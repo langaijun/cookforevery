@@ -1,19 +1,12 @@
 {
-  "Metadata": {
-    "siteTitle": "HomeCookHub - 가정 중식 레시피",
-    "siteDescription": "맛있는 중국 요리를 발견하고, 쉽게 요리하여 매 끼니를 집의 맛으로. 광고 없음, 오픈 소스, 커뮤니티 주도.",
-    "homeTitle": "가정 중식 레시피",
-    "homeDescription": "맛있는 요리를 발견하고, 쉽게 요리하여 매 끼니를 집의 맛으로",
-    "recipesTitle": "레시피 모음",
-    "recipesDescription": "맛있는 중국 요리를 발견하고 요리 여정을 시작하세요",
-    "recipeDetailTitle": "레시피 상세",
-    "recipeDetailDescription": "단계별 지침으로 맛있는 중국 요리를 만드는 방법을 배우세요",
-    "profileTitle": "프로필",
-    "profileDescription": "계정을 관리하고, 공유와 즐겨찾기를 확인하세요"
-  },
-  "API": {
-    "recipeNotFound": "레시피를 찾을 수 없습니다",
-    "fetchRecipeFailed": "레시피 상세를 가져오는 데 실패했습니다",
-    "fetchRecipesFailed": "레시피 목록을 가져오는 데 실패했습니다"
-  }
+  "siteTitle": "HomeCookHub - 가정 중식 레시피",
+  "siteDescription": "맛있는 중국 요리를 발견하고, 쉽게 요리하여 매 끼니를 집의 맛으로. 광고 없음, 오픈 소스, 커뮤니티 주도.",
+  "homeTitle": "가정 중식 레시피",
+  "homeDescription": "맛있는 요리를 발견하고, 쉽게 요리하여 매 끼니를 집의 맛으로",
+  "recipesTitle": "레시피 모음",
+  "recipesDescription": "맛있는 중국 요리를 발견하고 요리 여정을 시작하세요",
+  "recipeDetailTitle": "레시피 상세",
+  "recipeDetailDescription": "단계별 지침으로 맛있는 중국 요리를 만드는 방법을 배우세요",
+  "profileTitle": "프로필",
+  "profileDescription": "계정을 관리하고, 공유와 즐겨찾기를 확인하세요"
 }

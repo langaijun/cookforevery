@@ -1,19 +1,12 @@
 {
-  "Metadata": {
-    "siteTitle": "HomeCookHub - 家庭中華料理",
-    "siteDescription": "美味しい中華料理を発見、簡単に調理、毎食を家の味に。広告なし、オープンソース、コミュニティ主導。",
-    "homeTitle": "家庭中華料理",
-    "homeDescription": "美味しさを発見、簡単な調理、毎食を家の味に",
-    "recipesTitle": "レシピ集",
-    "recipesDescription": "美味しい中華料理を発見、料理の旅を始めよう",
-    "recipeDetailTitle": "レシピ詳細",
-    "recipeDetailDescription": "ステップバイステップで美味しい中華料理の作り方を学ぼう",
-    "profileTitle": "プロフィール",
-    "profileDescription": "アカウントを管理、共有とお気に入りを表示"
-  },
-  "API": {
-    "recipeNotFound": "レシピが見つかりません",
-    "fetchRecipeFailed": "レシピ詳細の取得に失敗しました",
-    "fetchRecipesFailed": "レシピリストの取得に失敗しました"
-  }
+  "siteTitle": "HomeCookHub - 家庭中華料理",
+  "siteDescription": "美味しい中華料理を発見、簡単に調理、毎食を家の味に。広告なし、オープンソース、コミュニティ主導。",
+  "homeTitle": "家庭中華料理",
+  "homeDescription": "美味しさを発見、簡単な調理、毎食を家の味に",
+  "recipesTitle": "レシピ集",
+  "recipesDescription": "美味しい中華料理を発見、料理の旅を始めよう",
+  "recipeDetailTitle": "レシピ詳細",
+  "recipeDetailDescription": "ステップバイステップで美味しい中華料理の作り方を学ぼう",
+  "profileTitle": "プロフィール",
+  "profileDescription": "アカウントを管理、共有とお気に入りを表示"
 }

@@ -1,19 +1,12 @@
 {
-  "Metadata": {
-    "siteTitle": "HomeCookHub - Cuisine Chinoise à la Maison",
-    "siteDescription": "Découvrez des recettes chinoises délicieuses, cuisinez facilement, rendez chaque repas spécial avec le goût de chez vous. Sans publicité, open source, piloté par la communauté.",
-    "homeTitle": "Cuisine Chinoise à la Maison",
-    "homeDescription": "Découvrez des plats délicieux, cuisinez facilement, rendez chaque repas spécial",
-    "recipesTitle": "Collection de recettes",
-    "recipesDescription": "Découvrez des recettes chinoises délicieuses et commencez votre voyage culinaire",
-    "recipeDetailTitle": "Détails de la recette",
-    "recipeDetailDescription": "Apprenez à cuisiner des plats chinois délicieux avec des instructions étape par étape",
-    "profileTitle": "Mon profil",
-    "profileDescription": "Gérez votre compte, voyez vos partages et favoris"
-  },
-  "API": {
-    "recipeNotFound": "Recette introuvable",
-    "fetchRecipeFailed": "Échec de la récupération des détails de la recette",
-    "fetchRecipesFailed": "Échec de la récupération de la liste des recettes"
-  }
+  "siteTitle": "HomeCookHub - Cuisine Chinoise à la Maison",
+  "siteDescription": "Découvrez des recettes chinoises délicieuses, cuisinez facilement, rendez chaque repas spécial avec le goût de chez vous. Sans publicité, open source, piloté par la communauté.",
+  "homeTitle": "Cuisine Chinoise à la Maison",
+  "homeDescription": "Découvrez des plats délicieux, cuisinez facilement, rendez chaque repas spécial",
+  "recipesTitle": "Collection de recettes",
+  "recipesDescription": "Découvrez des recettes chinoises délicieuses et commencez votre voyage culinaire",
+  "recipeDetailTitle": "Détails de la recette",
+  "recipeDetailDescription": "Apprenez à cuisiner des plats chinois délicieux avec des instructions étape par étape",
+  "profileTitle": "Mon profil",
+  "profileDescription": "Gérez votre compte, voyez vos partages et favoris"
 }

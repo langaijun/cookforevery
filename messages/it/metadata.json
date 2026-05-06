@@ -1,19 +1,12 @@
 {
-  "Metadata": {
-    "siteTitle": "HomeCookHub - Cucina Cinese in Casa",
-    "siteDescription": "Scopri ricette cinesi deliziose, cucina facilmente, rendi ogni pasto speciale con il sapore di casa. Nessuna pubblicità, open source, guidato dalla comunità.",
-    "homeTitle": "Cucina Cinese in Casa",
-    "homeDescription": "Scopri piatti deliziosi, cucina facilmente, rendi ogni pasto speciale",
-    "recipesTitle": "Collezione di ricette",
-    "recipesDescription": "Scopri deliziose ricette cinesi e inizia il tuo viaggio culinario",
-    "recipeDetailTitle": "Dettagli ricetta",
-    "recipeDetailDescription": "Impara a cucinare piatti cinesi deliziosi con istruzioni passo dopo passo",
-    "profileTitle": "Il mio profilo",
-    "profileDescription": "Gestisci il tuo account, vedi i tuoi condivisi e preferiti"
-  },
-  "API": {
-    "recipeNotFound": "Ricetta non trovata",
-    "fetchRecipeFailed": "Impossibile recuperare i dettagli della ricetta",
-    "fetchRecipesFailed": "Impossibile recuperare l'elenco delle ricette"
-  }
+  "siteTitle": "HomeCookHub - Cucina Cinese in Casa",
+  "siteDescription": "Scopri ricette cinesi deliziose, cucina facilmente, rendi ogni pasto speciale con il sapore di casa. Nessuna pubblicità, open source, guidato dalla comunità.",
+  "homeTitle": "Cucina Cinese in Casa",
+  "homeDescription": "Scopri piatti deliziosi, cucina facilmente, rendi ogni pasto speciale",
+  "recipesTitle": "Collezione di ricette",
+  "recipesDescription": "Scopri deliziose ricette cinesi e inizia il tuo viaggio culinario",
+  "recipeDetailTitle": "Dettagli ricetta",
+  "recipeDetailDescription": "Impara a cucinare piatti cinesi deliziosi con istruzioni passo dopo passo",
+  "profileTitle": "Il mio profilo",
+  "profileDescription": "Gestisci il tuo account, vedi i tuoi condivisi e preferiti"
 }

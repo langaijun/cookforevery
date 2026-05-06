@@ -1,19 +1,12 @@
 {
-  "Metadata": {
-    "siteTitle": "HomeCookHub - Chinesische Hausmannskost",
-    "siteDescription": "Entdecken Sie köstliche chinesische Rezepte, kochen Sie einfach, machen Sie jede Mahlzeit besonders mit dem Geschmack von zu Hause. Keine Werbung, Open Source, Community-getrieben.",
-    "homeTitle": "Chinesische Hausmannskost",
-    "homeDescription": "Entdecken Sie köstliche Gerichte, kochen Sie einfach, machen Sie jede Mahlzeit besonders",
-    "recipesTitle": "Rezeptsammlung",
-    "recipesDescription": "Entdecken Sie köstliche chinesische Rezepte und beginnen Sie Ihre Kochreise",
-    "recipeDetailTitle": "Rezeptdetails",
-    "recipeDetailDescription": "Lernen Sie, wie man köstliche chinesische Gerichte mit Schritt-für-Schritt-Anweisungen kocht",
-    "profileTitle": "Mein Profil",
-    "profileDescription": "Verwalten Sie Ihr Konto, sehen Sie Ihre geteilten und Favoriten"
-  },
-  "API": {
-    "recipeNotFound": "Rezept nicht gefunden",
-    "fetchRecipeFailed": "Abrufen der Rezeptdetails fehlgeschlagen",
-    "fetchRecipesFailed": "Abrufen der Rezeptliste fehlgeschlagen"
-  }
+  "siteTitle": "HomeCookHub - Chinesische Hausmannskost",
+  "siteDescription": "Entdecken Sie köstliche chinesische Rezepte, kochen Sie einfach, machen Sie jede Mahlzeit besonders mit dem Geschmack von zu Hause. Keine Werbung, Open Source, Community-getrieben.",
+  "homeTitle": "Chinesische Hausmannskost",
+  "homeDescription": "Entdecken Sie köstliche Gerichte, kochen Sie einfach, machen Sie jede Mahlzeit besonders",
+  "recipesTitle": "Rezeptsammlung",
+  "recipesDescription": "Entdecken Sie köstliche chinesische Rezepte und beginnen Sie Ihre Kochreise",
+  "recipeDetailTitle": "Rezeptdetails",
+  "recipeDetailDescription": "Lernen Sie, wie man köstliche chinesische Gerichte mit Schritt-für-Schritt-Anweisungen kocht",
+  "profileTitle": "Mein Profil",
+  "profileDescription": "Verwalten Sie Ihr Konto, sehen Sie Ihre geteilten und Favoriten"
 }
