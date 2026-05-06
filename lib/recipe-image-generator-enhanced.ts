@@ -3,8 +3,9 @@
  */
 
 import { prisma } from './prisma'
+import { downloadAndStoreImage } from './image-storage'
 import { generateRecipeImage } from './tongyi-image'
-import { generateRecipeImageWithFallback } from '../../scripts/generate-recipe-image-fallback'
+import { generateRecipeImageWithFallback } from '../scripts/generate-recipe-image-fallback'
 
 export interface GenerateOptions {
   limit?: number
