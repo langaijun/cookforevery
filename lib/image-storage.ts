@@ -1,11 +1,12 @@
 /**
  * 图片下载和存储工具
- * 用于将生成的图片下载并存储到本地 public 目录
+ * 用于将生成的图片下载并存储到 Railway Bucket + 本地备份
  */
 
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { uploadToBucket, isBucketConfigured } from './railway-bucket'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -22,7 +23,7 @@ function ensureUploadDir(): void {
 }
 
 /**
- * 从 URL 下载图片并保存到本地
+ * 从 URL 下载图片并保存到 Railway Bucket + 本地备份
  */
 export async function downloadAndStoreImage(
   tempUrl: string,
@@ -41,11 +42,27 @@ export async function downloadAndStoreImage(
     // 生成文件名：recipeId-timestamp.png
     const timestamp = Date.now()
     const filename = `${recipeId}-${timestamp}.png`
+    const bucketKey = `uploads/recipes/${filename}`
+
+    // 本地备份
     const filepath = path.join(UPLOAD_DIR, filename)
-
     fs.writeFileSync(filepath, buffer)
+    console.log(`  本地备份: /uploads/recipes/${filename}`)
 
-    // 返回可访问的 URL
+    // 上传到 Railway Bucket
+    if (isBucketConfigured()) {
+      try {
+        const bucketUrl = await uploadToBucket(buffer, bucketKey, 'image/png')
+        console.log(`  Bucket URL: ${bucketUrl}`)
+        return bucketUrl
+      } catch (bucketError) {
+        console.error('  Bucket 上传失败，使用本地路径:', bucketError)
+        return `/uploads/recipes/${filename}`
+      }
+    }
+
+    // Bucket 未配置，返回本地路径
+    console.log(`  Bucket 未配置，使用本地路径`)
     return `/uploads/recipes/${filename}`
   } catch (error) {
     console.error('下载图片失败:', error)

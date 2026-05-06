@@ -1,0 +1,11 @@
+
+    <svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1280" height="720" fill="#FFF8F0"/>
+      <text x="640" y="100" font-size="40" text-anchor="middle" fill="#333">
+        红烧肉
+      </text>
+      <text x="640" y="400" font-size="30" text-anchor="middle" fill="#666">
+        [红烧肉 图片占位]
+      </text>
+    </svg>
+  

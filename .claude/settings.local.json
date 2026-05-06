@@ -35,7 +35,10 @@
       "Bash(echo \"Registry: $\\(npm config get registry\\)\")",
       "Bash(npx prisma:*)",
       "Bash(curl -s \"https://cookforevery-production.up.railway.app/\")",
-      "mcp__railway__check-railway-status"
+      "mcp__railway__check-railway-status",
+      "Bash(node -e ' *)",
+      "Bash(curl -s \"https://cookforevery-production.up.railway.app/api/test-image-generation\" -X POST -H \"Content-Type: application/json\" -d '{\"name\":\"测试\"}')",
+      "Bash(railway open *)"
     ]
   }
 }

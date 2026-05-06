@@ -1,17 +1,39 @@
 /**
- * 阿里云通义万相 (Wanxiang) API 调用工具
+ * 图片生成工具
+ * 支持 OpenAI DALL-E 和阿里云通义万相 (Wanxiang)
  * 用于生成食谱图片
  */
 
-const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY
-if (DASHSCOPE_API_KEY) {
-  console.log('DASHSCOPE_API_KEY loaded, length:', DASHSCOPE_API_KEY.length, 'prefix:', DASHSCOPE_API_KEY.substring(0, 15))
-} else {
-  console.error('DASHSCOPE_API_KEY not set')
+import { writeFileSync, mkdirSync } from 'fs'
+import { join } from 'path'
+import { uploadToBucket, isBucketConfigured } from './railway-bucket'
+import { isTokenPlanKey } from './dashscope-env-prefer-dotenv'
+
+function getDashscopeApiKey() {
+  return process.env.DASHSCOPE_API_KEY?.replace(/^"|"$/g, '') || process.env.NEXT_PUBLIC_DASHSCOPE_API_KEY?.replace(/^"|"$/g, '') || ''
 }
 
-// Token Plan 团队版 OpenAI 兼容接口
-const API_URL_ASYNC = 'https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/images/generations'
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+
+// 优先使用 OpenAI
+const USE_OPENAI = OPENAI_API_KEY && !getDashscopeApiKey()
+
+if (USE_OPENAI) {
+  console.log('Using OpenAI API')
+} else if (getDashscopeApiKey()) {
+  const key = getDashscopeApiKey()
+  console.log('Using getDashscopeApiKey(), length:', key.length, 'prefix:', key.substring(0, 15))
+  console.log('API Key Type:', isTokenPlanKey(key) ? 'Token Plan (sk-sp-)' : 'Standard')
+} else {
+  console.error('No API key set')
+}
+
+// OpenAI API
+const OPENAI_API_URL = 'https://api.openai.com/v1/images/generations'
+
+// DashScope 文生图 API (标准端点，Token Plan 和标准版都用这个)
+const TEXT2IMAGE_URL = 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis'
+const TASK_QUERY_URL = 'https://dashscope.aliyuncs.com/api/v1/tasks/'
 
 export interface RecipeInfo {
   name: string
@@ -150,10 +172,10 @@ async function pollAsyncResult(taskId: string, maxWaitSeconds = 300): Promise<To
     await new Promise(resolve => setTimeout(resolve, 3000))
 
     const response = await fetch(
-      `https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/images/generations/${taskId}`,
+      `${TASK_QUERY_URL}${taskId}`,
       {
         headers: {
-          'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
+          'Authorization': `Bearer ${getDashscopeApiKey()}`,
         },
       }
     )
@@ -165,12 +187,12 @@ async function pollAsyncResult(taskId: string, maxWaitSeconds = 300): Promise<To
 
     const data = await response.json()
 
-    const status = data.status
+    const status = data.output?.task_status
 
     console.log(`  轮询 ${pollCount}: 状态=${status}`)
 
-    if (status === 'succeeded') {
-      const imageUrl = data.data?.url
+    if (status === 'SUCCEEDED') {
+      const imageUrl = data.output?.results?.[0]?.url
 
       if (!imageUrl) {
         return { error: '未返回图片 URL' }
@@ -179,11 +201,11 @@ async function pollAsyncResult(taskId: string, maxWaitSeconds = 300): Promise<To
       return { imageUrl }
     }
 
-    if (status === 'failed') {
-      return { error: data.error || '任务执行失败' }
+    if (status === 'FAILED') {
+      return { error: data.output?.message || '任务执行失败' }
     }
 
-    if (status === 'cancelled') {
+    if (status === 'CANCELED') {
       return { error: '任务已取消' }
     }
   }
@@ -192,45 +214,160 @@ async function pollAsyncResult(taskId: string, maxWaitSeconds = 300): Promise<To
 }
 
 /**
- * 调用 Token Plan 团队版 OpenAI 兼容接口生成图片（异步模式）
+ * OpenAI 图片生成
  */
+async function generateWithOpenAI(recipe: RecipeInfo): Promise<TongyiImageResult> {
+  if (!OPENAI_API_KEY) {
+    return { error: 'OPENAI_API_KEY 未配置' }
+  }
+
+  const prompt = generatePrompt(recipe)
+
+  try {
+    const response = await fetch(OPENAI_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'dall-e-3',
+        prompt: prompt,
+        n: 1,
+        size: '1024x1024',
+        quality: 'standard'
+      })
+    })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error('OpenAI API 错误:', errorText)
+      try {
+        const errorData = JSON.parse(errorText)
+        return { error: `OpenAI 错误: ${errorData.error?.message || errorText}` }
+      } catch {
+        return { error: `OpenAI 调用失败: ${response.status} - ${errorText}` }
+      }
+    }
+
+    const data = await response.json()
+    const imageUrl = data.data?.[0]?.url
+
+    if (!imageUrl) {
+      return { error: 'OpenAI 未返回图片 URL' }
+    }
+
+    return { imageUrl }
+  } catch (error) {
+    console.error('OpenAI 调用异常:', error)
+    return { error: `OpenAI 请求异常: ${error instanceof Error ? error.message : String(error)}` }
+  }
+}
+
+/**
+ * 下载并保存图片
+ */
+async function downloadAndSaveImage(imageUrl: string, recipeName: string): Promise<TongyiImageResult> {
+  const timestamp = Date.now()
+  const safeName = recipeName.replace(/[^\w一-龥]/g, '')
+  const fileName = `${timestamp}-${safeName}.png`
+
+  console.log(`  开始下载图片...`)
+
+  try {
+    // 下载图片到内存
+    const response = await fetch(imageUrl)
+    if (!response.ok) {
+      throw new Error(`下载图片失败: ${response.status}`)
+    }
+
+    const buffer = Buffer.from(await response.arrayBuffer())
+    console.log(`  图片下载成功，大小: ${(buffer.length / 1024).toFixed(2)} KB`)
+
+    // 保存到本地（备份）
+    const publicDir = join(process.cwd(), 'public', 'recipes')
+    mkdirSync(publicDir, { recursive: true })
+    const localPath = join(publicDir, fileName)
+    writeFileSync(localPath, buffer)
+    console.log(`  本地保存成功: /recipes/${fileName}`)
+
+    // 上传到 Railway Bucket（如果配置了）
+    if (isBucketConfigured()) {
+      try {
+        const bucketUrl = await uploadToBucket(buffer, `recipes/${fileName}`, 'image/png')
+        return { imageUrl: bucketUrl }
+      } catch (bucketError) {
+        console.error('  上传 Bucket 失败，使用本地路径:', bucketError)
+        // Bucket 上传失败，返回本地路径
+        return { imageUrl: `/recipes/${fileName}` }
+      }
+    } else {
+      console.log('  Bucket 未配置，使用本地路径')
+      return { imageUrl: `/recipes/${fileName}` }
+    }
+  } catch (error) {
+    console.error('  下载/保存图片失败:', error)
+    return { error: `图片处理失败: ${error instanceof Error ? error.message : String(error)}` }
+  }
+}
+
 export async function generateRecipeImage(recipe: RecipeInfo): Promise<TongyiImageResult> {
-  if (!DASHSCOPE_API_KEY) {
-    return { error: 'DASHSCOPE_API_KEY 未配置' }
+  if (USE_OPENAI) {
+    console.log('使用 OpenAI 生成图片...')
+    const result = await generateWithOpenAI(recipe)
+    if (result.imageUrl) {
+      return downloadAndSaveImage(result.imageUrl, recipe.name)
+    }
+    return result
+  }
+
+  if (!getDashscopeApiKey()) {
+    return { error: 'getDashscopeApiKey() 未配置' }
   }
 
   const prompt = generatePrompt(recipe)
 
   try {
     // 第一步：创建异步任务
-    const response = await fetch(API_URL_ASYNC, {
+    const response = await fetch(TEXT2IMAGE_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
+        'Authorization': `Bearer ${getDashscopeApiKey()}`,
+        'X-DashScope-Async': 'enable',
       },
       body: JSON.stringify({
-        model: 'Wan2.7-Image',
-        prompt: prompt,
-        size: '1024x1024',
-        n: 1
+        model: 'wanx-v1',
+        input: {
+          prompt: prompt,
+        },
+        parameters: {
+          style: '<auto>',
+          size: '1280*720',
+          n: 1
+        }
       })
     })
 
     if (!response.ok) {
       const errorText = await response.text()
-      console.error('Token Plan API 错误:', errorText)
-      return { error: `API 调用失败: ${response.status}` }
+      console.error('DashScope API 错误:', errorText)
+      try {
+        const errorData = JSON.parse(errorText)
+        return { error: `API 错误: ${errorData.message || errorText}` }
+      } catch {
+        return { error: `API 调用失败: ${response.status} - ${errorText}` }
+      }
     }
 
     const data = await response.json()
 
-    if (data.error) {
-      console.error('Token Plan 返回错误:', data)
-      return { error: data.error || '创建任务失败' }
+    if (data.code) {
+      console.error('DashScope 返回错误:', data)
+      return { error: data.message || '创建任务失败' }
     }
 
-    const taskId = data.id
+    const taskId = data.output?.task_id
 
     if (!taskId) {
       return { error: '未返回任务 ID' }
@@ -241,9 +378,14 @@ export async function generateRecipeImage(recipe: RecipeInfo): Promise<TongyiIma
     // 第二步：轮询任务结果
     const result = await pollAsyncResult(taskId)
 
-    return result
+    if (result.error || !result.imageUrl) {
+      return result
+    }
+
+    // 第三步：下载图片并双重存储（本地 + Bucket）
+    return downloadAndSaveImage(result.imageUrl, recipe.name)
   } catch (error) {
-    console.error('Token Plan 调用异常:', error)
+    console.error('DashScope 调用异常:', error)
     return { error: `请求异常: ${error instanceof Error ? error.message : String(error)}` }
   }
 }

@@ -155,22 +155,13 @@ export async function generateAndStoreAllRecipes(
             })
             console.error(`  失败: ${genResult.error}`)
           } else if (genResult.imageUrl) {
-            const storedUrl = await downloadAndStoreImage(genResult.imageUrl, recipe.id)
-            if (storedUrl) {
-              await prisma.recipe.update({
-                where: { id: recipe.id },
-                data: { imageUrl: storedUrl }
-              })
-              result.success++
-              console.log(`  成功: ${storedUrl}`)
-            } else {
-              result.failed++
-              result.errors.push({
-                recipeId: recipe.id,
-                name: recipe.name,
-                error: '图片存储失败'
-              })
-            }
+            // generateRecipeImage 已经处理了下载和上传，直接使用返回的 URL
+            await prisma.recipe.update({
+              where: { id: recipe.id },
+              data: { imageUrl: genResult.imageUrl }
+            })
+            result.success++
+            console.log(`  成功: ${genResult.imageUrl}`)
           } else {
             result.failed++
             result.errors.push({
