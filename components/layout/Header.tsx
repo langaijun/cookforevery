@@ -6,14 +6,6 @@ import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
 import { useSession, signOut } from 'next-auth/react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { SearchBar } from './SearchBar'
 
 type JwtUserBrief = {
@@ -28,6 +20,7 @@ export function Header() {
   const { data: session, status } = useSession()
   const [jwtUser, setJwtUser] = useState<JwtUserBrief | null>(null)
   const [jwtDone, setJwtDone] = useState(false)
+  const [userInfoExpanded, setUserInfoExpanded] = useState(false)
 
   useEffect(() => {
     if (status === 'loading') return
@@ -98,38 +91,55 @@ export function Header() {
           {navLoading ? (
             <div className="h-8 w-20 bg-gray-200 animate-pulse rounded" />
           ) : showUserMenu ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                  <Avatar className="h-8 w-8">
-                    <AvatarImage src={displayImage} alt={displayName || 'User'} />
-                    <AvatarFallback>
-                      {(displayName || displayEmail || 'U').charAt(0).toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{displayName}</p>
-                    {displayEmail ? (
-                      <p className="text-xs leading-none text-muted-foreground">
-                        {displayEmail}
-                      </p>
-                    ) : null}
+            <div className="relative">
+              <Button
+                variant="ghost"
+                className="relative h-8 w-8 rounded-full"
+                onClick={() => setUserInfoExpanded(!userInfoExpanded)}
+              >
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={displayImage} alt={displayName || 'User'} />
+                  <AvatarFallback>
+                    {(displayName || displayEmail || 'U').charAt(0).toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+              </Button>
+
+              {userInfoExpanded && (
+                <div className="absolute right-0 top-12 w-64 p-4 bg-white border rounded-lg shadow-lg z-50">
+                  <div className="flex flex-col space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <Avatar className="h-12 w-12">
+                        <AvatarImage src={displayImage} alt={displayName || 'User'} />
+                        <AvatarFallback>
+                          {(displayName || displayEmail || 'U').charAt(0).toUpperCase()}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex flex-col">
+                        <p className="text-sm font-medium">{displayName}</p>
+                        {displayEmail && (
+                          <p className="text-xs text-muted-foreground">{displayEmail}</p>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex flex-col space-y-2 pt-2 border-t">
+                      <button
+                        onClick={() => { router.push('/profile'); setUserInfoExpanded(false) }}
+                        className="text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {t('Header.profile')}
+                      </button>
+                      <button
+                        onClick={handleLogout}
+                        className="text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {t('Header.logout')}
+                      </button>
+                    </div>
                   </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onSelect={() => router.push('/profile')}>
-                  {t('Header.profile')}
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onSelect={handleLogout}>
-                  {t('Header.logout')}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                </div>
+              )}
+            </div>
           ) : (
             <Link href="/login">
               <Button variant="ghost" size="sm">
