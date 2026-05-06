@@ -122,20 +122,6 @@ export function Header() {
                         )}
                       </div>
                     </div>
-                    <div className="flex flex-col space-y-2 pt-2 border-t">
-                      <button
-                        onClick={() => { router.push('/profile'); setUserInfoExpanded(false) }}
-                        className="text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {t('Header.profile')}
-                      </button>
-                      <button
-                        onClick={handleLogout}
-                        className="text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                        {t('Header.logout')}
-                      </button>
-                    </div>
                   </div>
                 </div>
               )}
