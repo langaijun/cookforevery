@@ -581,6 +581,122 @@
 
 ---
 
+## 2026-05-07 食谱图片管线（本地生成 / Bucket / 按食谱 AI 出图）
+
+### 目标回顾
+- 本地生成占位图 → 可选上传 Railway Bucket → `recipe.imageUrl` 存库；前台读 URL 展示。
+- 优先按食谱**真实字段**文生图（通义万相 / Token Plan 或 OpenAI），失败再降级本地 PNG 占位。
+
+### 已完成
+
+**核心库**
+- `lib/tongyi-image.ts`：`generateRecipeImage` 使用菜名、`nameEn`、描述、食材、口味、步骤拼提示词；`generatePrompt(recipe, 'openai' | 'wanx')` 已导出；OpenAI 与万相使用不同长度上限；画面要求强调与食谱一致。**`DASHSCOPE_API_KEY` 为 `sk-sp-`（Token Plan 团队版）时**：走北京 `token-plan` 的 **multimodal-generation** 同步文生图，默认模型 **`wan2.7-image`**（非旧版 compatible 的 `wanx-v1`，避免 `AccessDenied.Unpurchased`）；国际控制台 Key 需另设地域，见下文「Token Plan 团队版（国内 Key）文生图链路」。
+- `lib/recipe-image-generator.ts`：单条生成**不再**对 AI 已返回的最终 URL 二次调用 `downloadAndStoreImage`，直接写库；批量 `generateAndStoreAllRecipes` 仍为纯 AI、无占位。
+- `lib/recipe-image-generator-enhanced.ts`：先 `generateRecipeImage`，失败再用 `scripts/generate-recipe-image-fallback.ts`（sharp 将 SVG 栅格为 PNG，输出 `/recipes/*.png`）。
+- `lib/recipe-local-image.ts`：统一本地路径 `/recipes/`、`/uploads/recipes/`，磁盘绝对路径、S3 Key、`Content-Type`（含 svg/png）。
+- `lib/railway-bucket.ts`：S3 兼容上传；`PUBLIC_BUCKETS_HOST` 等环境变量校验 `isBucketConfigured()`。
+
+**脚本**
+- `scripts/generate-recipe-image-fallback.ts`：PNG 占位；`scripts/upload-local-images.ts`：支持上述本地前缀与正确 Bucket Key；`--all` / `--recipe-id` / `--force`。
+
+**管理后台与 API**
+- `app/admin/dashboard/images/page.tsx`：Tab、分页、`stats` 全库统计；`components/admin/ImageReviewTable.tsx`：预览优先 `imageUrl`、分页按钮。
+- `GET /api/admin/images/list`：`auth` 来自 `@/lib/auth`；`stats`；本地筛选 `OR`（`/recipes/`、`/uploads/recipes/`）。
+- `POST /api/admin/images/upload`、`DELETE /api/admin/images/delete-local`：`authOptions` 从 `@/lib/auth`；上传按扩展名设 `Content-Type`。
+- `POST /api/recipes/[id]/generate-image`、`GET /api/test-generate-image`：改用 **enhanced**，响应含 **`fromFallback`**。
+
+**构建与杂项**
+- `tsconfig.json`：`exclude` 增加 `scripts/**`，避免脚本无 `export` 导致全局符号重复、阻塞 `next build`；被 `lib` 引用的脚本仍会随应用类型检查。
+- `app/api/image-file/route.ts`：改 query `filename`；`app/api/images/[...path]/route.ts`：Next 16 `params: Promise<...>`、路径安全。
+- 依赖：`sharp`（占位栅格化）；`@aws-sdk/client-s3`（已有）。
+
+### 环境变量（备忘）
+- 真实出图：`DASHSCOPE_API_KEY` 和/或 `OPENAI_API_KEY`（OpenAI 优先逻辑见 `tongyi-image` 模块加载时日志）。
+- Bucket：`RAILWAY_ACCESS_KEY_ID`、`RAILWAY_SECRET_ACCESS_KEY`、`RAILWAY_BUCKET_NAME`、`RAILWAY_BUCKET_ENDPOINT`、`PUBLIC_BUCKETS_HOST`。
+
+### Token Plan 团队版（国内 Key）文生图链路
+
+在阿里云 **中国大陆** 百炼 / Token Plan 控制台申请的 **`sk-sp-` 团队版 Key**，与「国际版仅新加坡」文档不同：OpenAI 兼容 Base 一般为 **`https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1`**。本项目生图**不走**该 compatible 下的 **`wanx-v1` /images/generations**（易与套餐内模型不一致而报未购买），而是走官方 Wan2.7 多模态文生图形态：
+
+| 项 | 推荐配置（国内默认） |
+|----|----------------------|
+| Key | `DASHSCOPE_API_KEY` = `sk-sp-…`（Token Plan 团队版） |
+| 模型 | **`wan2.7-image`**（默认；可在控制台开通的另有 `wan2.7-image-pro`、`qwen-image-2.0` 等，用环境变量切换） |
+| 接口 | **`POST`** `https://token-plan.cn-beijing.maas.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation` |
+| 请求体 | `model` + `input.messages[].content[].text` + `parameters`（`size`、`n`、`watermark` 等），与百炼 Wan2.7 文生图文档一致 |
+| 代码入口 | `lib/tongyi-image.ts` 中 `IS_TOKEN_PLAN` 分支 → `generateWithTokenPlanMultimodal` |
+
+**可选环境变量**（不配置则使用上表国内默认）：
+
+- `TOKEN_PLAN_IMAGE_MODEL`：默认 `wan2.7-image`；可改为 `wan2.7-image-pro`、`qwen-image-2.0` 等（须与控制台已开通模型一致）。
+- `TOKEN_PLAN_IMAGE_SIZE`：默认 `2K`（与 Wan2.7 文档中 1K/2K 等一致；按模型能力选择）。
+- `TOKEN_PLAN_REGION`：默认 **`cn-beijing`**。若 Key 来自**国际版** Token Plan（控制台说明为新加坡），设为 **`ap-southeast-1`**，对应 host `token-plan.ap-southeast-1.maas.aliyuncs.com`。**地域与 Key 必须一致**，否则易报 `Invalid API-key`。
+- `TOKEN_PLAN_MULTIMODAL_URL`：完整覆盖上述 URL（自定义网关或测试环境时使用）。
+- `TOKEN_PLAN_THINKING_MODE`：对 `wan2.7*` 模型默认开启思考；设为 `false` 可关闭（见 `tongyi-image.ts`）。
+
+**小结**：国内团队版 = **`sk-sp-` Key** + **`wan2.7-image`** + **北京 `token-plan` multimodal-generation`**；国际账号改 `TOKEN_PLAN_REGION`（或 `TOKEN_PLAN_MULTIMODAL_URL`）即可。
+
+---
+
+## 2026-05-08
+
+### 溏心蛋图片生成与上传
+
+#### 已完成
+- **AI 图片生成**
+  - 使用通义万相（wan2.7-image）为溏心蛋食谱生成美食图片
+  - 参考图片风格：蓝色花纹边的白色陶瓷盘子 + 浅色木质桌面
+  - 生成多张图片并选择最佳效果
+  - 图片路径：`public/uploads/recipes/1778209821383-溏心蛋.png` (7.14 MB)
+
+- **Railway Bucket 上传**
+  - 成功上传图片到 Railway Bucket：`recipes/1778209821383-溏心蛋.png`
+  - 数据库已更新：溏心蛋食谱（ID: `cmok8gnfp0012v8tta4ss09zn`）的 `imageUrl` 设置为 `https://webserver-production-a8c2.up.railway.app/recipes/1778209821383-溏心蛋.png`
+  - 修复 `lib/railway-bucket.ts` 配置：添加 `forcePathStyle: true` 以兼容 Tigris OS
+
+- **工具脚本创建**
+  - `scripts/generate-tangxin-dan-style-ref.ts` - 使用参考图片风格生成溏心蛋图片
+  - `scripts/upload-tangxin-dan-correct.ts` - 上传到正确路径（`recipes/` 而非 `uploads/recipes/`）
+  - `scripts/test-bucket-list.ts` - 检查 Bucket 中的文件列表
+  - `scripts/check-db-image-urls.ts` - 检查数据库中的图片 URL 格式
+
+#### 相关文件
+- `lib/railway-bucket.ts` - Railway Bucket 上传工具（添加 `forcePathStyle` 配置）
+- `scripts/generate-tangxin-dan-style-ref.ts` - 溏心蛋图片生成脚本
+- `scripts/upload-tangxin-dan-correct.ts` - 图片上传脚本
+
+#### 待办
+- [ ] 检查 Railway Bucket CDN 配置（目前 CDN URL 返回 404）
+- [ ] 可能需要配置 PUBLIC_BUCKETS_HOST 或 CDN 路由规则
+- [ ] 考虑使用 `/uploads/recipes/` 路径前缀以保持一致性
+
+### 今日进度收口（2026-05-07，明天续）
+
+- **代码**：`lib/tongyi-image.ts` 已按国内 Token Plan 走北京 **multimodal-generation** + 默认 **`wan2.7-image`**（见上节表格）；上节为正式说明，勿再改回 compatible `wanx-v1`。
+- **实测成功**：食谱 **咖喱炒蟹**（`id`: `cmok8gc6s0000v8ttxq0ew2ub`）真实 AI 出图并已写库；`imageUrl` 为 Bucket/CDN：`https://webserver-production-a8c2.up.railway.app/recipes/1778163377425-咖喱炒蟹.png`；本地副本：`public/recipes/1778163377425-咖喱炒蟹.png`。
+- **未跑完**：**小龙虾**（`id`: `cmok8gcxh0002v8tt95b73h81`）单条生成命令曾**长时间后被中断**，库内仍为旧 `imageUrl`，**明天续**：在项目根执行  
+  `npx tsx scripts/generate-one-recipe-enhanced.ts cmok8gcxh0002v8tt95b73h81`  
+  跑满至结束，确认返回 `fromFallback: false` 与 `imageUrl` 更新。
+- **辅助**：`scripts/generate-one-recipe-enhanced.ts` 单条测试；`scripts/_one-recipe-id.mjs` 可改 `name` 后 `node scripts/_one-recipe-id.mjs` 查 `id`（勿提交敏感信息）。
+
+### 待办 / 明天可改
+- [ ] **续**：小龙虾单条真实出图（见上「今日进度收口」）。
+- [ ] 批量 `generateAndStoreAllRecipes` 是否在失败时**可选**降级占位（需产品开关与设计）。
+- [ ] 清理 `public/recipes/` 下本地测试文件（如旧 `.svg`、测试 PNG）；按需 `.gitignore`。
+- [ ] `scripts/generate-sample-image.ts`：import 路径与 `.js` 后缀是否与团队约定统一。
+
+### 相关文件速查
+| 用途 | 路径 |
+|------|------|
+| AI 文生图 + 下载 | `lib/tongyi-image.ts` |
+| 单条/批量（纯 AI） | `lib/recipe-image-generator.ts` |
+| AI + 占位降级 | `lib/recipe-image-generator-enhanced.ts` |
+| PNG 占位 | `scripts/generate-recipe-image-fallback.ts` |
+| 批量上传 Bucket | `scripts/upload-local-images.ts` |
+| 图片审核页 | `app/admin/dashboard/images/page.tsx` |
+
+---
+
 ## 工作文档
 
 - [详细设计文档](./DESIGN.md)

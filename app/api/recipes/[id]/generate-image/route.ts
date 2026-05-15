@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/lib/auth'
-import { generateAndStoreRecipeImage } from '@/lib/recipe-image-generator'
+import { generateAndStoreRecipeImage } from '@/lib/recipe-image-generator-enhanced'
 
 export async function POST(
   request: NextRequest,
@@ -23,7 +23,8 @@ export async function POST(
 
     return NextResponse.json({
       success: true,
-      imageUrl: result.imageUrl
+      imageUrl: result.imageUrl,
+      fromFallback: result.fromFallback,
     })
   } catch (error) {
     console.error('Error generating recipe image:', error)

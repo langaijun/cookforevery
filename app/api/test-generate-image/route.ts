@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { generateAndStoreRecipeImage } from '@/lib/recipe-image-generator'
+import { generateAndStoreRecipeImage } from '@/lib/recipe-image-generator-enhanced'
 import { prisma } from '@/lib/prisma'
 
 export async function GET() {
@@ -32,7 +32,8 @@ export async function GET() {
       success: true,
       recipeId: recipe.id,
       recipeName: recipe.name,
-      imageUrl: result.imageUrl
+      imageUrl: result.imageUrl,
+      fromFallback: result.fromFallback,
     })
   } catch (error) {
     console.error('Error generating recipe image:', error)

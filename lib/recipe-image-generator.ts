@@ -5,7 +5,6 @@
 
 import { prisma } from './prisma'
 import { generateRecipeImage } from './tongyi-image'
-import { downloadAndStoreImage } from './image-storage'
 
 export interface GenerateOptions {
   limit?: number
@@ -31,12 +30,13 @@ export async function generateAndStoreRecipeImage(
     select: {
       id: true,
       name: true,
+      nameEn: true,
       description: true,
       ingredients: true,
       tasteTags: true,
       steps: true,
-      imageUrl: true
-    }
+      imageUrl: true,
+    },
   })
 
   if (!recipe) {
@@ -44,13 +44,14 @@ export async function generateAndStoreRecipeImage(
   }
 
   try {
-    // 调用 AI 生成图片
+    // generateRecipeImage 内部已完成下载、本地/Bucket 存储，直接得到最终 URL
     const result = await generateRecipeImage({
       name: recipe.name,
+      nameEn: recipe.nameEn ?? undefined,
       description: recipe.description,
       ingredients: recipe.ingredients,
       tasteTags: recipe.tasteTags,
-      steps: recipe.steps
+      steps: recipe.steps,
     })
 
     if (result.error) {
@@ -61,20 +62,12 @@ export async function generateAndStoreRecipeImage(
       return { imageUrl: null, error: '未生成图片' }
     }
 
-    // 下载并存储图片
-    const storedUrl = await downloadAndStoreImage(result.imageUrl, recipeId)
-
-    if (!storedUrl) {
-      return { imageUrl: null, error: '图片存储失败' }
-    }
-
-    // 更新数据库
     await prisma.recipe.update({
       where: { id: recipeId },
-      data: { imageUrl: storedUrl }
+      data: { imageUrl: result.imageUrl },
     })
 
-    return { imageUrl: storedUrl, error: null }
+    return { imageUrl: result.imageUrl, error: null }
   } catch (error) {
     const errorMsg = error instanceof Error ? error.message : String(error)
     console.error(`生成食谱 ${recipeId} 图片失败:`, errorMsg)
@@ -107,10 +100,11 @@ export async function generateAndStoreAllRecipes(
       select: {
         id: true,
         name: true,
+        nameEn: true,
         description: true,
         ingredients: true,
         tasteTags: true,
-        steps: true
+        steps: true,
       },
       take: limit,
       orderBy: { createdAt: 'asc' }
@@ -140,10 +134,11 @@ export async function generateAndStoreAllRecipes(
 
           const genResult = await generateRecipeImage({
             name: recipe.name,
+            nameEn: recipe.nameEn ?? undefined,
             description: recipe.description,
             ingredients: recipe.ingredients,
             tasteTags: recipe.tasteTags,
-            steps: recipe.steps
+            steps: recipe.steps,
           })
 
           if (genResult.error) {

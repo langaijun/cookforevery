@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { Difficulty } from '@/types/recipe'
 import { getRecipeImage } from '@/lib/unsplash'
+import { normalizeRecipeImageUrl } from '@/lib/recipe-image-url'
 
 /**
  * GET /api/recipes/list
@@ -113,7 +114,10 @@ export async function GET(request: NextRequest) {
       recipes.map(async (recipe) => {
         // 优先使用数据库中的 imageUrl
         if (recipe.imageUrl) {
-          return recipe
+          return {
+            ...recipe,
+            imageUrl: normalizeRecipeImageUrl(recipe.imageUrl) ?? recipe.imageUrl,
+          }
         }
 
         // 否则使用 Unsplash 获取图片或占位符

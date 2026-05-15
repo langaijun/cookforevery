@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { normalizeRecipeImageUrl } from '@/lib/recipe-image-url'
 
 /**
  * GET /api/recipes/[id]
@@ -51,6 +52,7 @@ export async function GET(
 
     return NextResponse.json({
       ...recipe,
+      imageUrl: normalizeRecipeImageUrl(recipe.imageUrl) ?? recipe.imageUrl,
       likeCount,
       commentCount,
     })

@@ -23,6 +23,40 @@ function ensureUploadDir(): void {
 }
 
 /**
+ * 从 URL 下载图片并保存到本地（仅本地，不上传bucket）
+ */
+export async function downloadAndStoreImageLocal(
+  tempUrl: string,
+  recipeId: string
+): Promise<string | null> {
+  try {
+    ensureUploadDir()
+
+    const response = await fetch(tempUrl)
+    if (!response.ok) {
+      throw new Error(`下载失败: ${response.status}`)
+    }
+
+    const buffer = Buffer.from(await response.arrayBuffer())
+
+    // 生成文件名：recipeId-timestamp.png
+    const timestamp = Date.now()
+    const filename = `${recipeId}-${timestamp}.png`
+
+    // 本地保存
+    const filepath = path.join(UPLOAD_DIR, filename)
+    fs.writeFileSync(filepath, buffer)
+    console.log(`  本地保存: /uploads/recipes/${filename}`)
+
+    // 返回本地路径
+    return `/uploads/recipes/${filename}`
+  } catch (error) {
+    console.error('下载图片失败:', error)
+    return null
+  }
+}
+
+/**
  * 从 URL 下载图片并保存到 Railway Bucket + 本地备份
  */
 export async function downloadAndStoreImage(
