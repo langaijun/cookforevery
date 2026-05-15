@@ -4,7 +4,7 @@
 
 import { prisma } from './prisma'
 import { generateRecipeImage } from './tongyi-image'
-import { generateRecipeImageWithFallback } from '../scripts/generate-recipe-image-fallback'
+import { generateRecipeImageWithFallback } from './recipe-image-fallback'
 import { downloadAndStoreImageLocal } from './image-storage'
 import { existsSync, renameSync, mkdirSync } from 'fs'
 import { join } from 'path'
