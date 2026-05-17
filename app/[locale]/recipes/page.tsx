@@ -75,7 +75,7 @@ function parseIngredientsParam(raw?: string): string[] {
 /**
  * 获取食谱列表
  */
-async function getRecipes(searchParams?: {
+async function getRecipes(searchParams: {
   search?: string
   difficulty?: string
   taste?: string
@@ -100,16 +100,17 @@ async function getRecipes(searchParams?: {
 export default async function RecipesPage({
   searchParams,
 }: {
-  searchParams?: {
+  searchParams: Promise<{
     search?: string
     difficulty?: string
     taste?: string
     ingredients?: string
-  }
+  }>
 }) {
+  const params = await searchParams
   const t = await getTranslations()
-  const recipes = await getRecipes(searchParams)
-  const ingredientsFromUrl = parseIngredientsParam(searchParams?.ingredients)
+  const recipes = await getRecipes(params)
+  const ingredientsFromUrl = parseIngredientsParam(params?.ingredients)
 
   return (
     <div className="min-h-screen flex flex-col">
