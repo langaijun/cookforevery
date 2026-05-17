@@ -127,9 +127,9 @@ export default async function RecipesPage({
 
         {/* 搜索和筛选 */}
         <RecipeFilters
-          initialSearch={searchParams?.search}
-          initialDifficulty={searchParams?.difficulty}
-          initialTastes={searchParams?.taste?.split(',').map((x) => x.trim()).filter(Boolean)}
+          initialSearch={params?.search}
+          initialDifficulty={params?.difficulty}
+          initialTastes={params?.taste?.split(',').map((x) => x.trim()).filter(Boolean)}
           initialIngredients={ingredientsFromUrl}
         />
 
